@@ -91,15 +91,15 @@ https://docs.unrealengine.com/en-us/Gameplay/GameplayAbilitySystem/GameplayAttri
 ## ■ GameplayAbility のタグについての説明
 アビリティを実行できるかどうかを判断するためのタグの仕組みの説明。
 
-| Gameplay Tag Variable(s) | Purpose | 例 |
-| ----- | ----- | ----- |
-| Cancel Abilities With Tag | ここで指定したタグを持つ実行中のアビリティをキャンセルする | 「QS」に「すべての状態異常」 |
-| Block Abilities With Tag | ここで指定したタグを持つアビリティの実行を防ぐ | 「ケイルのR」に「ダメージ」 |
-| Activation Owner Tags | ここで指定したタグをアビリティ実行中 Owner Actor に持たせる | 「ケイルのE」に「AARangeの上昇」 |
-| Activation Required Tags | ここで指定したすべてのタグを、Owner Actor or Component が持っているときに限り実行できる | |
-| Activation Block Tags | ここで指定したいずれかのタグを、Owner Actor or Component が持っているとき実行を防ぐ | |
-| Target Required Tags | ここで指定したすべてのタグを、Target Actor or Component が持っているときに限り実行できる | 「ヤスオのR」に「ハードCC」 |
-| Target Blocked Tags | ここで指定したいずれかのタグを、Target Actor or Component が持っているとき実行を防ぐ | 「ブレクガ剣」に「石化無効・ボス」 |
+| Gameplay Tag Variable(s) | Purpose |
+| ----- | ----- |
+| Cancel Abilities With Tag | ここで指定したタグを持つ実行中のアビリティをキャンセルする |
+| Block Abilities With Tag | ここで指定したタグを持つアビリティの実行を防ぐ |
+| Activation Owner Tags | ここで指定したタグをアビリティ実行中 Owner Actor に持たせる |
+| Activation Required Tags | ここで指定したすべてのタグを、Owner Actor or Component が持っているときに限り実行できる |
+| Activation Block Tags | ここで指定したいずれかのタグを、Owner Actor or Component が持っているとき実行を防ぐ |
+| Target Required Tags | ここで指定したすべてのタグを、Target Actor or Component が持っているときに限り実行できる |
+| Target Blocked Tags | ここで指定したいずれかのタグを、Target Actor or Component が持っているとき実行を防ぐ |
 
 ## ■ GameplayAbility の Replication と Gameplay Net Execution Policy
 ネットワーク帯域とCPU占有率調整のための Gameplay Ability の複製ポリシーの仕組みの説明。

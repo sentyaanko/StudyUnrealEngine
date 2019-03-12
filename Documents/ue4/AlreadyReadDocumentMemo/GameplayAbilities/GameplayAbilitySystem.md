@@ -1,8 +1,9 @@
 # ■ GameplayAbilitySystem
 
-このファイルは [公式ドキュメント](https://docs.unrealengine.com/en-us/Gameplay/GameplayAbilitySystem) 以下に記載されていた情報のまとめです。
+## ■ このファイルは何？
+公式の GameplayAbilitySystem の概要ページについて簡単にまとめたもの。
 
-# ■ Gameplay Abiliity System
+# ■ GameplayAbiliitySystem
 https://docs.unrealengine.com/en-us/Gameplay/GameplayAbilitySystem
 
 ## ■ 概要

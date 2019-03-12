@@ -1,5 +1,7 @@
 # ■ GameplayAbilitySystem
 
+**このファイルはActionRPGのサンプルを見る前に書いたものなので不完全です。**
+
 ## ■ このファイルは何？
 公式の GameplayAbilitySystem の概要ページについて簡単にまとめたもの。
 

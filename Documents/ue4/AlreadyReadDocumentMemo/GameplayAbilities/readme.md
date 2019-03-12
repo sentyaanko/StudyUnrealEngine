@@ -4,7 +4,7 @@
 「Gameplay Abiliity System」についてのまとめ。
 
 ## ■ 「Gameplay Abiliity System」とは？
-正確な内容は下記の公式Wikiを参照していただいたほうが良いが、端的に言うならば、「ネットワークゲーム化を前提として設計されたActionRPGにおけるキャラクターのスキルを実装するための仕組み」ということになる。
+正確な内容は [公式](https://docs.unrealengine.com/en-us/Gameplay/GameplayAbilitySystem) を参照していただいたほうが良いが、端的に言うならば、「ネットワークゲーム化を前提として設計されたActionRPGにおけるキャラクターのスキルを実装するための仕組み」ということになる。
 
 
 ### ■ [(Unreal Engine Documentation/Sample and Tutorials/Example Game Projects/Action RPG Game)Gameplay Abilities in Action RPG](https://docs.unrealengine.com/en-us/Resources/SampleGames/ARPG/GameplayAbilitiesinActionRPG)

@@ -1,14 +1,16 @@
-# ■ Gameplay/GameplayAbilitySystem
+# ■ GameplayAbilitySystem
 
-このファイルは 公式ドキュメント https://docs.unrealengine.com/en-us/Gameplay/GameplayAbilitySystem 以下に記載されていた情報のまとめです。
+このファイルは [公式ドキュメント](https://docs.unrealengine.com/en-us/Gameplay/GameplayAbilitySystem) 以下に記載されていた情報のまとめです。
 
+# ■ Gameplay Abiliity System
+https://docs.unrealengine.com/en-us/Gameplay/GameplayAbilitySystem
 
-# ■ [(Unreal Engine Documentation/Gameplay Guide)Gameplay Abiliity System](https://docs.unrealengine.com/en-us/Gameplay/GameplayAbilitySystem)
+## ■ 概要
 * 公式のドキュメント。システムの概要とプラグインの導入方法がまとめられている。
 * ドキュメントツリー上では配下に以下の三つのドキュメントが置かれている。
 
-
-# ■ [GameplayAttributesAndGameplayEffects](https://docs.unrealengine.com/en-us/Gameplay/GameplayAbilitySystem/GameplayAttributesAndGameplayEffects)
+# ■ GameplayAttributesAndGameplayEffects
+https://docs.unrealengine.com/en-us/Gameplay/GameplayAbilitySystem/GameplayAttributesAndGameplayEffects
 
 ## ■ 概要
 * GameplayAttributes と GameplayEffects の概要がまとめられている。
@@ -58,9 +60,10 @@
 * PostGameplayEffectExecute
 	* 変更の結果、何ら頭の反応を起こすために利用する。（死亡処理、エフェクト処理など）
 
-# ■ [GameplayAbility](https://docs.unrealengine.com/en-us/Gameplay/GameplayAbilitySystem/GameplayAbility)
+# ■ GameplayAbility
 
 ## ■ 概要
+* https://docs.unrealengine.com/en-us/Gameplay/GameplayAbilitySystem/GameplayAbility
 * AbilitySystemComponent のインターフェイスについての説明。
 * GameplayAbility のプロパティについての説明。
 
@@ -123,7 +126,10 @@ GameplayAbility 実行 Actor が多い場合のオブジェクト生成負荷調
 		* 正直に何のどこを指しているのか不明瞭。
 		* サンプルを見るのがよさげ。
 
-# ■ [AbilityTasks](https://docs.unrealengine.com/en-us/Gameplay/GameplayAbilitySystem/AbilityTasks)
+# ■ AbilityTasks
+https://docs.unrealengine.com/en-us/Gameplay/GameplayAbilitySystem/AbilityTasks
+
+## ■ 概要
 * C++ の UAbilityTask の解説
 * 主にアビリティのロジックを非同期に実行する際に利用するもの。
 * 入力とアニメーションを別のタスクにしてどちらかが終了したらアビリティを完了するなどの利用例が記載されているが、ドキュメントが少ない。

@@ -36,7 +36,7 @@
 * クローン時は「Clone with SSH」を指定
 * クローンを sourcetree/TortoiseGit でした後、ユーザの指定をしておく。（global setting を利用しないため。）
 	* git.exe config --local user.name "my_user_name"
-	* git.exe config --local user.email "my_mail_address@exsample.com"
+	* git.exe config --local user.email "my_mail_address@example.com"
 * ここまでやっておけば、sourcetree/TortoiseGit/vs code いずれからも git の操作ができる、はず。
 
 ----

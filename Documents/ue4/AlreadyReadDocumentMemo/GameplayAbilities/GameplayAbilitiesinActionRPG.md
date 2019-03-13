@@ -44,7 +44,20 @@ https://docs.unrealengine.com/en-us/Resources/SampleGames/ARPG/BuildingGameplayI
 https://docs.unrealengine.com/en-us/Resources/SampleGames/ARPG/BalancingBlueprintAndCPP
 
 ## ■ 概要
-**未着手**
+* Blueprint/C++ をどのような配分で利用するべきかの考え方をデータ駆動のゲームシステム構築を通じて述べている。
+* UE4 でのロジックとデータの保持の方法について述べている。
+* Blueprint/C++ のそれぞれの利点を述べている。
+* Blueprint から C++ への変換方法を述べている。
+* Blueprint/C++ の性能の違いについて述べている。
+* ここまでを踏まえたうえで避けるべき設計に関するいくつかの事柄について述べている。
+	* リソースを大量に持つようなBrueprintへのキャストを避ける。
+	* 過度な循環参照を行うBlueprintを避ける。
+	* C++ から直接アセットを参照するのを避ける。
+	* 文字によるアセットの参照を避ける。
+	* Blueprintでの enum/struct の定義を避ける。
+	* プロトタイプが済んだ後、ネットワークアーキテクチャについて考慮する。
+	* リソースが増えてきたら、非同期ロードについて考える。
+
 
 # ■ Gameplay Abilities in Action PRG
 https://docs.unrealengine.com/en-us/Resources/SampleGames/ARPG/GameplayAbilitiesinActionRPG

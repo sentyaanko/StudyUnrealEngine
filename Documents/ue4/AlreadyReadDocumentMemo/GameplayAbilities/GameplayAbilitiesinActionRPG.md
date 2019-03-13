@@ -33,7 +33,12 @@ https://docs.unrealengine.com/en-us/Resources/SampleGames/ARPG/GameplayAbilities
 https://docs.unrealengine.com/en-us/Resources/SampleGames/ARPG/BuildingGameplayInCPPforActionRPG
 
 ## ■ 概要
-**未着手**
+* ActionRPGサンプルがどのように Gamplay Ability System を利用していて、同様のシステムを作る場合の例としての説明を述べている。
+* コードの概要としてどのソースがどのような役割化を述べている。
+* 所持アイテムとそれに紐づくアセットについてどのように管理しているか簡単に述べている。
+* セーブデータの管理方法についてUE4の仕組みとともに述べている。
+* Android/iOS などへのパブリッシュの方法についてパッケージに含めるアセットの抑え方や大きいアセットの調査方法について述べている。
+
 
 # ■ Balancing Blueprint and C++
 https://docs.unrealengine.com/en-us/Resources/SampleGames/ARPG/BalancingBlueprintAndCPP

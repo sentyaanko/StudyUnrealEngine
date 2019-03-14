@@ -71,7 +71,12 @@ https://docs.unrealengine.com/en-us/Resources/SampleGames/ARPG/GameplayAbilities
 https://docs.unrealengine.com/en-us/Resources/SampleGames/ARPG/GameplayAbilitiesinActionRPG/AttributesandEffects
 
 ## ■ 概要
-**未着手**
+* ARPG において、Attribute と Effect を何に使用しているか述べている。
+* どのような Attribute を定義しているか述べている。
+* AbilitySystem の処理の流れについて簡単に述べている。
+* Attribute の初期化を Effect で行う方法について述べている。
+* ダメージ計算のようなロジックが必要な Effect では Modifier ではなく Execution を使用していることを述べている。
+* Effect ついて、ベースクラスを作りサブクラスで特殊化していることを述べている。
 
 # ■ Melee Abilities In ARPG
 https://docs.unrealengine.com/en-us/Resources/SampleGames/ARPG/GameplayAbilitiesinActionRPG/MeleeAbilitiesInARPG

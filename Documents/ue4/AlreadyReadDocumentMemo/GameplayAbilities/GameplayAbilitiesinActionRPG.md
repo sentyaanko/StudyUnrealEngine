@@ -63,7 +63,8 @@ https://docs.unrealengine.com/en-us/Resources/SampleGames/ARPG/BalancingBlueprin
 https://docs.unrealengine.com/en-us/Resources/SampleGames/ARPG/GameplayAbilitiesinActionRPG
 
 ## ■ 概要
-**未着手**
+* ARPG にて Gameplay Ability System を何故使用しているかを述べている。
+* Gameplay Ability System のどの機能をどのように使用しているかを述べている。
 
 
 # ■ Attributes and effects In ARPG

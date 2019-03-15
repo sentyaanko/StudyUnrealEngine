@@ -92,21 +92,25 @@ https://docs.unrealengine.com/en-us/Resources/SampleGames/ARPG/GameplayAbilities
 * 処理の流れについて述べている
 	* URPGAbilityTask_PlayMontageAndWaitForEvent にて
 		* PlayMontageAndWait の処理を行うことで、 Montage が実行される
-		* EventTag 「Event.Montage」 を指定することで WaitGameplayEvent のイベントをフィルタしている
+		* 例：GA_MeleeBase
+			* EventTag 「Event.Montage」 を指定することで WaitGameplayEvent のイベントをフィルタしている
 	* Montage 内で AnimNotify を利用して、 EventTag の設定を行う
-		* 具体的には WeaponAttackNS で EventTag 「Event.Montage.Shared.WeaponHit」 を WeaponActor に設定する
-	* WeaponActor::ActorBeginOverlap にて、ターゲットが攻撃可能な Actor だった場合、 Send Gameplay Event to Actor を発行する
-		* その際、ペイロードとして「AnimNotifyで設定したEventTag」「攻撃側のActor」「ターゲット側のActor」を渡す
+		* 例：AM_AttackAxe
+			* WeaponAttackNS を Notifies に登録している。
+		* 例：WeaponAttackNS
+			* EventTag 「Event.Montage.Shared.WeaponHit」 を WeaponActor に設定している。
+	* イベントの呼び出し
+		* 例：WeaponActor::ActorBeginOverlap
+			* ターゲットが攻撃可能な Actor だった場合、 Send Gameplay Event to Actor を発行する
+			* その際、ペイロードとして GameplayEventData で 「AnimNotifyで設定したEventTag」「攻撃側のActor」「ターゲット側のActor」を渡している。
 	* URPGAbilityTask_PlayMontageAndWaitForEvent の中で AbilitySystemComponent からイベントを受け取る
 		* フィルタに含まれるイベントだった場合は Event Recieved が実行される。
+		* 例：GA_MeleeBase
+			* EventTag 「Event.Montage」 を指定しているので、 例えば WeaponActor::ActorBeginOverlap の場合、「Event Recieved」の実行ピンが呼び出される。
 	* Apply Effect Container ノードにてエフェクトを実行している。
-		* GA_PlayerAxeMelee の場合
+		* 例：GA_PlayerAxeMelee
 			* key「Event.Montage.Shared.WeaponHit」に RPGTargetType_UseEventData/GE_PlayerAxeMelee が設定されている。
 			* ターゲット RPGTargetType_UseEventData に、イベント GE_PlayerAxeMelee を発行するための FRPGGameplayEffectContainerSpec を生成する。
-			* RPGTargetType_UseEventData について
-				* RPGTargetType_UseEventData では ContextHandle ＞ Target のみを先の順番で参照する。
-				* WeaponActor からペイロードされた GameplayEventData には Instigator と Target しか設定されていない。
-				* そのため、ターゲットは RPGTargetType_UseEventData で設定されたターゲット、つまりは ActorBeginOverlap のトリガとなったActorのみが利用される。
 			* 生成後、適用する。
 * 自作の 「PlayMontage and Wait for Event」ノードについて述べている
 	* C++ のソースは URPGAbilityTask_PlayMontageAndWaitForEvent である事
@@ -115,12 +119,15 @@ https://docs.unrealengine.com/en-us/Resources/SampleGames/ARPG/GameplayAbilities
 * 自作の 「Apply Effect Container」ノードについて述べている
 	* C++ のソースは URPGGameplayAbility::ApplyEffectContainer である事
 	* 行っている二つのこと
-		1. 渡された ContainerTag がプロパティ「GameplayEffect＞Effect Container Map」の key に設定されているタグか判定する
-			* 設定されている場合、対応した value を元に FRPGGameplayEffectContainerSpec を生成する。
+		1. 渡された ContainerTag がプロパティ「GameplayEffect＞Effect Container Map」の key に設定されているタグか判定する。  
+		  設定されている場合、対応した value を元に FRPGGameplayEffectContainerSpec を生成する。
 		1. 生成した FRPGGameplayEffectContainerSpec を適用し、実際のダメージを与える
 * RPGTargetType_UseEventData について
 	* RPGTargetType.cpp で実装されている。
-	* そこでペイロードで渡された「攻撃側のActor」「ターゲット側のActor」を抽出する。（？？？）
+	* RPGTargetType_UseEventData では ContextHandle ＞ Target のみを先の順番で参照する。
+	* 例：WeaponActor
+		* Instigator と Target しか設定されていない。
+		* そのため、ターゲットは ActorBeginOverlap のトリガとなったActorのみが利用される。
 
 
 # ■ Skill Abilities In ARPG

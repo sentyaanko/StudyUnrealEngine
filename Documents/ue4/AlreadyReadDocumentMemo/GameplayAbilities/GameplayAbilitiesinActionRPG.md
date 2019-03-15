@@ -81,8 +81,47 @@ https://docs.unrealengine.com/en-us/Resources/SampleGames/ARPG/GameplayAbilities
 # ■ Melee Abilities In ARPG
 https://docs.unrealengine.com/en-us/Resources/SampleGames/ARPG/GameplayAbilitiesinActionRPG/MeleeAbilitiesInARPG
 
+**Melee関連のみ、そのうえ部分的にしか見ていないため、全体を見終わったのちに利用例や内容についての精査が必要**
+
 ## ■ 概要
-**未着手**
+* ARPG の近接攻撃をどのように実装しているか述べている。
+* Ability は GA_MeleeBase をもとにし、ここから武器ごとなどに派生していることを述べている。
+* Ability 用のノードについての説明をしている。
+	* CommitAbility：コストとCooldownのコミット
+	* EndAbility：Ability が終了したことをシステムに通知
+* 処理の流れについて述べている
+	* URPGAbilityTask_PlayMontageAndWaitForEvent にて
+		* PlayMontageAndWait の処理を行うことで、 Montage が実行される
+		* EventTag 「Event.Montage」 を指定することで WaitGameplayEvent のイベントをフィルタしている
+	* Montage 内で AnimNotify を利用して、 EventTag の設定を行う
+		* 具体的には WeaponAttackNS で EventTag 「Event.Montage.Shared.WeaponHit」 を WeaponActor に設定する
+	* WeaponActor::ActorBeginOverlap にて、ターゲットが攻撃可能な Actor だった場合、 Send Gameplay Event to Actor を発行する
+		* その際、ペイロードとして「AnimNotifyで設定したEventTag」「攻撃側のActor」「ターゲット側のActor」を渡す
+	* URPGAbilityTask_PlayMontageAndWaitForEvent の中で AbilitySystemComponent からイベントを受け取る
+		* フィルタに含まれるイベントだった場合は Event Recieved が実行される。
+	* Apply Effect Container ノードにてエフェクトを実行している。
+		* GA_PlayerAxeMelee の場合
+			* key「Event.Montage.Shared.WeaponHit」に RPGTargetType_UseEventData/GE_PlayerAxeMelee が設定されている。
+			* ターゲット RPGTargetType_UseEventData に、イベント GE_PlayerAxeMelee を発行するための FRPGGameplayEffectContainerSpec を生成する。
+			* RPGTargetType_UseEventData について
+				* RPGTargetType_UseEventData では ContextHandle ＞ Target のみを先の順番で参照する。
+				* WeaponActor からペイロードされた GameplayEventData には Instigator と Target しか設定されていない。
+				* そのため、ターゲットは RPGTargetType_UseEventData で設定されたターゲット、つまりは ActorBeginOverlap のトリガとなったActorのみが利用される。
+			* 生成後、適用する。
+* 自作の 「PlayMontage and Wait for Event」ノードについて述べている
+	* C++ のソースは URPGAbilityTask_PlayMontageAndWaitForEvent である事
+	* UAbilityTask_PlayMontageAndWait と UAbilityTask_WaitGameplayEvent を組み合わせて実装している事
+	* ゲーム特有の Ability Task を自作する際のサンプルとなる事
+* 自作の 「Apply Effect Container」ノードについて述べている
+	* C++ のソースは URPGGameplayAbility::ApplyEffectContainer である事
+	* 行っている二つのこと
+		1. 渡された ContainerTag がプロパティ「GameplayEffect＞Effect Container Map」の key に設定されているタグか判定する
+			* 設定されている場合、対応した value を元に FRPGGameplayEffectContainerSpec を生成する。
+		1. 生成した FRPGGameplayEffectContainerSpec を適用し、実際のダメージを与える
+* RPGTargetType_UseEventData について
+	* RPGTargetType.cpp で実装されている。
+	* そこでペイロードで渡された「攻撃側のActor」「ターゲット側のActor」を抽出する。（？？？）
+
 
 # ■ Skill Abilities In ARPG
 https://docs.unrealengine.com/en-us/Resources/SampleGames/ARPG/GameplayAbilitiesinActionRPG/SkillAbilitiesInARPG

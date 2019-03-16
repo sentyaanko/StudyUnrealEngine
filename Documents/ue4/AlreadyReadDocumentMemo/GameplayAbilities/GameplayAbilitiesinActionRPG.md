@@ -134,7 +134,35 @@ https://docs.unrealengine.com/en-us/Resources/SampleGames/ARPG/GameplayAbilities
 https://docs.unrealengine.com/en-us/Resources/SampleGames/ARPG/GameplayAbilitiesinActionRPG/SkillAbilitiesInARPG
 
 ## ■ 概要
-**未着手**
+* ARPG のスキルをどのように実装しているか述べている。
+* 近接攻撃との違いを述べている。
+	* ターゲッティング
+		* TargetType をプロパティ「GameplayEffect＞Effect Container Map」 で設定する
+	* コスト
+		* コストを処理する Gameplay Effect をプロパティ「Costs＞Cost Gameplay Effect Class」 で設定する
+	* Cooldown
+		* Cooldownを処理する Gameplay Effect をプロパティ「Cooldowns＞Cooldown Gameplay Effect Class」 で設定する
+	* 例：GA_PlayerSkillWave
+		* ダメージエフェクトとして GE_PlayerSkillFireWave を設定している
+		* コストエフェクトとして GE_PlayerSkillManaCost を設定している
+			* manaがなければ実行できず、あれば減らして実行するというシンプルなもの
+		* コストエフェクトとして GE_PlayerSkillCooldown を設定している
+			* 一定期間動作し、その間 GameplayTag を適用する
+* TargetType について述べている。
+	* インスタンス化されない const Blueprints(or native classes) である事
+	* スキルで使用しているのは TargetType_SphereTrace を基底にしている事
+	* TargetType はARPGで独自に作ったものである事
+	* ゲーム特有のターゲッティングを実装する際のサンプルとなる事
+* Cooldown について述べている。
+	* 同じ Effect を使用することで複数の機能間でクールダウンを共有する事
+		* **Cooldownを分けたい場合は「別のタグを指定した別のEffect」？**
+		* **Cooldownを共有したいが時間が違う場合は「同じタグを指定した別のDurationを指定したEffect」？**
+		* **テストコードを書いたほうがよさそう。**
+	* UIシステムから問い合わせできる事
+* 発射物に関して述べている。
+	* 直接攻撃と異なり、 Effect をいきなり適用するのではなく、 EffectContainerSpec を生成し、 Spawn させた 発射物（BP_AbilityProjectileBase）に設定している事
+	* 発射物が Actor と重なったのちに EffectContainerSpec をもとに Effect を適用している事
+
 
 # ■ Executingg Abilities In ARPG
 https://docs.unrealengine.com/en-us/Resources/SampleGames/ARPG/GameplayAbilitiesinActionRPG/ExecutingAbilitiesInARPG

@@ -168,7 +168,39 @@ https://docs.unrealengine.com/en-us/Resources/SampleGames/ARPG/GameplayAbilities
 https://docs.unrealengine.com/en-us/Resources/SampleGames/ARPG/GameplayAbilitiesinActionRPG/ExecutingAbilitiesInARPG
 
 ## ■ 概要
-**未着手**
+* Ability の処理の実行の流れについて述べている。
+	* TAG と Item Slot を用いている事
+	* エンジンの機能である ActivateAbilitiesWithTags を使用して有効化している事
+		* 使用した際、「Ability.Skill」を含むアビリティ対象となっていること。
+	* アイテムを装備する場合は　AddSlottedGameplayAbilities を使用して AbilitySystemComponent にアイテム固有の Ability を追加している事
+* Weapon と Potion で利用している ARPG で独自に実装した ARPGCharacterBase::ActivateAbilitiesWithItemSlot について述べている。
+	* BP_Character と BP_PlayerCharacter から呼ばれている。
+* 装備による Ability の追加の流れについて述べている。
+	* ARPGCharacterBase::AddSlottedGameplayAbilities にて行って事
+	* プロパティ「Inventory＞Sloted Abilities」に FGameplayAbilitySpec として追加している事
+* プレイヤーと敵に関してアイテムスロットに関して異なる方法を用いていることについて述べている。
+	* 敵
+		* プロパティ「Abilities＞Default Sloted Abilities」から入力される事
+	* プレイヤ
+		* 実際のインベントリから入力される事
+		* ARPGCharacterBase の中でかなり複雑なロジックで処理している事
+			* インベントリにアクセスするためのインターフェイスクラス IRPGInventoryInterface がある。
+			* ARPGCharacterBase::InventorySource は IRPGInventoryInterface への参照。
+			* ARPGPlayerControllerBase は IRPGInventoryInterface の派生クラス。
+			* ARPGCharacterBase::PossessedBy にて渡される AController を InventorySource に保持する。
+				* プレイヤは Cast が成功して保持され、敵は nullptr となる。
+			* アビリティの適用処理の際、プロパティ「Inventory＞Sloted Abilities」と InventorySource の参照先のインベントリの内容を反映させる。
+			* これにより、プレイヤと敵のロジックの共通化を行っている。
+			* また、そのため、敵にインベントリを持たせようと思えばそれも可能。
+* 移動やGameplaySystemの相互作用について述べている。
+	* 主に BP_Character::CanUseAnyAbility にてゲーム中の状態をもとに Ability の実行をしてよいか判断している事。
+	* この部分はゲーム特有である事。
+	* GameplayAbility のプロパティ「Tags＞ActivationRequiredTags」「Tags＞ActivationBlockedTags」が有益な可能性がある事。
+* UI から AbilitySystem に問い合わせる方法について述べている。
+	* **2019/02/28ごろに取得したActionRPGのサンプルと2019/03/19現在のドキュメントの内容がマッチしていない**
+		* **WB_OnSCreenControls には示されたGrapNodeはなく、 WB_OnScreenInput の On Click(ButtonSkill) がそれにあたると思われる。**
+	* スキルを使用するボタンを押した後、クールダウンの情報を取得し、UIに反映させている。
+
 
 # ■ Adding a Random Amount of Soules Per Kill
 https://docs.unrealengine.com/en-us/Resources/SampleGames/ARPG/AddSoulsPerKill

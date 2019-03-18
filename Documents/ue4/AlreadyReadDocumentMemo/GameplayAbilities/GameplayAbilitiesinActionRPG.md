@@ -206,7 +206,10 @@ https://docs.unrealengine.com/en-us/Resources/SampleGames/ARPG/GameplayAbilities
 https://docs.unrealengine.com/en-us/Resources/SampleGames/ARPG/AddSoulsPerKill
 
 ## ■ 概要
-**未着手**
+* 敵を切るした際に落とすソウルの数をランダムにするための拡張方法ンサンプル。
+* ただ、現時点でダウンロードできるプロジェクトには適用済みの内容。
+* 説明している内容自体も AbilitySystem とは特に関係しない。
+* Unreal Engine4 についてある程度知っているなら、読まなくても問題ないドキュメント。
 
 # ■ Adding A Pick Up
 https://docs.unrealengine.com/en-us/Resources/SampleGames/ARPG/AddingAPickUp

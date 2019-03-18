@@ -230,7 +230,9 @@ https://docs.unrealengine.com/en-us/Resources/SampleGames/ARPG/AddingAPickUp
 https://docs.unrealengine.com/en-us/Resources/SampleGames/ARPG/MigratingContent
 
 ## ■ 概要
-**未着手**
+* マイグレーションの手順。
+* 説明している内容自体は AbilitySystem とは特に関係しない。
+* Unreal Engine4 についてある程度知っているなら、読まなくても問題ないドキュメント。
 
 # ■ Adding a New Weapon
 https://docs.unrealengine.com/en-us/Resources/SampleGames/ARPG/AddingaNewWeapon

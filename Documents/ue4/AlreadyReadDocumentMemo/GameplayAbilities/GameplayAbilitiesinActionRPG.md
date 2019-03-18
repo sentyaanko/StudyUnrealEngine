@@ -206,16 +206,25 @@ https://docs.unrealengine.com/en-us/Resources/SampleGames/ARPG/GameplayAbilities
 https://docs.unrealengine.com/en-us/Resources/SampleGames/ARPG/AddSoulsPerKill
 
 ## ■ 概要
-* 敵を切るした際に落とすソウルの数をランダムにするための拡張方法ンサンプル。
-* ただ、現時点でダウンロードできるプロジェクトには適用済みの内容。
-* 説明している内容自体も AbilitySystem とは特に関係しない。
+* 敵をキルした際に落とすソウルの数をランダムにするための拡張方法のサンプル。
+* 現時点でダウンロードできるプロジェクトには **適用済みの内容** 。
+* 説明している内容自体は AbilitySystem とは特に関係しない。
 * Unreal Engine4 についてある程度知っているなら、読まなくても問題ないドキュメント。
 
 # ■ Adding A Pick Up
 https://docs.unrealengine.com/en-us/Resources/SampleGames/ARPG/AddingAPickUp
 
 ## ■ 概要
-**未着手**
+* 回復用のアクターを追加する拡張方法のサンプル。
+* 現時点でダウンロードできるプロジェクトには **適用されていない内容**。
+* 説明している内容自体は AbilitySystem とは特に関係しない。
+* Unreal Engine4 についてある程度知っているなら、読まなくても問題ないドキュメント。
+* 解説している流れはおおむね以下の通り
+	1. Infinity Blade Weapons から骨付き肉のスケルタルメッシュをマイグレートしてくる
+	1. Blueprint を新規作成、コンポーネントにコリジョンとスケルタルメッシュを追加、変数にポーションの種類を追加
+	1. プレイヤーが触れたらインベントリにポーションを追加し、アイテムスロットに設定する処理を追加
+	1. その他コリジョン関係の処理、アクターは期の処理の追加
+	1. レベルに配置し動作を確認
 
 # ■ Migrating Countent
 https://docs.unrealengine.com/en-us/Resources/SampleGames/ARPG/MigratingContent

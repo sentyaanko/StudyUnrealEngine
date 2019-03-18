@@ -210,18 +210,21 @@ https://docs.unrealengine.com/en-us/Resources/SampleGames/ARPG/AddSoulsPerKill
 * 現時点でダウンロードできるプロジェクトには **適用済みの内容** 。
 * 説明している内容自体は AbilitySystem とは特に関係しない。
 * Unreal Engine4 についてある程度知っているなら、読まなくても問題ないドキュメント。
+	* コードを読む前にどこで何をしているか当たりをつけるために見ておくのもよい。
 
 # ■ Adding A Pick Up
 https://docs.unrealengine.com/en-us/Resources/SampleGames/ARPG/AddingAPickUp
 
 ## ■ 概要
-* 回復用のアクターを追加する拡張方法のサンプル。
+* 回復用のアイテム配置用のアクターを追加する拡張方法のサンプル。
 * 現時点でダウンロードできるプロジェクトには **適用されていない内容**。
 * 説明している内容自体は AbilitySystem とは特に関係しない。
 * Unreal Engine4 についてある程度知っているなら、読まなくても問題ないドキュメント。
+	* コードを読む前にどこで何をしているか当たりをつけるために見ておくのもよい。
 * 解説している流れはおおむね以下の通り
 	1. Infinity Blade Weapons から骨付き肉のスケルタルメッシュをマイグレートしてくる
-	1. Blueprint を新規作成、コンポーネントにコリジョンとスケルタルメッシュを追加、変数にポーションの種類を追加
+	1. Blueprint を Actor をベースに新規作成
+	1. コンポーネントにコリジョンとスケルタルメッシュを追加、変数にポーションの種類を追加
 	1. プレイヤーが触れたらインベントリにポーションを追加し、アイテムスロットに設定する処理を追加
 	1. その他コリジョン関係の処理、アクターは期の処理の追加
 	1. レベルに配置し動作を確認
@@ -238,13 +241,53 @@ https://docs.unrealengine.com/en-us/Resources/SampleGames/ARPG/MigratingContent
 https://docs.unrealengine.com/en-us/Resources/SampleGames/ARPG/AddingaNewWeapon
 
 ## ■ 概要
-**未着手**
+* 武器を追加する拡張方法のサンプル。
+* 現時点でダウンロードできるプロジェクトには **適用されていない内容**。
+* AbilitySystem について少しだけ説明している。
+	* 武器で使用できるアビリティの設定の GameplayAbility アセットの指定。
+* Unreal Engine4 についてある程度知っているなら、読まなくても問題ないドキュメント。
+	* コードを読む前にどこで何をしているか当たりをつけるために見ておくのもよい。
+* 解説している流れはおおむね以下の通り
+	1. Infinity Blade Weapons から「SK_Dual_Blad**e**_Talon」のスケルタルメッシュをマイグレートしてくる
+		* 本文で **e** が抜けているので注意
+	1. Blueprint を WeaponActor をベースに新規作成。
+	1. スケルタルメッシュの指定、コリジョンのサイズの調整。
+		* 解説に含まれないが、以下も行ったほうがよいと思われる。
+			* CapsuleCollision (Inherited) のプロパティ「Transform＞Location.z」を50>**30**
+	1. 作成した WeaponActor 派生 Blueprint をほかのデータと関連付けるための Data Asset の新規作成。
+		1. Data Asset を RPGWeaponItem をベースに新規作成。
+		1. 作成した WeaponActor 派生 Blueprint を関連付け
+		1. ショップに表示する情報を設定
+		1. ゲームルールに沿うように所持数上限などの設定
+		1. 使用できるアビリティの指定（ほかの剣と同じ GA_PlayerSwordMelee を指定）
+	1. レベルで動作を確認(ソウルをメニューで増やし購入、装備変更して使用できるかどうかの確認ができる)
+
 
 # ■ Adding a New Potion
 https://docs.unrealengine.com/en-us/Resources/SampleGames/ARPG/AddingaNewPotion
 
 ## ■ 概要
-**未着手**
+* 回復用のアイテムを追加する拡張方法のサンプル。
+* 現時点でダウンロードできるプロジェクトには **適用されていない内容**。
+* AbilitySystem について少しだけ説明している。
+	* 新規の GameplayAbility と GameplayEffect を追加している。
+* Unreal Engine4 についてある程度知っているなら、読まなくても問題ないドキュメント。
+	* コードを読む前にどこで何をしているか当たりをつけるために見ておくのもよい。
+* 解説している流れはおおむね以下の通り
+	1. Asset Manager を利用しているため、アセットの配置パスに制限がある旨の説明がある。
+	1. Blueprint を GA_PotionBase をベースに新規作成
+	1. Blueprint を GE_PotionBase をベースに新規作成
+	1. GA_PotionBase の設定
+		1. 実行時のMontage の指定
+		1. 実行時の Effect の指定（先ほど作成した GE_PotionBase の派生）
+	1. GE_PotionBase の設定
+		1. Modifier を追加し、対象を Mana に変更、回復量の指定
+	1. 作成した GA_PotionBase 派生 Blueprint をほかのデータと関連付けるための Data Asset の新規作成。
+		1. Data Asset を RPGPotionItem  をベースに新規作成。
+		1. ショップに表示する情報を設定
+		1. ゲームルールに沿うように所持数上限などの設定
+		1. 使用できるアビリティの指定（先ほど作成した GA_PotionBase 派生）
+	1. レベルで動作を確認(ソウルをメニューで増やし購入、装備変更して使用できるかどうかの確認ができる)
 
 
 ----

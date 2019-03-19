@@ -446,6 +446,500 @@ SaveGame
    ARPG::★特にコメントなし
 ```
 
+# ■ アセット一覧
+
+## ■ Abilitiesフォルダ
+```
+Abilities
+├─DataTables
+│  アビリティ用のデータテーブル。詳細は後述の表参照
+│
+├─Enemies
+│ │敵をカテゴリごとにフォルダ分けしたものを置くためのプレースホルダ
+│ │
+│ ├─Goblin
+│ │  ゴブリン用のアビリティ用BP(GameplayAbility/GameplayEffect)置き場
+│ │
+│ └─Spider
+│    クモ用のアビリティ用BP(GameplayAbility/GameplayEffect)置き場
+│
+├─Player
+│ │武器後のにフォルダ分けしたものを置くためのプレースホルダ。
+│ │スキルもフォルダしてある。
+│ │パラメータ初期化のための GameplayEffect も置いてある
+│ │
+│ ├─Axe
+│ │  ★確認中
+│ │
+│ ├─FireAxe
+│ │  ★確認中
+│ │
+│ ├─Hammer
+│ │  ★確認中
+│ │
+│ ├─Potions
+│ │  ポーション用のアビリティ用BP(GameplayAbility/GameplayEffect)置き場
+│ │
+│ ├─Skills
+│ │  ★確認中
+│ │
+│ └─Sword
+│    ★確認中
+│
+└─Shared
+   ★プレイヤー、敵で共用のものを置くためのプレースホルダ？
+```
+
+### ■ Abilities/DataTables の内容
+#### ■ パターン１（ダメージ計算用？）
+| 名前 | 用途 | カラム | レコード |
+| ----- | ----- | ----- | ----- |
+| AttackDamage | ★ダメージ計算用？ | 1-10 | 後述 |
+| AttackDamage_Fire | ★炎ダメージ計算用？ | 1-10 | 後述 |
+| AttackDamage_Hammer | ★ハンマーダメージ計算用？ | 1-10 | 後述 |
+| AttackDamage_Sword | ★剣ダメージ計算用？ | 1-10 | 後述 |
+
+| レコードの名前 | 用途 |
+| ----- | ----- |
+| DefaultAttack | ★通常威力攻撃？ |
+| MediumAttack | ★中威力攻撃？ |
+| HeavyAttack | ★大威力攻撃？ |
+
+#### ■ パターン２（キャラクターのレベルごとの初期ステータス用？）
+
+| 名前 | 用途 | カラム | レコード |
+| ----- | ----- | ----- | ----- |
+| StartingStats | ★キャラクターのレベルごとの初期ステータス用？ | 1-10 | 後述 |
+
+| レコードの名前 | 用途 |
+| ----- | ----- |
+| DefaultMaxHealth | ★デフォルトの最大ヘルス |
+| DefaultMaxMana | ★デフォルトの最大マナ |
+| DefaultAttackPower | ★デフォルトの攻撃力 |
+| DefaultDefensePower | ★デフォルトの防御力 |
+| DefaultMoveSpeed | ★デフォルトの移動力 |
+| PlayerMaxHealth | ★プレイヤーの最大ヘルス |
+| PlayerMaxMana | ★プレイヤーの最大マナ |
+| PlayerAttackPower | ★プレイヤーの攻撃力 |
+| PlayerDefensePower | ★プレイヤーの防御力 |
+| PlayerMoveSpeed | ★プレイヤーの移動力 |
+
+### ■ Abilities/Enemies/Goblin の内容
+#### ■ アビリティクラス
+| 名前 | 親クラス | ネイティブ親クラス | 用途 |
+| ----- | ----- | ----- | ----- |
+| GA_GoblinMelee | GA_MeleeBase | RPGGameplayAbility | ★登録先の確認 |
+| GA_GoblinRange01 | GA_SpawnProjectileBase | RPGGameplayAbility | ★登録先の確認 |
+
+■ GA_GoblinMelee
+```yaml
+Default:
+ Montage-to-Play: "AM_Guardian_Attack"
+ Projectile-class: "BP_Slimeball"
+Gameplay-Effect:
+ Effect Container Map:
+  - Key: "Event.Montage.Shared.WeaponHit"
+    Value:
+     Target-Type: "RPGTargetType_UseEventData"
+     Target-Gameplay-Effect-Classes:
+      - "GE_GoblinMelee"
+Tags:
+ Abilitiy-Tags: "Ability.Melee"
+Cooldowns:
+  Cooldown-Gameplay-Effect-Class: "None"
+```
+
+■ GA_GoblinRange01
+```yaml
+Default:
+ Montage-to-Play: "AM_Guardian_Attack02"
+ Projectile-class: "BP_Slimeball"
+Gameplay-Effect:
+ Effect-Container-Map:
+  - Key: Event.Montage.Shared.UseSkill
+    Value: 
+      Target-Type: "None"
+      Target-Gameplay-Effect-Classes:
+       - "GE_PlayerSkillFireball"
+Tags:
+ Abilitiy-Tags: "Ability.Skill"
+Cooldowns:
+ Cooldown-Gameplay-Effect-Class: "GE_GoblinRange"
+```
+
+#### ■ アビリティエフェクトクラス
+| 名前 | 親クラス | ネイティブ親クラス | 用途 |
+| ----- | ----- | ----- | ----- |
+| GE_GoblinMelee | GE_MeleeBase | GameplayEffect | GA_GoblinMelee の EffectContainerMap に登録されている |
+| GE_GoblinRange | GE_MeleeBase | GameplayEffect | GA_GoblinRange01 の Cooldown に登録されている |
+| GE_GoblinStats | GE_StatsBase | GameplayEffect | Spawn時のパラメータの初期化用。★呼び出し元確認 |
+
+■ GE_GoblinMelee
+```yaml
+Gameplay-Effect:
+ Executions:
+  - Calculation-Class: "RPGDamageExecution"
+    Calculation-Modifiers:
+     - Backing-Capture-Definition:
+        Capture-Attribute: "Damage"
+        Capture-Source: "Source"
+        Capture-Status: "Snapshotted"
+       Modify-Op: "Add"
+       Modify-Magnitude:
+        Magnitude-Calculation-Type: "Scalabe Float"
+        Scalable-Float-Magnitude:
+         Raw: "1.0"
+         CurveTable: "AttackDamage"
+         Record: "DefaultAttack"
+       Target-Tags:
+        Ignore-Tags: "Status.DamageImmune"
+```
+
+■ GE_GoblinRange
+```yaml
+Gameplay-Effect:
+ Duration-Policy: "Has Duration"
+ Duration-Magnitude:
+  Magnitude-Calculation-Type: "Scalable Float"
+  Scalable-Float-Magnitude:
+   Raw: "2"
+   CurveTable: "None"
+ Executions:
+  - Calculation-Class: "RPGDamageExecution"
+    Calculation-Modifiers:
+     - Backing-Capture-Definition:
+        Capture-Attribute: "Damage"
+        Capture-Source: "Source"
+        Capture-Status: "Snapshotted"
+       Modify-Op: "Add"
+       Modify-Magnitude:
+        Magnitude-Calculation-Type: "Scalabe Float"
+        Scalable-Float-Magnitude:
+         Raw: "1.5" #特有
+         CurveTable: "AttackDamage"
+         Record: "DefaultAttack"
+       Target-Tags:
+        Ignore-Tags: "" #特有
+```
+
+■ GE_GoblinStats
+```yaml
+Gameplay-Effect:
+ Modifiers:
+  - Attrivute: "RPGAttributeSet_MaxHealth"
+    Modifier-Op: "Override"
+    Modifier-Magnitude:
+     Magnitude-Calculation-Type: "Scalable Float"
+     Scalable-Float-Magnitude:
+      Raw: "1.0"
+      CurveTable: "StartingStats"
+      Record: "DefaultMaxHealth"
+  - Attrivute: "RPGAttributeSet_MaxMana"
+    Modifier-Op: "Override"
+    Modifier-Magnitude:
+     Magnitude-Calculation-Type: "Scalable Float"
+     Scalable-Float-Magnitude:
+      Raw: "1.0"
+      CurveTable: "StartingStats"
+      Record: "DefaultMaxMana"
+  - Attrivute: "RPGAttributeSet_AttackPower"
+    Modifier-Op: "Override"
+    Modifier-Magnitude:
+     Magnitude-Calculation-Type: "Scalable Float"
+     Scalable-Float-Magnitude:
+      Raw: "1.0"
+      CurveTable: "StartingStats"
+      Record: "DefaultAttackPower"
+  - Attrivute: "RPGAttributeSet_DefencePower"
+    Modifier-Op: "Override"
+    Modifier-Magnitude:
+     Magnitude-Calculation-Type: "Scalable Float"
+     Scalable-Float-Magnitude:
+      Raw: "1.0"
+      CurveTable: "StartingStats"
+      Record: "DefaultDefencePower"
+  - Attrivute: "RPGAttributeSet_MoveSpeed"
+    Modifier-Op: "Override"
+    Modifier-Magnitude:
+     Magnitude-Calculation-Type: "Scalable Float"
+     Scalable-Float-Magnitude:
+      Raw: "1.0"
+      CurveTable: "StartingStats"
+      Record: "DefaultMoveSpeed"
+```
+
+### ■ Abilities/Enemies/Spider の内容
+#### ■ アビリティクラス
+| 名前 | 親クラス | ネイティブ親クラス | 用途 |
+| ----- | ----- | ----- | ----- |
+| GA_SpiderMelee | GA_SkillBase | RPGGameplayAbility | ★登録先の確認 |
+
+■ GA_SpiderMelee
+```yaml
+Default:
+ Montage-to-Play: "AM_Spider_Melee"
+ Gameplay-Effect:
+  Effect-Container-Map:
+   - Key: "Event.Montage.Shared.UseSkill"
+     Value:
+      Target-Type: "RPGTargetType_Claw"
+      Target-Gameplay-Effect-Classes:
+       - "GE_RangeBase"
+Tags:
+ Abilitiy-Tags: "Ability.Skill"
+Cooldowns:
+ Cooldown-Gameplay-Effect-Class: "None"
+```
+
+#### ■ アビリティエフェクトクラス
+| 名前 | 親クラス | ネイティブ親クラス | 用途 |
+| ----- | ----- | ----- | ----- |
+| GE_SpiderStats | GE_StatsBase | GameplayEffect | Spawn時のパラメータの初期化用。★呼び出し元確認 |
+
+■ GE_SpiderStats
+```yaml
+Gameplay-Effect:
+ Modifiers:
+  - Attrivute: "RPGAttributeSet_MaxHealth"
+    Modifier-Op: "Multiply" #特有
+    Modifier-Magnitude:
+     Magnitude-Calculation-Type: "Scalable Float"
+     Scalable-Float-Magnitude:
+      Raw: "3.0" #特有
+      CurveTable: "StartingStats"
+      Record: "DefaultMaxHealth"
+  - Attrivute: "RPGAttributeSet_MaxMana"
+    Modifier-Op: "Override"
+    Modifier-Magnitude:
+     Magnitude-Calculation-Type: "Scalable Float"
+     Scalable-Float-Magnitude:
+      Raw: "1.0" 
+      CurveTable: "StartingStats"
+      Record: "DefaultMaxMana"
+  - Attrivute: "RPGAttributeSet_AttackPower"
+    Modifier-Op: "Override"
+    Modifier-Magnitude:
+     Magnitude-Calculation-Type: "Scalable Float"
+     Scalable-Float-Magnitude:
+      Raw: "2.0" #特有
+      CurveTable: "StartingStats"
+      Record: "DefaultAttackPower"
+  - Attrivute: "RPGAttributeSet_DefencePower"
+    Modifier-Op: "Override"
+    Modifier-Magnitude:
+     Magnitude-Calculation-Type: "Scalable Float"
+     Scalable-Float-Magnitude:
+      Raw: "1.0"
+      CurveTable: "StartingStats"
+      Record: "DefaultDefencePower"
+  - Attrivute: "RPGAttributeSet_MoveSpeed"
+    Modifier-Op: "Override"
+    Modifier-Magnitude:
+     Magnitude-Calculation-Type: "Scalable Float"
+     Scalable-Float-Magnitude:
+      Raw: "1.5" #特有
+      CurveTable: "StartingStats"
+      Record: "DefaultMoveSpeed"
+```
+
+#### ■ ターゲットタイプクラス
+| 名前 | 親クラス | ネイティブ親クラス | 用途 |
+| ----- | ----- | ----- | ----- |
+| TargetType_Claw | TargetType_SphereTrace | RPGTargetType | ★呼び出し元確認 |
+
+■ TargetType_Claw
+```yaml
+Default:
+ Offset-from-Actor:
+  x: "400" #特有
+ Sphere-Radius: "150" #特有
+```
+
+### ■ Abilities/Player の内容
+#### ■ アビリティエフェクトクラス
+| 名前 | 親クラス | ネイティブ親クラス | 用途 |
+| ----- | ----- | ----- | ----- |
+| GE_PlayerStats | GE_StatsBase | GameplayEffect | Spawn時のパラメータの初期化用。★呼び出し元確認 |
+
+
+■ GE_GoblinStats
+```yaml
+Gameplay-Effect:
+ Modifiers:
+  - Attrivute: "RPGAttributeSet_MaxHealth"
+    Modifier-Op: "Override"
+    Modifier-Magnitude:
+     Magnitude-Calculation-Type: "Scalable Float"
+     Scalable-Float-Magnitude:
+      Raw: "1.0"
+      CurveTable: "StartingStats"
+      Record: "PlayerMaxHealth" #毒湧
+  - Attrivute: "RPGAttributeSet_MaxMana"
+    Modifier-Op: "Override"
+    Modifier-Magnitude:
+     Magnitude-Calculation-Type: "Scalable Float"
+     Scalable-Float-Magnitude:
+      Raw: "1.0"
+      CurveTable: "StartingStats"
+      Record: "PlayerMaxMana" #毒湧
+  - Attrivute: "RPGAttributeSet_AttackPower"
+    Modifier-Op: "Override"
+    Modifier-Magnitude:
+     Magnitude-Calculation-Type: "Scalable Float"
+     Scalable-Float-Magnitude:
+      Raw: "1.0"
+      CurveTable: "StartingStats"
+      Record: "PlayerAttackPower" #毒湧
+  - Attrivute: "RPGAttributeSet_DefencePower"
+    Modifier-Op: "Override"
+    Modifier-Magnitude:
+     Magnitude-Calculation-Type: "Scalable Float"
+     Scalable-Float-Magnitude:
+      Raw: "1.0"
+      CurveTable: "StartingStats"
+      Record: "PlayerDefencePower" #毒湧
+  - Attrivute: "RPGAttributeSet_MoveSpeed"
+    Modifier-Op: "Override"
+    Modifier-Magnitude:
+     Magnitude-Calculation-Type: "Scalable Float"
+     Scalable-Float-Magnitude:
+      Raw: "1.0"
+      CurveTable: "StartingStats"
+      Record: "PlayerMoveSpeed" #毒湧
+```
+
+### ■ Abilities/Player/Axe の内容
+#### ■ アビリティクラス
+| 名前 | 親クラス | ネイティブ親クラス | 用途 |
+| ----- | ----- | ----- | ----- |
+| GA_PlayerAxeMelee | GA_MeleeBase | RPGGameplayAbility | ★登録先の確認 |
+
+■ GA_PlayerAxeMelee
+```yaml
+Default:
+ Montage-to-Play: "AM_Attack_Axe"
+Gameplay-Effect:
+ Effect-Container-Map:
+  - Key: "Event.Montage.Shared.WeaponHit"
+    Value:
+     Target-Type: "RPGTargetType_UseEventData"
+     Target-Gameplay-Effect-Classes:
+      - "GE_PlayerAxeMelee"
+  - Key: "Event.Montage.Player.Combo.BurstPound"
+    Value:
+     Target-Type: "TargetType_BurstPound"
+     Target-Gameplay-Effect-Classes:
+      - "GE_PlayerAxeBurstPound"
+  - Key: "Event.Montage.Player.Combo.GroundPound"
+    Value:
+     Target-Type: "TargetType_GroundPound"
+     Target-Gameplay-Effect-Classes:
+      - "GE_PlayerAxeGroundPound"
+Tags:
+ Ability-Tags: "Ability.Melee"
+```
+
+#### ■ アビリティエフェクトクラス
+| 名前 | 親クラス | ネイティブ親クラス | 用途 |
+| ----- | ----- | ----- | ----- |
+| GE_PlayerAxeBurstPound | GE_RangeBase | GameplayEffect | ★登録先、呼び出し元確認 |
+| GE_PlayerAxeGroundPound | GE_RangeBase | GameplayEffect | ★登録先、呼び出し元確認 |
+| GE_PlayerAxeMelee | GE_MeleeBase | GameplayEffect | ★登録先、呼び出し元確認 |
+
+■ GE_PlayerAxeBurstPound
+GE_PlayerAxeGroundPound も全く同じ設定。
+```yaml
+Gameplay-Effect:
+ Executions:
+  - Calculation-Class: "RPGDamageExecution"
+    Calculation-Modifiers:
+     - Backing-Capture-Definition:
+        Capture-Attribute: "Damage"
+        Capture-Source: "Source"
+        Capture-Status: "Snapshotted"
+       Modify-Op: "Add"
+       Modify-Magnitude:
+        Magnitude-Calculation-Type: "Scalabe Float"
+        Scalable-Float-Magnitude:
+         Raw: "1.0"
+         CurveTable: "AttackDamage"
+         Record: "HeavyAttack" #特有
+       Target-Tags:
+        Ignore-Tags: "" #特有
+```
+
+■ GE_PlayerAxeMelee
+```yaml
+Gameplay-Effect:
+ Executions:
+  - Calculation-Class: "RPGDamageExecution"
+    Calculation-Modifiers:
+     - Backing-Capture-Definition:
+        Capture-Attribute: "Damage"
+        Capture-Source: "Source"
+        Capture-Status: "Snapshotted"
+       Modify-Op: "Add"
+       Modify-Magnitude:
+        Magnitude-Calculation-Type: "Scalabe Float"
+        Scalable-Float-Magnitude:
+         Raw: "1.0"
+         CurveTable: "AttackDamage"
+         Record: "DefaultAttack"
+       Target-Tags:
+        Ignore-Tags: "Status.DamageImmune"
+```
+
+
+#### ■ ターゲットタイプクラス
+| 名前 | 親クラス | ネイティブ親クラス | 用途 |
+| ----- | ----- | ----- | ----- |
+| TargetType_BurstPound | TargetType_SphereTrace | RPGTargetType | ★呼び出し元確認 |
+| TargetType_GroundPound | TargetType_SphereTrace | RPGTargetType | ★呼び出し元確認 |
+
+■ TargetType_BurstPound
+```yaml
+Default:
+ Trace-Length: "300" #特有
+```
+
+■ TargetType_GroundPound
+```yaml
+Default:
+ Offset-from-Actor:
+  x: "200" #特有
+ Trace-Length: "600" #特有
+```
+
+### ■ Abilities/Player/FireAxe の内容
+#### ■ アビリティクラス
+#### ■ アビリティエフェクトクラス
+#### ■ ターゲットタイプクラス
+
+
+### ■ Abilities/Player/Hammer の内容
+#### ■ アビリティクラス
+#### ■ アビリティエフェクトクラス
+#### ■ ターゲットタイプクラス
+
+
+### ■ Abilities/Player/Sword の内容
+#### ■ アビリティクラス
+#### ■ アビリティエフェクトクラス
+#### ■ ターゲットタイプクラス
+
+
+### ■ Abilities/Player/Potion の内容
+#### ■ アビリティクラス
+#### ■ アビリティエフェクトクラス
+
+
+### ■ Abilities/Player/Skill の内容
+#### ■ Actorクラス
+#### ■ アビリティクラス
+#### ■ アビリティエフェクトクラス
+#### ■ ターゲットタイプクラス
+
+
 
 
 

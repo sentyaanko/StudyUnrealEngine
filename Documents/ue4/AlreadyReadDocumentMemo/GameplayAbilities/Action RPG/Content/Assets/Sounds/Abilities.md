@@ -14,11 +14,11 @@
 | A_Ability_MeteorWhoosh | A_Ability_MeteorWhoosh_Cue |
 | A_Ability_TimeSlow01 | A_Ability_TimeSlow_Cue |
 
-* 以下、他と違い、Fire**Ball** になっている。わかりづらい。
+* 以下、他と違い、Fire**B**all 大文字になっている。わかりづらい。
 	* A_Ability_Fire**B**allCast01
 	* A_Ability_Fire**B**allCast02
 	* A_Ability_Fire**B**allCast_Cue
-* **A_Ability_MeteorCast01 **これだけCueを用意していない。わかりづらい。**
+* A_Ability_MeteorCast01 **これだけCueを用意していない。わかりづらい。**
 
 ## ■ SoundCue 一覧
 | ファイル名 | 用途 | 用途 |
@@ -36,7 +36,7 @@
 |  | Attack02_Fire | Notifiesで指定 |
 |  | Attack03 | Notifiesで指定 |
 
-* AM_SkillFire**w**ave ここだけ小文字。わかりづらい。
+* AM_SkillFire**w**ave ここだけ小文字になっている。わかりづらい。
 
 ----
 以上。

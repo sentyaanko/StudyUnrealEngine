@@ -43,11 +43,16 @@ Cooldowns:
 ```
 
 ## ■ アビリティエフェクトクラス
-| 名前 | 親クラス | 用途 |
-| ----- | ----- | ----- |
-| GE_GoblinMelee | GE_MeleeBase | GA_GoblinMelee の EffectContainerMap[Event.Montage.Shared.WeaponHit] |
-| GE_GoblinRange | GE_MeleeBase | GA_GoblinRange01 の Cooldown |
-| GE_GoblinStats | GE_StatsBase | Spawn時のパラメータの初期化用。★呼び出し元確認 |
+| 名前 | 親クラス | 登録先 Ability | 登録先 属性 | 用途 |
+| ----- | ----- | ----- | ----- | ----- |
+| GE_GoblinMelee | GE_MeleeBase | GA_GoblinMelee | EffectContainerMap | |
+| GE_GoblinRange | GE_MeleeBase | GA_GoblinRange01 | Cooldown | クールダウン |
+| GE_GoblinStats | GE_StatsBase | | | Spawn時のパラメータの初期化用。★登録先確認  |
+
+| 名前 | 登録先 EffectContainerMap のキー名 |
+| ----- | ----- |
+| GE_GoblinMelee | [Event.Montage.Shared.WeaponHit] |
+
 
 ### ■ GE_GoblinMelee
 ```yaml
@@ -169,7 +174,7 @@ Cooldowns:
 ## ■ アビリティエフェクトクラス
 | 名前 | 親クラス | 用途 |
 | ----- | ----- | ----- |
-| GE_SpiderStats | GE_StatsBase | Spawn時のパラメータの初期化用。★呼び出し元確認 |
+| GE_SpiderStats | GE_StatsBase | Spawn時のパラメータの初期化用。★登録先確認 |
 
 ### ■ GE_SpiderStats
 ```yaml
@@ -218,9 +223,9 @@ Gameplay-Effect:
 ```
 
 ## ■ ターゲットタイプクラス
-| 名前 | 親クラス | 用途 |
-| ----- | ----- | ----- |
-| TargetType_Claw | TargetType_SphereTrace | GA_SpiderMelee の EffectContainerMap[Event.Montage.Shared.UseSkill] |
+| 名前 | 登録先 Ability | 親クラス | 登録先 EffectContainerMap のキー名 |
+| ----- | ----- | ----- | ----- |
+| TargetType_Claw | TargetType_SphereTrace |GA_SpiderMelee |  [Event.Montage.Shared.UseSkill] |
 
 ### ■ TargetType_Claw
 ```yaml

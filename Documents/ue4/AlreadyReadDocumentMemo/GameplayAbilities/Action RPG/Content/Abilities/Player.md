@@ -502,7 +502,7 @@ Default:
 
 ## ■ アビリティクラス
 | 名前 | 親クラス | 用途 |
-| ----- | ----- | ----- | ----- |
+| ----- | ----- | ----- |
 | GA_PlayerSkillFireball | GA_SpawnProjectileBase | ★登録先の確認 |
 | GA_PlayerSkillFireWave | GA_SkillBase | ★登録先の確認 |
 | GA_PlayerSkillMeteor | GA_SkillBase | ★登録先の確認 |

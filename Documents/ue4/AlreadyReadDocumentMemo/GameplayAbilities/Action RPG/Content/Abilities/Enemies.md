@@ -1,10 +1,10 @@
 
 # ■ Abilities/Enemies/Goblin の内容
 ## ■ アビリティクラス
-| 名前 | 親クラス | ネイティブ親クラス | 用途 |
-| ----- | ----- | ----- | ----- |
-| GA_GoblinMelee | GA_MeleeBase | RPGGameplayAbility | ★登録先の確認 |
-| GA_GoblinRange01 | GA_SpawnProjectileBase | RPGGameplayAbility | ★登録先の確認 |
+| 名前 | 親クラス | 用途 |
+| ----- | ----- | ----- |
+| GA_GoblinMelee | GA_MeleeBase | ★登録先の確認 |
+| GA_GoblinRange01 | GA_SpawnProjectileBase | ★登録先の確認 |
 
 ### ■ GA_GoblinMelee
 ```yaml
@@ -43,11 +43,11 @@ Cooldowns:
 ```
 
 ## ■ アビリティエフェクトクラス
-| 名前 | 親クラス | ネイティブ親クラス | 用途 |
-| ----- | ----- | ----- | ----- |
-| GE_GoblinMelee | GE_MeleeBase | GameplayEffect | GA_GoblinMelee の EffectContainerMap[Event.Montage.Shared.WeaponHit] |
-| GE_GoblinRange | GE_MeleeBase | GameplayEffect | GA_GoblinRange01 の Cooldown |
-| GE_GoblinStats | GE_StatsBase | GameplayEffect | Spawn時のパラメータの初期化用。★呼び出し元確認 |
+| 名前 | 親クラス | 用途 |
+| ----- | ----- | ----- |
+| GE_GoblinMelee | GE_MeleeBase | GA_GoblinMelee の EffectContainerMap[Event.Montage.Shared.WeaponHit] |
+| GE_GoblinRange | GE_MeleeBase | GA_GoblinRange01 の Cooldown |
+| GE_GoblinStats | GE_StatsBase | Spawn時のパラメータの初期化用。★呼び出し元確認 |
 
 ### ■ GE_GoblinMelee
 ```yaml
@@ -145,9 +145,9 @@ Gameplay-Effect:
 
 # ■ Abilities/Enemies/Spider の内容
 ## ■ アビリティクラス
-| 名前 | 親クラス | ネイティブ親クラス | 用途 |
-| ----- | ----- | ----- | ----- |
-| GA_SpiderMelee | GA_SkillBase | RPGGameplayAbility | ★登録先の確認 |
+| 名前 | 親クラス | 用途 |
+| ----- | ----- | ----- |
+| GA_SpiderMelee | GA_SkillBase | ★登録先の確認 |
 
 ### ■ GA_SpiderMelee
 ```yaml
@@ -167,9 +167,9 @@ Cooldowns:
 ```
 
 ## ■ アビリティエフェクトクラス
-| 名前 | 親クラス | ネイティブ親クラス | 用途 |
-| ----- | ----- | ----- | ----- |
-| GE_SpiderStats | GE_StatsBase | GameplayEffect | Spawn時のパラメータの初期化用。★呼び出し元確認 |
+| 名前 | 親クラス | 用途 |
+| ----- | ----- | ----- |
+| GE_SpiderStats | GE_StatsBase | Spawn時のパラメータの初期化用。★呼び出し元確認 |
 
 ### ■ GE_SpiderStats
 ```yaml
@@ -218,9 +218,9 @@ Gameplay-Effect:
 ```
 
 ## ■ ターゲットタイプクラス
-| 名前 | 親クラス | ネイティブ親クラス | 用途 |
-| ----- | ----- | ----- | ----- |
-| TargetType_Claw | TargetType_SphereTrace | RPGTargetType | GA_SpiderMelee の EffectContainerMap[Event.Montage.Shared.UseSkill] |
+| 名前 | 親クラス | 用途 |
+| ----- | ----- | ----- |
+| TargetType_Claw | TargetType_SphereTrace | GA_SpiderMelee の EffectContainerMap[Event.Montage.Shared.UseSkill] |
 
 ### ■ TargetType_Claw
 ```yaml

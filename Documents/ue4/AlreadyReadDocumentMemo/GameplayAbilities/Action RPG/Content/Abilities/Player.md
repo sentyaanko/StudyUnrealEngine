@@ -1,8 +1,8 @@
 # ■ Abilities/Player の内容
 ## ■ アビリティエフェクトクラス
-| 名前 | 親クラス | ネイティブ親クラス | 用途 |
-| ----- | ----- | ----- | ----- |
-| GE_PlayerStats | GE_StatsBase | GameplayEffect | Spawn時のパラメータの初期化用。★呼び出し元確認 |
+| 名前 | 親クラス | 用途 |
+| ----- | ----- | ----- |
+| GE_PlayerStats | GE_StatsBase | Spawn時のパラメータの初期化用。★呼び出し元確認 |
 
 ### ■ GE_PlayerStats
 ```yaml
@@ -52,9 +52,9 @@ Gameplay-Effect:
 
 # ■ Abilities/Player/Axe の内容
 ## ■ アビリティクラス
-| 名前 | 親クラス | ネイティブ親クラス | 用途 |
-| ----- | ----- | ----- | ----- |
-| GA_PlayerAxeMelee | GA_MeleeBase | RPGGameplayAbility | ★登録先の確認 |
+| 名前 | 親クラス | 用途 |
+| ----- | ----- | ----- |
+| GA_PlayerAxeMelee | GA_MeleeBase | ★登録先の確認 |
 
 ### ■ GA_PlayerAxeMelee
 ```yaml
@@ -82,11 +82,11 @@ Tags:
 ```
 
 ## ■ アビリティエフェクトクラス
-| 名前 | 親クラス | ネイティブ親クラス | 用途 |
-| ----- | ----- | ----- | ----- |
-| GE_PlayerAxeBurstPound | GE_RangeBase | GameplayEffect | GA_PlayerAxeMelee の EffectContainerMap[Event.Montage.Player.Combo.BurstPound] |
-| GE_PlayerAxeGroundPound | GE_RangeBase | GameplayEffect | GA_PlayerAxeMelee の EffectContainerMap[Event.Montage.Player.Combo.GroundPound] |
-| GE_PlayerAxeMelee | GE_MeleeBase | GameplayEffect | GA_PlayerAxeMelee の EffectContainerMap[Event.Montage.Shared.WeaponHit] |
+| 名前 | 親クラス | 用途 |
+| ----- | ----- | ----- |
+| GE_PlayerAxeBurstPound | GE_RangeBase | GA_PlayerAxeMelee の EffectContainerMap[Event.Montage.Player.Combo.BurstPound] |
+| GE_PlayerAxeGroundPound | GE_RangeBase | GA_PlayerAxeMelee の EffectContainerMap[Event.Montage.Player.Combo.GroundPound] |
+| GE_PlayerAxeMelee | GE_MeleeBase | GA_PlayerAxeMelee の EffectContainerMap[Event.Montage.Shared.WeaponHit] |
 
 ### ■ GE_PlayerAxeBurstPound
 GE_PlayerAxeGroundPound も全く同じ設定。
@@ -133,10 +133,10 @@ Gameplay-Effect:
 
 
 ## ■ ターゲットタイプクラス
-| 名前 | 親クラス | ネイティブ親クラス | 用途 |
-| ----- | ----- | ----- | ----- |
-| TargetType_BurstPound | TargetType_SphereTrace | RPGTargetType | GA_PlayerAxeMelee の EffectContainerMap[Event.Montage.Player.Combo.BurstPound] |
-| TargetType_GroundPound | TargetType_SphereTrace | RPGTargetType | GA_PlayerAxeMelee の EffectContainerMap[Event.Montage.Player.Combo.GroundPound] |
+| 名前 | 親クラス | 用途 |
+| ----- | ----- | ----- |
+| TargetType_BurstPound | TargetType_SphereTrace | GA_PlayerAxeMelee の EffectContainerMap[Event.Montage.Player.Combo.BurstPound] |
+| TargetType_GroundPound | TargetType_SphereTrace | GA_PlayerAxeMelee の EffectContainerMap[Event.Montage.Player.Combo.GroundPound] |
 
 **※他と異なり、「TargetType_」の後に武器の名前が入っておらず、わかりづらい。**
 
@@ -158,9 +158,9 @@ Default:
 つくりはほぼ Axe と一緒。
 
 ## ■ アビリティクラス
-| 名前 | 親クラス | ネイティブ親クラス | 用途 |
-| ----- | ----- | ----- | ----- |
-| GA_PlayerFireAxeMelee | GA_MeleeBase | RPGGameplayAbility | ★登録先の確認 |
+| 名前 | 親クラス | 用途 |
+| ----- | ----- | ----- |
+| GA_PlayerFireAxeMelee | GA_MeleeBase | ★登録先の確認 |
 
 ### ■ GA_PlayerFireAxeMelee
 ```yaml
@@ -188,11 +188,11 @@ Tags:
 ```
 
 ## ■ アビリティエフェクトクラス
-| 名前 | 親クラス | ネイティブ親クラス | 用途 |
-| ----- | ----- | ----- | ----- |
-| GE_PlayerFireAxeBurstPound | GE_RangeBase | GameplayEffect | GA_PlayerFireAxeMelee の EffectContainerMap[Event.Montage.Player.Combo.BurstPound] |
-| GE_PlayerFireAxeGroundPound | GE_RangeBase | GameplayEffect | GA_PlayerFireAxeMelee の EffectContainerMap[Event.Montage.Player.Combo.GroundPound] |
-| GE_PlayerFireAxeMelee | GE_MeleeBase | GameplayEffect | GA_PlayerFireAxeMelee の EffectContainerMap[Event.Montage.Shared.WeaponHit] |
+| 名前 | 親クラス | 用途 |
+| ----- | ----- | ----- |
+| GE_PlayerFireAxeBurstPound | GE_RangeBase | GA_PlayerFireAxeMelee の EffectContainerMap[Event.Montage.Player.Combo.BurstPound] |
+| GE_PlayerFireAxeGroundPound | GE_RangeBase | GA_PlayerFireAxeMelee の EffectContainerMap[Event.Montage.Player.Combo.GroundPound] |
+| GE_PlayerFireAxeMelee | GE_MeleeBase | GA_PlayerFireAxeMelee の EffectContainerMap[Event.Montage.Shared.WeaponHit] |
 
 
 ### ■ GE_PlayerFireAxeBurstPound
@@ -239,10 +239,10 @@ Gameplay-Effect:
 ```
 
 ## ■ ターゲットタイプクラス
-| 名前 | 親クラス | ネイティブ親クラス | 用途 |
-| ----- | ----- | ----- | ----- |
-| TargetType_FABurstPound | TargetType_SphereTrace | RPGTargetType | GA_PlayerFireAxeMelee の EffectContainerMap[Event.Montage.Player.Combo.BurstPound] |
-| TargetType_FAGroundPound | TargetType_SphereTrace | RPGTargetType | GA_PlayerFireAxeMelee の EffectContainerMap[Event.Montage.Player.Combo.GroundPound] |
+| 名前 | 親クラス | 用途 |
+| ----- | ----- | ----- |
+| TargetType_FABurstPound | TargetType_SphereTrace | GA_PlayerFireAxeMelee の EffectContainerMap[Event.Montage.Player.Combo.BurstPound] |
+| TargetType_FAGroundPound | TargetType_SphereTrace | GA_PlayerFireAxeMelee の EffectContainerMap[Event.Montage.Player.Combo.GroundPound] |
 
 **FA は FireAxe の略らしいが、この略語を使っているのはここが初めて。わかりにくい。**
 
@@ -264,9 +264,9 @@ Default:
 
 # ■ Abilities/Player/Hammer の内容
 ## ■ アビリティクラス
-| 名前 | 親クラス | ネイティブ親クラス | 用途 |
-| ----- | ----- | ----- | ----- |
-| GA_PlayerHammerMelee | GA_MeleeBase | RPGGameplayAbility | ★登録先の確認 |
+| 名前 | 親クラス | 用途 |
+| ----- | ----- | ----- |
+| GA_PlayerHammerMelee | GA_MeleeBase | ★登録先の確認 |
 
 ### ■ GA_PlayerHammerMelee
 ```yaml
@@ -294,11 +294,11 @@ Tags:
 ```
 
 ## ■ アビリティエフェクトクラス
-| 名前 | 親クラス | ネイティブ親クラス | 用途 |
-| ----- | ----- | ----- | ----- |
-| GE_PlayerHammerBurstPound | GE_RangeBase | GameplayEffect | GA_PlayerHammerMelee の EffectContainerMap[Event.Montage.Player.Combo.BurstPound] |
-| GE_PlayerHammerGroundPound | GE_RangeBase | GameplayEffect | GA_PlayerHammerMelee の EffectContainerMap[Event.Montage.Player.Combo.GroundPound] |
-| GE_PlayerHammerMelee | GE_MeleeBase | GameplayEffect | GA_PlayerHammerMelee の EffectContainerMap[Event.Montage.Shared.WeaponHit] |
+| 名前 | 親クラス | 用途 |
+| ----- | ----- | ----- |
+| GE_PlayerHammerBurstPound | GE_RangeBase | GA_PlayerHammerMelee の EffectContainerMap[Event.Montage.Player.Combo.BurstPound] |
+| GE_PlayerHammerGroundPound | GE_RangeBase | GA_PlayerHammerMelee の EffectContainerMap[Event.Montage.Player.Combo.GroundPound] |
+| GE_PlayerHammerMelee | GE_MeleeBase | GA_PlayerHammerMelee の EffectContainerMap[Event.Montage.Shared.WeaponHit] |
 
 
 ### ■ GE_PlayerHammerBurstPound
@@ -345,10 +345,10 @@ Gameplay-Effect:
 ```
 
 ## ■ ターゲットタイプクラス
-| 名前 | 親クラス | ネイティブ親クラス | 用途 |
-| ----- | ----- | ----- | ----- |
-| TargetType_HammerBurstPound | TargetType_SphereTrace | RPGTargetType | GA_PlayerHammerMelee の EffectContainerMap[Event.Montage.Player.Combo.BurstPound] |
-| TargetType_HammerGroundPound | TargetType_SphereTrace | RPGTargetType | GA_PlayerHammerMelee の EffectContainerMap[Event.Montage.Player.Combo.GroundPound] |
+| 名前 | 親クラス | 用途 |
+| ----- | ----- | ----- |
+| TargetType_HammerBurstPound | TargetType_SphereTrace | GA_PlayerHammerMelee の EffectContainerMap[Event.Montage.Player.Combo.BurstPound] |
+| TargetType_HammerGroundPound | TargetType_SphereTrace | GA_PlayerHammerMelee の EffectContainerMap[Event.Montage.Player.Combo.GroundPound] |
 
 ### ■ TargetType_HammerBurstPound
 ```yaml
@@ -369,9 +369,9 @@ Default:
 
 # ■ Abilities/Player/Sword の内容
 ## ■ アビリティクラス
-| 名前 | 親クラス | ネイティブ親クラス | 用途 |
-| ----- | ----- | ----- | ----- |
-| GA_PlayerSwordMelee | GA_MeleeBase | RPGGameplayAbility | ★登録先の確認 |
+| 名前 | 親クラス | 用途 |
+| ----- | ----- | ----- |
+| GA_PlayerSwordMelee | GA_MeleeBase | ★登録先の確認 |
 
 ### ■ GA_PlayerSwordMelee
 ```yaml
@@ -404,12 +404,12 @@ Tags:
 ```
 
 ## ■ アビリティエフェクトクラス
-| 名前 | 親クラス | ネイティブ親クラス | 用途 |
-| ----- | ----- | ----- | ----- |
-| GE_PlayerSwordChestKick | GE_RangeBase | GameplayEffect | GA_PlayerSwordMelee の EffectContainerMap[Event.Montage.Player.Combo.ChestKick] |
-| GE_PlayerSwordFrontalAttack | GE_RangeBase | GameplayEffect | GA_PlayerSwordMelee の EffectContainerMap[Event.Montage.Player.Combo.FrontalAttack] |
-| GE_PlayerSwordJumpSlam | GE_RangeBase | GameplayEffect | GA_PlayerSwordMelee の EffectContainerMap[Event.Montage.Player.Combo.JumpSlam] |
-| GE_PlayerSwordMelee | GE_MeleeBase | GameplayEffect | GA_PlayerSwordMelee の EffectContainerMap[Event.Montage.Shared.WeaponHit] |
+| 名前 | 親クラス | 用途 |
+| ----- | ----- | ----- |
+| GE_PlayerSwordChestKick | GE_RangeBase | GA_PlayerSwordMelee の EffectContainerMap[Event.Montage.Player.Combo.ChestKick] |
+| GE_PlayerSwordFrontalAttack | GE_RangeBase | GA_PlayerSwordMelee の EffectContainerMap[Event.Montage.Player.Combo.FrontalAttack] |
+| GE_PlayerSwordJumpSlam | GE_RangeBase | GA_PlayerSwordMelee の EffectContainerMap[Event.Montage.Player.Combo.JumpSlam] |
+| GE_PlayerSwordMelee | GE_MeleeBase | GA_PlayerSwordMelee の EffectContainerMap[Event.Montage.Shared.WeaponHit] |
 
 ### ■ GE_PlayerSwordChestKick
 GE_PlayerSwordFrontalAttack/GE_PlayerSwordJumpSlam も全く同じ設定。
@@ -456,11 +456,11 @@ Gameplay-Effect:
 
 
 ## ■ ターゲットタイプクラス
-| 名前 | 親クラス | ネイティブ親クラス | 用途 |
-| ----- | ----- | ----- | ----- |
-| TargetType_ChestKick | TargetType_SphereTrace | RPGTargetType | GA_PlayerSwordMelee の EffectContainerMap[Event.Montage.Player.Combo.ChestKick] |
-| TargetType_FrontalAttack | TargetType_SphereTrace | RPGTargetType | GA_PlayerSwordMelee の EffectContainerMap[Event.Montage.Player.Combo.FrontalAttack] |
-| TargetType_JumpSlam | TargetType_SphereTrace | RPGTargetType | GA_PlayerSwordMelee の EffectContainerMap[Event.Montage.Player.Combo.JumpSlam] |
+| 名前 | 親クラス | 用途 |
+| ----- | ----- | ----- |
+| TargetType_ChestKick | TargetType_SphereTrace | GA_PlayerSwordMelee の EffectContainerMap[Event.Montage.Player.Combo.ChestKick] |
+| TargetType_FrontalAttack | TargetType_SphereTrace | GA_PlayerSwordMelee の EffectContainerMap[Event.Montage.Player.Combo.FrontalAttack] |
+| TargetType_JumpSlam | TargetType_SphereTrace | GA_PlayerSwordMelee の EffectContainerMap[Event.Montage.Player.Combo.JumpSlam] |
 
 **※他と異なり、「TargetType_」の後に武器の名前が入っておらず、わかりづらい。**
 
@@ -493,20 +493,20 @@ Default:
 
 # ■ Abilities/Player/Skill の内容
 ## ■ Actorクラス
-| 名前 | 親クラス | ネイティブ親クラス | 用途 |
-| ----- | ----- | ----- | ----- |
-| BP_Fireball | BP_AbilityProjectileBase | Actor | 火の玉 |
-| BP_SlimBall | BP_AbilityProjectileBase | Actor | ヘドロ玉 |
+| 名前 | 親クラス | 用途 |
+| ----- | ----- | ----- |
+| BP_Fireball | BP_AbilityProjectileBase | 火の玉 |
+| BP_SlimBall | BP_AbilityProjectileBase | ヘドロ玉 |
 
 **★詳細は後で調べる**
 
 ## ■ アビリティクラス
-| 名前 | 親クラス | ネイティブ親クラス | 用途 |
+| 名前 | 親クラス | 用途 |
 | ----- | ----- | ----- | ----- |
-| GA_PlayerSkillFireball | GA_SpawnProjectileBase | RPGGameplayAbility | ★登録先の確認 |
-| GA_PlayerSkillFireWave | GA_SkillBase | RPGGameplayAbility | ★登録先の確認 |
-| GA_PlayerSkillMeteor | GA_SkillBase | RPGGameplayAbility | ★登録先の確認 |
-| GA_PlayerSkillMeteorStorm | GA_SkillBase | RPGGameplayAbility | ★登録先の確認 |
+| GA_PlayerSkillFireball | GA_SpawnProjectileBase | ★登録先の確認 |
+| GA_PlayerSkillFireWave | GA_SkillBase | ★登録先の確認 |
+| GA_PlayerSkillMeteor | GA_SkillBase | ★登録先の確認 |
+| GA_PlayerSkillMeteorStorm | GA_SkillBase | ★登録先の確認 |
 
 ### ■ GA_PlayerSkillFireball
 ```yaml
@@ -589,14 +589,14 @@ Cooldowns:
 ```
 
 ## ■ アビリティエフェクトクラス
-| 名前 | 親クラス | ネイティブ親クラス | 用途 |
-| ----- | ----- | ----- | ----- |
-| GE_PlayerSkillFireball | GE_RangeBase | GameplayEffect | GA_PlayerSkillFireball の EffectContainerMap[Event.Montage.Player.Combo.ChestKick] |
-| GE_PlayerSkillFireWave | GE_RangeBase | GameplayEffect | GA_PlayerSkillFireWave の EffectContainerMap[Event.Montage.Player.Combo.ChestKick] |
-| GE_PlayerSkillMeteor | GE_RangeBase | GameplayEffect | GA_PlayerSkillMeteor の EffectContainerMap[Event.Montage.Player.Combo.ChestKick] |
-| GE_PlayerSkillMeteorStorm | GE_RangeBase | GameplayEffect | GA_PlayerSkillMeteorStorm の EffectContainerMap[Event.Montage.Player.Combo.ChestKick] |
-| GE_PlayerSkillCooldown | GE_RangeBase | GameplayEffect | GA_PlayerSkillFireball/GA_PlayerSkillFireWave/GA_PlayerSkillMeteor/GA_PlayerSkillMeteorStorm の Cooldown |
-| GE_PlayerSkillManaCost | GE_RangeBase | GameplayEffect | GA_PlayerSkillFireball/GA_PlayerSkillFireWave/GA_PlayerSkillMeteor/GA_PlayerSkillMeteorStorm の Cost |
+| 名前 | 親クラス | 用途 |
+| ----- | ----- | ----- |
+| GE_PlayerSkillFireball | GE_RangeBase | GA_PlayerSkillFireball の EffectContainerMap[Event.Montage.Player.Combo.ChestKick] |
+| GE_PlayerSkillFireWave | GE_RangeBase | GA_PlayerSkillFireWave の EffectContainerMap[Event.Montage.Player.Combo.ChestKick] |
+| GE_PlayerSkillMeteor | GE_RangeBase | GA_PlayerSkillMeteor の EffectContainerMap[Event.Montage.Player.Combo.ChestKick] |
+| GE_PlayerSkillMeteorStorm | GE_RangeBase | GA_PlayerSkillMeteorStorm の EffectContainerMap[Event.Montage.Player.Combo.ChestKick] |
+| GE_PlayerSkillCooldown | GE_RangeBase | GA_PlayerSkillFireball/GA_PlayerSkillFireWave/GA_PlayerSkillMeteor/GA_PlayerSkillMeteorStorm の Cooldown |
+| GE_PlayerSkillManaCost | GE_RangeBase | GA_PlayerSkillFireball/GA_PlayerSkillFireWave/GA_PlayerSkillMeteor/GA_PlayerSkillMeteorStorm の Cost |
 
 ### ■ GE_PlayerSkillFireball
 ```yaml
@@ -719,11 +719,11 @@ Gameplay-Effect:
 ```
 
 ## ■ ターゲットタイプクラス
-| 名前 | 親クラス | ネイティブ親クラス | 用途 |
-| ----- | ----- | ----- | ----- |
-| TargetType_FireWave | TargetType_SphereTrace | RPGTargetType | GA_PlayerSkillFireWave の EffectContainerMap[Event.Montage.Shared.UseSkill] |
-| TargetType_Meteor | TargetType_SphereTrace | RPGTargetType | GA_PlayerSkillMeteor の EffectContainerMap[Event.Montage.Shared.UseSkill] |
-| TargetType_MeteorStorm | TargetType_SphereTrace | RPGTargetType | GA_PlayerSkillMeteorStorm の EffectContainerMap[Event.Montage.Shared.UseSkill] |
+| 名前 | 親クラス | 用途 |
+| ----- | ----- | ----- |
+| TargetType_FireWave | TargetType_SphereTrace | GA_PlayerSkillFireWave の EffectContainerMap[Event.Montage.Shared.UseSkill] |
+| TargetType_Meteor | TargetType_SphereTrace | GA_PlayerSkillMeteor の EffectContainerMap[Event.Montage.Shared.UseSkill] |
+| TargetType_MeteorStorm | TargetType_SphereTrace | GA_PlayerSkillMeteorStorm の EffectContainerMap[Event.Montage.Shared.UseSkill] |
 
 ### ■ TargetType_FireWave
 ```yaml
@@ -755,11 +755,11 @@ Default:
 
 # ■ Abilities/Player/Potion の内容
 ## ■ アビリティクラス
-| 名前 | 親クラス | ネイティブ親クラス | 用途 |
-| ----- | ----- | ----- | ----- |
-| GA_DeathsDoor | GA_PotionBase | RPGGameplayAbility | ★登録先の確認 |
-| GA_PotionHealth | GA_PotionBase | RPGGameplayAbility | ★登録先の確認 |
-| GA_PotionMana | GA_PotionBase | RPGGameplayAbility | ★登録先の確認 |
+| 名前 | 親クラス | 用途 |
+| ----- | ----- | ----- |
+| GA_DeathsDoor | GA_PotionBase | ★登録先の確認 |
+| GA_PotionHealth | GA_PotionBase | ★登録先の確認 |
+| GA_PotionMana | GA_PotionBase | ★登録先の確認 |
 
 ### ■ GA_DeathsDoor
 ```yaml
@@ -808,11 +808,11 @@ Tags:
 
 
 ## ■ アビリティエフェクトクラス
-| 名前 | 親クラス | ネイティブ親クラス | 用途 |
-| ----- | ----- | ----- | ----- |
-| GE_DeathsDoor | GE_HealBase | GameplayEffect | GA_DeathsDoor の EffectContainerMap[Event.Montage.Shared.UseItem] |
-| GE_PotionHealth | GE_HealBase | GameplayEffect | GA_PotionHealth の EffectContainerMap[Event.Montage.Shared.UseItem] |
-| GE_PotionMana | GE_HealBase | GameplayEffect | GA_PotionMana の EffectContainerMap[Event.Montage.Shared.UseItem] |
+| 名前 | 親クラス | 用途 |
+| ----- | ----- | ----- |
+| GE_DeathsDoor | GE_HealBase | GA_DeathsDoor の EffectContainerMap[Event.Montage.Shared.UseItem] |
+| GE_PotionHealth | GE_HealBase | GA_PotionHealth の EffectContainerMap[Event.Montage.Shared.UseItem] |
+| GE_PotionMana | GE_HealBase | GA_PotionMana の EffectContainerMap[Event.Montage.Shared.UseItem] |
 
 ### ■ GE_DeathsDoor
 ```yaml

@@ -1,19 +1,19 @@
 # ■ Abilities/Shared の内容
 
 ## ■ Actorクラス
-| 名前 | 親クラス | ネイティブ親クラス | 用途 |
-| ----- | ----- | ----- | ----- |
-| BP_AbilityProjectileBase | Actor | Actor | 発射物の基底 |
+| 名前 | 親クラス | 用途 |
+| ----- | ----- | ----- |
+| BP_AbilityProjectileBase | Actor | 発射物の基底 |
 
 **★EventGrapの内容確認**
 
 ## ■ アビリティクラス
-| 名前 | 親クラス | ネイティブ親クラス | 用途 |
-| ----- | ----- | ----- | ----- |
-| GA_MeleeBase | RPGGameplayAbility | RPGGameplayAbility | 近接攻撃の基底|
-| GA_PotionBase | RPGGameplayAbility | RPGGameplayAbility | ポーションの基底 |
-| GA_SkillBase | RPGGameplayAbility | RPGGameplayAbility | スキルの基底 |
-| GA_SpawnProjectileBase | RPGGameplayAbility | RPGGameplayAbility | 発射物をSpawnさせる基底 |
+| 名前 | 親クラス |  用途 |
+| ----- | ----- | ----- |
+| GA_MeleeBase | RPGGameplayAbility | 近接攻撃の基底|
+| GA_PotionBase | RPGGameplayAbility | ポーションの基底 |
+| GA_SkillBase | RPGGameplayAbility | スキルの基底 |
+| GA_SpawnProjectileBase | RPGGameplayAbility | 発射物をSpawnさせる基底 |
 
 **★EventGrapの内容確認**
 
@@ -82,14 +82,14 @@ Tags:
 ```
 
 ## ■ アビリティエフェクトクラス
-| 名前 | 親クラス | ネイティブ親クラス | 用途 |
-| ----- | ----- | ----- | ----- |
-| GE_DamageBase | GameplayEffect | GameplayEffect |  |
-| GE_DamageImmune | GameplayEffect | GameplayEffect |  |
-| GE_HealBase | GameplayEffect | GameplayEffect |  |
-| GE_MeleeBase | GE_DamageBase | GameplayEffect |  |
-| GE_RangedBase | GE_DamageBase | GameplayEffect |  |
-| GE_StatsBase | GameplayEffect | GameplayEffect |  |
+| 名前 | 親クラス | 用途 |
+| ----- | ----- | ----- |
+| GE_DamageBase | GameplayEffect | ダメージ計算の基底 |
+| GE_DamageImmune | GameplayEffect | ★ダメージ無効化の基底？ |
+| GE_HealBase | GameplayEffect | 回復計算の基底 |
+| GE_MeleeBase | GE_DamageBase | 近接攻撃のダメージ計算の基底 |
+| GE_RangedBase | GE_DamageBase | 遠隔攻撃のダメージ計算の基底 |
+| GE_StatsBase | GameplayEffect | 初期ステータス設定の基底 |
 
 ### ■ GE_DamageBase
 
@@ -186,9 +186,9 @@ Gameplay-Effect:
 
 ## ■ ターゲットタイプクラス
 
-| 名前 | 親クラス | ネイティブ親クラス | 用途 |
-| ----- | ----- | ----- | ----- |
-| TargetType_SphereTrace | RPGTargetType | RPGTargetType | SphereTraceをするターゲット選択基底 |
+| 名前 | 親クラス | 用途 |
+| ----- | ----- | ----- |
+| TargetType_SphereTrace | RPGTargetType | SphereTraceをするターゲット選択基底 |
 
 **★EventGrapの内容確認**
 

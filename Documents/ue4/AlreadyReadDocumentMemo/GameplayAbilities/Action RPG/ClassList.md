@@ -5,6 +5,12 @@
 ## ■ このファイルは何？
 クラス階層について調査したものです。
 
+# ■ Ability 関連で特徴的なこと
+* Ability のネイティブ基底クラスは「RPGGameplayAbility」
+* AbilityEffect のネイティブ基底クラスは「GameplayEffect」
+* Target のネイティブ基底クラスは「RPGTargetType」
+
+
 # ■ クラス継承ツリー
 Blueprintのものは名前の後に```[BP]```と記す。
 

@@ -3,6 +3,18 @@
 ## ■ このファイルは何？
  フォルダ構成について調査したものです。
 
+# ■ 階層ごとのドキュメント一覧
+* Content
+	* Abilities
+		* [DataTables](Content/Abilities/DataTables.md)
+		* [Enemies](Content/Abilities/Enemies.md)
+		* [Player](Content/Abilities/Player.md)
+		* [Shared](Content/Abilities/Shared.md)
+	* Animations
+		* [Boss.md](Content/Animations/Boss.md)
+		* [NPC.md](Content/Animations/NPC.md)
+
+
 # ■ ファイル一覧
 ## ■ Content/Abilitiesフォルダ
 ```
@@ -46,13 +58,15 @@ Abilities
    プレイヤー、敵で共用のものや基底のアビリティ用BP(GameplayAbility/GameplayEffect)置き場
 ```
 
-# ■ 階層ごとのドキュメント一覧
-* Content
-	* Abilities
-		* [DataTables](Content/Abilities/DataTables.md)
-		* [Enemies](Content/Abilities/Enemies.md)
-		* [Player](Content/Abilities/Player.md)
-		* [Shared](Content/Abilities/Shared.md)
+## ■ Content/Animationsフォルダ
+```
+Animations
+├─Boss
+│  Spider の Animation Montage 置き場。
+│
+└─NPC
+   Guardian(=Goblin) の Animation Montage 置き場。
+```
 
 ----
 以上。

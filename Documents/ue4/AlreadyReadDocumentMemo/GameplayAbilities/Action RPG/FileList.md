@@ -13,6 +13,8 @@
 	* Animations
 		* [Boss.md](Content/Animations/Boss.md)
 		* [NPC.md](Content/Animations/NPC.md)
+	* Assets
+		* [Sounds.md](Content/Assets.Sound.md)
 
 
 # ■ ファイル一覧
@@ -66,6 +68,56 @@ Animations
 │
 └─NPC
    Guardian(=Goblin) の Animation Montage 置き場。
+```
+
+## ■ Content/Assetsフォルダ
+```
+Assets
+└─Sounds
+  ├─Abilities
+  │  Fireball等のプレイヤースキル用の Sound Wave と Sound Cue
+  │
+  ├─Ambient
+  │  松明や風などの環境陰陽の Sound Wave と Sound Cue と Sound Attenuation
+  │
+  ├─AudioClasses
+  │  ボリューム等制御用の Sound Class と Sound Mix
+  │
+  ├─Character
+  │  プレイヤーキャラクターのアクション時のボイスや、足音やポーション等のSEの Sound Wave と Sound Cue
+  │
+  ├─Concurrency
+  │  同時再生数などを制御する Sound Concurrency
+  │
+  ├─Creatures
+  │ ├─Guardian
+  │ │  Guardian(=Goblin)のアクション時のボイスや、足音や攻撃、被ダメージ等のSEの Sound Wave と Sound Cue
+  │ │
+  │ └─Spider
+  │    Spiderのアクション時のボイスや、足音や攻撃、被ダメージの等SEの Sound Wave と Sound Cue
+  │
+  ├─Music
+  │ │  タイトルとゲーム中のBMGの Sound Wave と Sound Cue
+  │ │
+  │ └─Stingers
+  │    ゲームオーバー時のBMGの Sound Wave と Sound Cue
+  │
+  ├─UI
+  │  UI用の Sound Wave と Sound Cue
+  │
+  └─Weapons
+    │  炎を纏った剣のスイング用の Sound Wave と Sound Cue
+    │  サブフォルダにある音はその武器専用というわけではなく、モーション側から合う音を再生している
+    │  Widget からも再生している
+    │
+    ├─Axe
+    │  Axeのスイング用の Sound Wave と Sound Cue
+    │
+    ├─Hammer
+    │  Hammerのスイング用の Sound Wave と Sound Cue
+    │
+    └─Sword
+       Swordのスイング用の Sound Wave と Sound Cue
 ```
 
 ----

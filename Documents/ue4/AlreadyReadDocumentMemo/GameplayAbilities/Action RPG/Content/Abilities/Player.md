@@ -14,7 +14,7 @@ Gameplay-Effect:
      Magnitude-Calculation-Type: "Scalable Float"
      Scalable-Float-Magnitude:
       Raw: "1.0"
-      CurveTable: "StartingStats"
+      Curve-Table: "StartingStats"
       Record: "PlayerMaxHealth" #毒湧
   - Attrivute: "RPGAttributeSet_MaxMana"
     Modifier-Op: "Override"
@@ -22,7 +22,7 @@ Gameplay-Effect:
      Magnitude-Calculation-Type: "Scalable Float"
      Scalable-Float-Magnitude:
       Raw: "1.0"
-      CurveTable: "StartingStats"
+      Curve-Table: "StartingStats"
       Record: "PlayerMaxMana" #毒湧
   - Attrivute: "RPGAttributeSet_AttackPower"
     Modifier-Op: "Override"
@@ -30,7 +30,7 @@ Gameplay-Effect:
      Magnitude-Calculation-Type: "Scalable Float"
      Scalable-Float-Magnitude:
       Raw: "1.0"
-      CurveTable: "StartingStats"
+      Curve-Table: "StartingStats"
       Record: "PlayerAttackPower" #毒湧
   - Attrivute: "RPGAttributeSet_DefencePower"
     Modifier-Op: "Override"
@@ -38,7 +38,7 @@ Gameplay-Effect:
      Magnitude-Calculation-Type: "Scalable Float"
      Scalable-Float-Magnitude:
       Raw: "1.0"
-      CurveTable: "StartingStats"
+      Curve-Table: "StartingStats"
       Record: "PlayerDefencePower" #毒湧
   - Attrivute: "RPGAttributeSet_MoveSpeed"
     Modifier-Op: "Override"
@@ -46,7 +46,7 @@ Gameplay-Effect:
      Magnitude-Calculation-Type: "Scalable Float"
      Scalable-Float-Magnitude:
       Raw: "1.0"
-      CurveTable: "StartingStats"
+      Curve-Table: "StartingStats"
       Record: "PlayerMoveSpeed" #毒湧
 ```
 
@@ -104,7 +104,7 @@ Gameplay-Effect:
         Magnitude-Calculation-Type: "Scalabe Float"
         Scalable-Float-Magnitude:
          Raw: "1.0"
-         CurveTable: "AttackDamage"
+         Curve-Table: "AttackDamage"
          Record: "HeavyAttack" #特有
        Target-Tags:
         Ignore-Tags: "" #特有
@@ -125,7 +125,7 @@ Gameplay-Effect:
         Magnitude-Calculation-Type: "Scalabe Float"
         Scalable-Float-Magnitude:
          Raw: "1.0"
-         CurveTable: "AttackDamage"
+         Curve-Table: "AttackDamage"
          Record: "DefaultAttack"
        Target-Tags:
         Ignore-Tags: "Status.DamageImmune"
@@ -211,7 +211,7 @@ Gameplay-Effect:
         Magnitude-Calculation-Type: "Scalabe Float"
         Scalable-Float-Magnitude:
          Raw: "1.0"
-         CurveTable: "AttackDamage_Fire" #特有
+         Curve-Table: "AttackDamage_Fire" #特有
          Record: "HeavyAttack" #特有
        Target-Tags:
         Ignore-Tags: "" #特有
@@ -232,7 +232,7 @@ Gameplay-Effect:
         Magnitude-Calculation-Type: "Scalabe Float"
         Scalable-Float-Magnitude:
          Raw: "1.0"
-         CurveTable: "AttackDamage_Fire" #特有
+         Curve-Table: "AttackDamage_Fire" #特有
          Record: "DefaultAttack"
        Target-Tags:
         Ignore-Tags: "" #特有
@@ -317,7 +317,7 @@ Gameplay-Effect:
         Magnitude-Calculation-Type: "Scalabe Float"
         Scalable-Float-Magnitude:
          Raw: "1.0"
-         CurveTable: "AttackDamage_Hammer" #特有
+         Curve-Table: "AttackDamage_Hammer" #特有
          Record: "HeavyAttack" #特有
        Target-Tags:
         Ignore-Tags: "" #特有
@@ -338,7 +338,7 @@ Gameplay-Effect:
         Magnitude-Calculation-Type: "Scalabe Float"
         Scalable-Float-Magnitude:
          Raw: "1.0"
-         CurveTable: "AttackDamage_Hammer" #特有
+         Curve-Table: "AttackDamage_Hammer" #特有
          Record: "DefaultAttack"
        Target-Tags:
         Ignore-Tags: "" #特有
@@ -427,7 +427,7 @@ Gameplay-Effect:
         Magnitude-Calculation-Type: "Scalabe Float"
         Scalable-Float-Magnitude:
          Raw: "1.0"
-         CurveTable: "AttackDamage_Sword" #特有
+         Curve-Table: "AttackDamage_Sword" #特有
          Record: "HeavyAttack" #特有
        Target-Tags:
         Ignore-Tags: "" #特有
@@ -448,7 +448,7 @@ Gameplay-Effect:
         Magnitude-Calculation-Type: "Scalabe Float"
         Scalable-Float-Magnitude:
          Raw: "1.0"
-         CurveTable: "AttackDamage_Sword" #特有
+         Curve-Table: "AttackDamage_Sword" #特有
          Record: "DefaultAttack"
        Target-Tags:
         Ignore-Tags: "" #特有
@@ -613,7 +613,7 @@ Gameplay-Effect:
         Magnitude-Calculation-Type: "Scalabe Float"
         Scalable-Float-Magnitude:
          Raw: "1.5" #特有
-         CurveTable: "AttackDamage"
+         Curve-Table: "AttackDamage"
          Record: "DefaultAttack"
        Target-Tags:
         Ignore-Tags: "" #特有
@@ -634,7 +634,7 @@ Gameplay-Effect:
         Magnitude-Calculation-Type: "Scalabe Float"
         Scalable-Float-Magnitude:
          Raw: "1.0" #特有
-         CurveTable: "AttackDamage"
+         Curve-Table: "AttackDamage"
          Record: "HeavyAttack"
        Target-Tags:
         Ignore-Tags: "" #特有
@@ -655,7 +655,7 @@ Gameplay-Effect:
         Magnitude-Calculation-Type: "Scalabe Float"
         Scalable-Float-Magnitude:
          Raw: "1.0" #特有
-         CurveTable: "AttackDamage"
+         Curve-Table: "AttackDamage"
          Record: "MediumAttack"
        Target-Tags:
         Ignore-Tags: "" #特有
@@ -676,7 +676,7 @@ Gameplay-Effect:
         Magnitude-Calculation-Type: "Scalabe Float"
         Scalable-Float-Magnitude:
          Raw: "1.0" #特有
-         CurveTable: "AttackDamage"
+         Curve-Table: "AttackDamage"
          Record: "HeavyAttack"
        Target-Tags:
         Ignore-Tags: "" #特有

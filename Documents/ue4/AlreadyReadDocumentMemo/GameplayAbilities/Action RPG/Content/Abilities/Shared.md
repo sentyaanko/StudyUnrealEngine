@@ -110,7 +110,7 @@ Gameplay-Effect:
         Magnitude-Calculation-Type: "Scalabe Float"
         Scalable-Float-Magnitude:
          Raw: "1.0"
-         CurveTable: "AttackDamage"
+         Curve-Table: "AttackDamage"
          Record: "DefaultAttack"
        Target-Tags:
         Ignore-Tags: "Status.DamageImmune"
@@ -148,7 +148,7 @@ Gameplay-Effect:
      Magnitude-Calculation-Type: "Scalable Float"
      Scalable-Float-Magnitude:
       Raw: "1.0"
-      CurveTable: "StartingStats"
+      Curve-Table: "StartingStats"
       Record: "DefaultMaxHealth"
   - Attrivute: "RPGAttributeSet_MaxMana"
     Modifier-Op: "Override"
@@ -156,7 +156,7 @@ Gameplay-Effect:
      Magnitude-Calculation-Type: "Scalable Float"
      Scalable-Float-Magnitude:
       Raw: "1.0"
-      CurveTable: "StartingStats"
+      Curve-Table: "StartingStats"
       Record: "DefaultMaxMana"
   - Attrivute: "RPGAttributeSet_AttackPower"
     Modifier-Op: "Override"
@@ -164,7 +164,7 @@ Gameplay-Effect:
      Magnitude-Calculation-Type: "Scalable Float"
      Scalable-Float-Magnitude:
       Raw: "1.0"
-      CurveTable: "StartingStats"
+      Curve-Table: "StartingStats"
       Record: "DefaultAttackPower"
   - Attrivute: "RPGAttributeSet_DefencePower"
     Modifier-Op: "Override"
@@ -172,7 +172,7 @@ Gameplay-Effect:
      Magnitude-Calculation-Type: "Scalable Float"
      Scalable-Float-Magnitude:
       Raw: "1.0"
-      CurveTable: "StartingStats"
+      Curve-Table: "StartingStats"
       Record: "DefaultDefencePower"
   - Attrivute: "RPGAttributeSet_MoveSpeed"
     Modifier-Op: "Override"
@@ -180,7 +180,7 @@ Gameplay-Effect:
      Magnitude-Calculation-Type: "Scalable Float"
      Scalable-Float-Magnitude:
       Raw: "1.0"
-      CurveTable: "StartingStats"
+      Curve-Table: "StartingStats"
       Record: "DefaultMoveSpeed"
 ```
 

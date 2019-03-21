@@ -10,7 +10,7 @@
 
 ## ■ ダメージ計算用
 | 名前 | 用途 |
-| ----- | ----- | ----- |
+| ----- | ----- |
 | AttackDamage | ★Axe と Goblin のダメージ計算用？<br>Axe の BurstPound/GroundPound/Melee にて利用。<br>Goblin の Melee/Range にて利用。<br>Fireball/FireWave/Meteor/MeteorStorm にて利用。<br>DamageBase/RangedBase/MeleeBase にて利用<br>HealBase にて利用。 |
 | AttackDamage_Fire | ★FireAxe のダメージ計算用？<br>FireAxe  の BurstPound/GroundPound/Melee にて利用。<br>**※Axeを略しているのがここだけなので分かりにくい。** |
 | AttackDamage_Hammer | ★Hammer のダメージ計算用？<br>Hammer の BurstPound/GroundPound/Melee にて利用。 |

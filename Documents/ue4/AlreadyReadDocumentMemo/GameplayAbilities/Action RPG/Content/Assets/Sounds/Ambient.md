@@ -9,7 +9,7 @@
 ## ■ SoundCue 一覧
 | ファイル名 | 用途 | 用途 |
 | ----- | ----- | ----- |
-| A_Ambient_Fire01_Cue | BP_Fireball | AudioComponentのソースで指定 |
+| A_Ambient_Fire01_Cue | BP_Fireball | AudioComponent のソースで指定 |
 | | ActionRPG_P | シーン上の松明に合わせて配置 |
 | A_Ambient_Wind02_Cue | ActionRPG_P | シーン上に配置 |
 

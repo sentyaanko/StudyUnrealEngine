@@ -1,6 +1,6 @@
 # ■ GameplayAbilitySystem
 
-**このファイルはActionRPGのサンプルを見る前に書いたものなので不完全です。**
+**このファイルは ActionRPG のサンプルを見る前に書いたものなので不完全です。**
 
 ## ■ このファイルは何？
 公式の GameplayAbilitySystem の概要ページについて簡単にまとめたもの。
@@ -18,9 +18,9 @@ https://docs.unrealengine.com/en-us/Gameplay/GameplayAbilitySystem/GameplayAttri
 ## ■ 概要
 * GameplayAttributes と GameplayEffects の概要がまとめられている。
 * GameplayAttributes は「ゲームルール内の属性値である」「C++ で実装する必要がある」といったことがまとめられている。
-* GameplayEffects については「ゲームルール内の属性値に影響をあたるものである」「BluePrint上の主なプロパティの意味」といったことがまとめられている。
+* GameplayEffects については「ゲームルール内の属性値に影響をあたるものである」「 BluePrint 上の主なプロパティの意味」といったことがまとめられている。
 
-## ■ BluePrint上の主なプロパティの意味
+## ■ BluePrint 上の主なプロパティの意味
 * Duration
 	* そのまま、継続時間。
 	* エフェクト等のタイミング制御にも利用。
@@ -34,7 +34,7 @@ https://docs.unrealengine.com/en-us/Gameplay/GameplayAbilitySystem/GameplayAttri
 	* どのように制限をかけることができるかは要調査。
 		* サンプルを見るのがよさげ。
 * Granted Abilities
-	* 例えば「火炎攻撃」は「オイルを被った状態の敵」に対して「燃焼ダメージ（パーティクル等のエフェクト付き）」を付与（Grant）する為の設定を行うもの、らしい。
+	* 例えば「火炎攻撃」は「オイルを被った状態の敵」に対して「燃焼ダメージ（パーティクル等のエフェクト付き）」を付与（ Grant ）する為の設定を行うもの、らしい。
 		* 「火炎攻撃」自体はこの Gameplay Effects の特性？それとも Gameplay Abilities を見て判断？（通常攻撃に火炎属性を付与されている状態かどうか、など）
 		* 「オイルを被った状態の敵」という判断はどこで行うのか？受け側か？
 		* 「燃焼ダメージ（パーティクル等のエフェクト付き）」を Granted Abilities で設定するのか？
@@ -48,14 +48,14 @@ https://docs.unrealengine.com/en-us/Gameplay/GameplayAbilitySystem/GameplayAttri
 	* ネットワークを考慮した、(パーティクルや音の)エフェクト制御の仕組みを Gameplay Ability System で行うための設定項目。
 	* GameplayEffects の設定の中で Gameplay Cue の設定を行う際、タグの命名規則として「"GameplayCue."から始めること」とある。
 		* 現状作成済みのサンプルではそれに沿っていないので調整すること。
-		* GameplayCueNotify_Actor派生クラスを利用しているので、反応できているのだろうか？
-	* GameplayCue ManagerやIGameplayCueInterfaceが関連しているらしい。シングル、マルチでも状況が異なるらしい。要調査。
+		* GameplayCueNotify_Actor 派生クラスを利用しているので、反応できているのだろうか？
+	* GameplayCue Manager や IGameplayCueInterface が関連しているらしい。シングル、マルチでも状況が異なるらしい。要調査。
 		* サンプルを見るのがよさげ。
 
 ## ■ USimpleAttributeSet のインターフェイスの用途
 * PreAttributeChange/PreAttributeBaseChange
 	* Attribute を変更する直前に呼ばれる。
-	* 値の範囲チェックなどを行う場合に利用する。(0-255に抑制する、など)
+	* 値の範囲チェックなどを行う場合に利用する。(0-255 に抑制する、など)
 	* ゲームの反応を起こしてはいけない。(エフェクトを発生させる、など)
 * PreGameplayEffectExecute
 	* 値を反映する直前に呼ばれる。
@@ -98,13 +98,13 @@ https://docs.unrealengine.com/en-us/Gameplay/GameplayAbilitySystem/GameplayAttri
 | Cancel Abilities With Tag | ここで指定したタグを持つ実行中のアビリティをキャンセルする |
 | Block Abilities With Tag | ここで指定したタグを持つアビリティの実行を防ぐ |
 | Activation Owner Tags | ここで指定したタグをアビリティ実行中 Owner Actor に持たせる |
-| Activation Required Tags | ここで指定したすべてのタグを、Owner Actor or Component が持っているときに限り実行できる |
-| Activation Block Tags | ここで指定したいずれかのタグを、Owner Actor or Component が持っているとき実行を防ぐ |
-| Target Required Tags | ここで指定したすべてのタグを、Target Actor or Component が持っているときに限り実行できる |
-| Target Blocked Tags | ここで指定したいずれかのタグを、Target Actor or Component が持っているとき実行を防ぐ |
+| Activation Required Tags | ここで指定したすべてのタグを、 Owner Actor or Component が持っているときに限り実行できる |
+| Activation Block Tags | ここで指定したいずれかのタグを、 Owner Actor or Component が持っているとき実行を防ぐ |
+| Target Required Tags | ここで指定したすべてのタグを、 Target Actor or Component が持っているときに限り実行できる |
+| Target Blocked Tags | ここで指定したいずれかのタグを、 Target Actor or Component が持っているとき実行を防ぐ |
 
 ## ■ GameplayAbility の Replication と Gameplay Net Execution Policy
-ネットワーク帯域とCPU占有率調整のための Gameplay Ability の複製ポリシーの仕組みの説明。
+ネットワーク帯域と CPU 占有率調整のための Gameplay Ability の複製ポリシーの仕組みの説明。
 
 | Advanced/Net Execution Policy の各値 | 意味 |
 | ---- | ---- |
@@ -118,14 +118,14 @@ GameplayAbility 実行 Actor が多い場合のオブジェクト生成負荷調
 
 | Advanced/Instancing Policy の各値 | 意味 |
 | ---- | ---- |
-| Instanced per Execution | 実行ごとにインスタンス化する方法。まれに実行するアビリティ（Ultとか)に向く。 |
-| Instanced per Actor | インスタンス化したActorを使いまわす方法。 |
-| Non-Instanced | インスタンス化しないActorを使う方法。ClassDefaultObjectを利用する。プロパティ値を個別に設定できない。BasicAttack等に向く。 |
+| Instanced per Execution | 実行ごとにインスタンス化する方法。まれに実行するアビリティ（ Ult とか)に向く。 |
+| Instanced per Actor | インスタンス化した Actor を使いまわす方法。 |
+| Non-Instanced | インスタンス化しない Actor を使う方法。 ClassDefaultObject を利用する。プロパティ値を個別に設定できない。 BasicAttack 等に向く。 |
 
 ## ■ Gameplay の Event について
 * GameplayAbility 直接 Ablity をトリガーする方法と、その際に渡すことができる FGameplayEventData ついての説明。  
 	* 独自のデータを渡したい場合は FGameplayEventData::ContextHandle polymorphic を利用する。
-	* その場合、ActivateAbility を使わずその代わりに ActivateAbilityFromEvent を使うことになるらしい。
+	* その場合、 ActivateAbility を使わずその代わりに ActivateAbilityFromEvent を使うことになるらしい。
 		* 正直に何のどこを指しているのか不明瞭。
 		* サンプルを見るのがよさげ。
 

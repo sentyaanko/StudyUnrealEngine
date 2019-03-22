@@ -29,22 +29,22 @@
 ## ■ SoundCue 一覧
 | ファイル名 | 呼び出し元 | 属性 |
 | ----- | ----- | ----- |
-| A_Guardian_Attack_Cue | Enemy_Anim_Sword_Combat_Swing | Notifiesで指定 |
+| A_Guardian_Attack_Cue | Enemy_Anim_Sword_Combat_Swing | Notifies で指定 |
 | A_Guardian_Cast_Cue | SQ_Intro_Master | Audio で指定 |
 | A_Guardian_Cast2_Cue | SQ_Intro_Master | Audio で指定 |
-| A_Guardian_Death_Cue | Death | Notifiesで指定 |
-| | Death_Small_03 | Notifiesで指定 |
-| | Death_Small_05 | Notifiesで指定 |
-| A_Guardian_Footstep_Cue | Gruntling_Run | Notifiesで指定(4回) |
-| | Gruntling_Walk | Notifiesで指定(2回) |
-| | Gruntling_Walk_Slow | Notifiesで指定(2回) |
-| | Intro_ClimbingUp | Notifiesで指定(2回) |
-| A_Guardian_ImpactL_Cue | React_Heavy_Front | Notifiesで指定 |
-| | React_Knockback_Front | Notifiesで指定 |
-| A_Guardian_Roar_02_Cue | AM_Guardian_Attack02 | Notifiesで指定 |
+| A_Guardian_Death_Cue | Death | Notifies で指定 |
+| | Death_Small_03 | Notifies で指定 |
+| | Death_Small_05 | Notifies で指定 |
+| A_Guardian_Footstep_Cue | Gruntling_Run | Notifies で指定(4回) |
+| | Gruntling_Walk | Notifies で指定(2回) |
+| | Gruntling_Walk_Slow | Notifies で指定(2回) |
+| | Intro_ClimbingUp | Notifies で指定(2回) |
+| A_Guardian_ImpactL_Cue | React_Heavy_Front | Notifies で指定 |
+| | React_Knockback_Front | Notifies で指定 |
+| A_Guardian_Roar_02_Cue | AM_Guardian_Attack02 | Notifies で指定 |
 | | SQ_Intro_Master | Audio で指定(2回) |
 | A_Guardian_Roar_03_Cue | SQ_Intro_Master | Audio で指定 |
-| A_Guardian_Spawn_Cue | Intro_Summon | Notifiesで指定 |
+| A_Guardian_Spawn_Cue | Intro_Summon | Notifies で指定 |
 | | SQ_Intro_Master | Audio で指定 |
 
 # ■ Assets/Sounds/Creatures/Spider の内容
@@ -73,40 +73,40 @@
 ## ■ SoundCue 一覧
 | ファイル名 | 呼び出し元 | 属性 |
 | ----- | ----- | ----- |
-| A_Spider_Attack_Cue | ExoGame_Greater_Spider_Attack_Melee | Notifiesで指定 |
-| | ExoGame_Greater_Spider_Attack_Melee_B | Notifiesで指定 |
-| | ExoGame_Greater_Spider_Attack_Melee_C | Notifiesで指定 |
-| A_Spider_AttackVocal_Cue | ExoGame_Greater_Spider_Attack_Melee | Notifiesで指定 |
-| | ExoGame_Greater_Spider_Attack_Melee_B | Notifiesで指定 |
-| | ExoGame_Greater_Spider_Attack_Melee_C | Notifiesで指定 |
-| A_Spider_Charge_Cue | ExoGame_Greater_Spider_Charge | Notifiesで指定 |
-| A_Spider_Death_Cue | ExoGame_Greater_Spider_Death | Notifiesで指定 |
-| A_Spider_Land_Cue | ExoGame_Greater_Spider_Teleport | Notifiesで指定 |
-| A_Spider_LegLrg_Cue | ExoGame_Greater_Spider_Attack_Melee | Notifiesで指定(3回) |
-| | ExoGame_Greater_Spider_Attack_Melee_B | ExoGame_Greater_Spider_Attack_Melee | Notifiesで指定(2回) |
-| | ExoGame_Greater_Spider_Attack_Melee_C | Notifiesで指定 |
-| | ExoGame_Greater_Spider_Charge | Notifiesで指定(3回)  |
-| | ExoGame_Greater_Spider_Death | Notifiesで指定 |
-| | ExoGame_Greater_Spider_Idle | Notifiesで指定(2回) |
-| | ExoGame_Greater_Spider_React_Heavy_Front | Notifiesで指定(2回) |
-| | ExoGame_Greater_Spider_React_Stunned | Notifiesで指定(3回) |
-| | ExoGame_Greater_Spider_React_Stunned_Enter | Notifiesで指定(2回) |
-| | ExoGame_Greater_Spider_React_Stunned_Exit | Notifiesで指定(2回) |
-| | ExoGame_Greater_Spider_Teleport | Notifiesで指定 |
-| | ExoGame_Greater_Spider_Walk_Fwd | Notifiesで指定(2回) |
-| | ExoGame_Greater_Spider_Walk_Left | Notifiesで指定(2回) |
-| | ExoGame_Greater_Spider_Walk_Right | Notifiesで指定(2回) |
-| A_Spider_React_Cue | ExoGame_Greater_Spider_Charge | Notifiesで指定 |
-| | ExoGame_Greater_Spider_React_Heavy_Front | Notifiesで指定 |
-| | ExoGame_Greater_Spider_React_Stunned | Notifiesで指定(2回) |
-| | ExoGame_Greater_Spider_React_Stunned_Enter | Notifiesで指定 |
-| | ExoGame_Greater_Spider_React_Stunned_Exit | Notifiesで指定 |
-| A_Spider_Spawn_Cue | ExoGame_Greater_Spider_Teleport | Notifiesで指定 |
-| A_Spider_Stun_Cue | ExoGame_Greater_Spider_React_Stunned | Notifiesで指定 |
-| | ExoGame_Greater_Spider_React_Stunned_Idle | Notifiesで指定 |
-| A_Spider_WalkLoop_Cue | ExoGame_Greater_Spider_Walk_Fwd | Notifiesで指定 |
-| | ExoGame_Greater_Spider_Walk_Left | Notifiesで指定 |
-| | ExoGame_Greater_Spider_Walk_Right | Notifiesで指定 |
+| A_Spider_Attack_Cue | ExoGame_Greater_Spider_Attack_Melee | Notifies で指定 |
+| | ExoGame_Greater_Spider_Attack_Melee_B | Notifies で指定 |
+| | ExoGame_Greater_Spider_Attack_Melee_C | Notifies で指定 |
+| A_Spider_AttackVocal_Cue | ExoGame_Greater_Spider_Attack_Melee | Notifies で指定 |
+| | ExoGame_Greater_Spider_Attack_Melee_B | Notifies で指定 |
+| | ExoGame_Greater_Spider_Attack_Melee_C | Notifies で指定 |
+| A_Spider_Charge_Cue | ExoGame_Greater_Spider_Charge | Notifies で指定 |
+| A_Spider_Death_Cue | ExoGame_Greater_Spider_Death | Notifies で指定 |
+| A_Spider_Land_Cue | ExoGame_Greater_Spider_Teleport | Notifies で指定 |
+| A_Spider_LegLrg_Cue | ExoGame_Greater_Spider_Attack_Melee | Notifies で指定(3回) |
+| | ExoGame_Greater_Spider_Attack_Melee_B | ExoGame_Greater_Spider_Attack_Melee | Notifies で指定(2回) |
+| | ExoGame_Greater_Spider_Attack_Melee_C | Notifies で指定 |
+| | ExoGame_Greater_Spider_Charge | Notifies で指定(3回)  |
+| | ExoGame_Greater_Spider_Death | Notifies で指定 |
+| | ExoGame_Greater_Spider_Idle | Notifies で指定(2回) |
+| | ExoGame_Greater_Spider_React_Heavy_Front | Notifies で指定(2回) |
+| | ExoGame_Greater_Spider_React_Stunned | Notifies で指定(3回) |
+| | ExoGame_Greater_Spider_React_Stunned_Enter | Notifies で指定(2回) |
+| | ExoGame_Greater_Spider_React_Stunned_Exit | Notifies で指定(2回) |
+| | ExoGame_Greater_Spider_Teleport | Notifies で指定 |
+| | ExoGame_Greater_Spider_Walk_Fwd | Notifies で指定(2回) |
+| | ExoGame_Greater_Spider_Walk_Left | Notifies で指定(2回) |
+| | ExoGame_Greater_Spider_Walk_Right | Notifies で指定(2回) |
+| A_Spider_React_Cue | ExoGame_Greater_Spider_Charge | Notifies で指定 |
+| | ExoGame_Greater_Spider_React_Heavy_Front | Notifies で指定 |
+| | ExoGame_Greater_Spider_React_Stunned | Notifies で指定(2回) |
+| | ExoGame_Greater_Spider_React_Stunned_Enter | Notifies で指定 |
+| | ExoGame_Greater_Spider_React_Stunned_Exit | Notifies で指定 |
+| A_Spider_Spawn_Cue | ExoGame_Greater_Spider_Teleport | Notifies で指定 |
+| A_Spider_Stun_Cue | ExoGame_Greater_Spider_React_Stunned | Notifies で指定 |
+| | ExoGame_Greater_Spider_React_Stunned_Idle | Notifies で指定 |
+| A_Spider_WalkLoop_Cue | ExoGame_Greater_Spider_Walk_Fwd | Notifies で指定 |
+| | ExoGame_Greater_Spider_Walk_Left | Notifies で指定 |
+| | ExoGame_Greater_Spider_Walk_Right | Notifies で指定 |
 
 ----
 以上。

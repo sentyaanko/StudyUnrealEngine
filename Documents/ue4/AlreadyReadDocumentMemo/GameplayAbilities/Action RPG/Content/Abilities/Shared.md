@@ -1,11 +1,11 @@
 # ■ Abilities/Shared の内容
 
-## ■ Actorクラス
+## ■ Actor クラス
 | 名前 | 親クラス | 用途 |
 | ----- | ----- | ----- |
 | BP_AbilityProjectileBase | Actor | 発射物の基底 |
 
-**★EventGrapの内容確認**
+**★ EventGrap の内容確認**
 
 ## ■ アビリティクラス
 | 名前 | 親クラス |  用途 |
@@ -13,9 +13,9 @@
 | GA_MeleeBase | RPGGameplayAbility | 近接攻撃の基底|
 | GA_PotionBase | RPGGameplayAbility | ポーションの基底 |
 | GA_SkillBase | RPGGameplayAbility | スキルの基底 |
-| GA_SpawnProjectileBase | RPGGameplayAbility | 発射物をSpawnさせる基底 |
+| GA_SpawnProjectileBase | RPGGameplayAbility | 発射物を Spawn させる基底 |
 
-**★EventGrapの内容確認**
+**★ EventGrap の内容確認**
 
 ### ■ GA_MeleeBase
 ```yaml
@@ -65,7 +65,7 @@ Tags:
 ### ■ GA_SpawnProjectileBase
 
 * Skill の一種。
-* このクラスを派生し、BP Ability Projectile の変数を設定することでFireballのような飛び道具を扱える。
+* このクラスを派生し、 BP Ability Projectile の変数を設定することで Fireball のような飛び道具を扱える。
 
 ```yaml
 Default:
@@ -94,7 +94,7 @@ Tags:
 ### ■ GE_DamageBase
 
 * GE_MeleeBase/GE_RangedBase も全く同じ設定。
-* GE_Range**d**Base、これだけd付き。わかりづらい。
+* GE_Range**d**Base 、これだけ d 付き。わかりづらい。
 
 ```yaml
 Gameplay-Effect:
@@ -188,9 +188,9 @@ Gameplay-Effect:
 
 | 名前 | 親クラス | 用途 |
 | ----- | ----- | ----- |
-| TargetType_SphereTrace | RPGTargetType | SphereTraceをするターゲット選択基底 |
+| TargetType_SphereTrace | RPGTargetType | SphereTrace をするターゲット選択基底 |
 
-**★EventGrapの内容確認**
+**★ EventGrap の内容確認**
 
 
 ----

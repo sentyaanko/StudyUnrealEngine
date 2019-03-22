@@ -11,10 +11,10 @@
 ## ■ ダメージ計算用
 | 名前 | 用途 |
 | ----- | ----- |
-| AttackDamage | ★Axe と Goblin のダメージ計算用？<br>Axe の BurstPound/GroundPound/Melee にて利用。<br>Goblin の Melee/Range にて利用。<br>Fireball/FireWave/Meteor/MeteorStorm にて利用。<br>DamageBase/RangedBase/MeleeBase にて利用<br>HealBase にて利用。 |
-| AttackDamage_Fire | ★FireAxe のダメージ計算用？<br>FireAxe  の BurstPound/GroundPound/Melee にて利用。<br>**※Axeを略しているのがここだけなので分かりにくい。** |
-| AttackDamage_Hammer | ★Hammer のダメージ計算用？<br>Hammer の BurstPound/GroundPound/Melee にて利用。 |
-| AttackDamage_Sword | ★Sword のダメージ計算用？<br>Sword の ChestKick/FrontalAttack/JumpSlam にて利用。 |
+| AttackDamage |  ★ Axe と Goblin のダメージ計算用？<br>Axe の BurstPound/GroundPound/Melee にて利用。<br>Goblin の Melee/Range にて利用。<br>Fireball/FireWave/Meteor/MeteorStorm にて利用。<br>DamageBase/RangedBase/MeleeBase にて利用<br>HealBase にて利用。 |
+| AttackDamage_Fire | ★ FireAxe のダメージ計算用？<br>FireAxe  の BurstPound/GroundPound/Melee にて利用。<br>**※ Axe を略しているのがここだけなので分かりにくい。** |
+| AttackDamage_Hammer | ★ Hammer のダメージ計算用？<br>Hammer の BurstPound/GroundPound/Melee にて利用。 |
+| AttackDamage_Sword | ★ Sword のダメージ計算用？<br>Sword の ChestKick/FrontalAttack/JumpSlam にて利用。 |
 
 * カラムはすべて1-10
 * レコードは3行で下記の表のとおり。
@@ -25,7 +25,7 @@
 | MediumAttack | ★中威力攻撃？<br>PlayerSkill の Meteor にて利用。 |
 | HeavyAttack | ★大威力攻撃？<br>Axe/FireAxe/Hammer の BurstPound/GroundPound にて利用。<br>Sword の ChestKick/FrontalAttack/JumpSlam にて利用。<br>PlayerSkill の FireWave/MeteorStorm にて利用。<br>Potion の DeathsDoor/PotionHealth/PotionMana にて利用。<br>HealBase にて利用。 |
 
-* Spider は Clow を使用するが、 RangedBase を利用している為、「Curve Table:AttackDamage、Record:DefaultAttack」を参照する。
+* Spider は Clow を使用するが、 RangedBase を利用している為、「 Curve Table:AttackDamage 、 Record:DefaultAttack 」を参照する。
 * 結局どういうことかというと以下の通り。
 
 | 分類 | 武器 | スキル | 使用テーブル | DefaultAttack | MediumAttack | HeavyAttack |

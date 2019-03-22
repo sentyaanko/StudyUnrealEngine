@@ -6,21 +6,21 @@
 クラス階層について調査したものです。
 
 # ■ Ability 関連で特徴的なこと
-* Ability のネイティブ基底クラスは「RPGGameplayAbility」
-* AbilityEffect のネイティブ基底クラスは「GameplayEffect」
-* Target のネイティブ基底クラスは「RPGTargetType」
+* Ability のネイティブ基底クラスは「 RPGGameplayAbility 」
+* AbilityEffect のネイティブ基底クラスは「 GameplayEffect 」
+* Target のネイティブ基底クラスは「 RPGTargetType 」
 
 
 # ■ クラス継承ツリー
-Blueprintのものは名前の後に```[BP]```と記す。
+Blueprint のものは名前の後に ```[BP]``` と記す。
 
 * **★とりあえず関係しそうなものは全部書き出したけど、実際関係ないものも混ざっているはず。**
 
-## ■ Actorサブクラス
+## ■ Actor サブクラス
 ```
 Actor
 ├─BP_AbilityProjectileBase[BP]
-│ │APRG::スキルの発射物用基底Actor
+│ │APRG::スキルの発射物用基底 Actor
 │ │
 │ ├─BP_Fireball[BP]
 │ │  APRG::スキル用の火の玉
@@ -29,14 +29,14 @@ Actor
 │    APRG::スキル用のヘドロの玉
 │
 ├─BP_Pickup_Hambone
-│  APRG::Pickup用の骨付きハム
+│  APRG::Pickup 用の骨付きハム
 │
 ├─BP_SoulItem
-│  APRG::敵を倒すと落とす、アイテム交換などに使うSoul
+│  APRG::敵を倒すと落とす、アイテム交換などに使う Soul
 │
 ├─Controller
 │ ├─AIController
-│ │ │ AIModule::★以下、Ability から話がそれるので割愛
+│ │ │ AIModule::★以下、 Ability から話がそれるので割愛
 │ │ │
 │ │ ├─AIC_Boss[BP]
 │ │ ├─AIC_NPC[BP]
@@ -48,10 +48,10 @@ Actor
 │     │  ARPG::インベントリ関係のアクセスがこのクラスから可能になっている。
 │     │
 │     └─BP_PlayerControllerBase[BP]
-│        ARPG::HUDとの連携や入力制御等
+│        ARPG::HUD との連携や入力制御等
 │
 ├─GameplayAbilityTargetActor
-│ │GameplayAbilities::★ARPGではこのツリー以下未使用と思われる
+│ │GameplayAbilities::★ ARPG ではこのツリー以下未使用と思われる
 │ │
 │ ├─GameplayAbilityTargetActor_Radius
 │ └─GameplayAbilityTargetActor_Trace
@@ -60,16 +60,16 @@ Actor
 │   └─GameplayAbilityTargetActor_SingleLineTrace
 │
 ├─GameplayAbilityWorldReticle
-│ │GameplayAbilities::★ARPGではこのツリー以下未使用と思われる
+│ │GameplayAbilities::★ ARPG ではこのツリー以下未使用と思われる
 │ │
 │ └─GameplayAbilityWorldReticle_ActorVisualization
 │
 ├─GameplayCueNotify_Actor
-│  GameplayAbilities::★ARPGでは未使用と思われる
+│  GameplayAbilities::★ ARPG では未使用と思われる
 │
 ├─HUD
 │ └─AbilitySystemDebugHUD
-│    GameplayAbilities::★ARPGでは未使用と思われる
+│    GameplayAbilities::★ ARPG では未使用と思われる
 │
 ├─Info
 │ │─GameModeBase
@@ -89,7 +89,7 @@ Actor
 │
 ├─Pawn
 │ ├─Character
-│ │ │ARPG::★以下、プレイヤーと敵のCharacterクラス
+│ │ │ARPG::★以下、プレイヤーと敵の Character クラス
 │ │ │
 │ │ └─RPGCharacterBase
 │ │   └─BP_Character[BP]
@@ -103,7 +103,7 @@ Actor
 │ │
 │ └─DefaultPawn
 │   └─AbilitySystemTestPawn
-│      GameplayAbilities::★ARPGでは未使用と思われる
+│      GameplayAbilities::★ ARPG では未使用と思われる
 └─WeaponActor
   │ARPG::★以下、プレイヤーと敵の武器クラス
   │
@@ -117,34 +117,34 @@ Actor
   └─HammerActor
 ```
 
-## ■ ActorComponentサブクラス
+## ■  ブクラス
 ```
 ActorComponent
 └─GameplayTaskComponent
   │GameplayTasks(エンジン内)::GameplayAbilities System のインターフェイスクラス。
   │おそらくエンジン内で AbilitySystem と強調できるように派生クラス AbilitySystemComponent から階層の抽出をされたクラスだと思われる。
-  │ARPGで直接使われることはない。
+  │ARPG で直接使われることはない。
   │
   └─AbilitySystemComponent
     │GameplayAbilities::GameplayAbilities System のインターフェイスクラス。
     │
     └─RPGAbilitySystemComponent
        ARPG::独自の拡張を行った AbilitySystemComponent の派生クラス。
-       Ability をつかうActor はこのコンポーネントを持たせている。（RPGCharacterBase等。（のみ？））
-       Blueprint 向けのメンバーは置かれていない。（UPROPERTY/UFUNCTION を持たない）
+       Ability をつかう Actor はこのコンポーネントを持たせている。（ RPGCharacterBase 等。（のみ？））
+       Blueprint 向けのメンバーは置かれていない。（ UPROPERTY/UFUNCTION を持たない）
 ```
 
-## ■ AnimInstanceサブクラス
+## ■ AnimInstance サブクラス
 ```
 AnimInstance
-│ARPG::★以下、プレイヤーと敵のアニメーションBP
+│ARPG::★以下、プレイヤーと敵のアニメーションＢＰ
 │
 ├─ABP_Player[BP]
 ├─ABP_SpiderBoss[BP]
 └─ABP_AnimBP_Base[BP]
 ```
 
-## ■ AnimNotifyサブクラス
+## ■ AnimNotify サブクラス
 ```
 AnimNotify
 │ARPG::★以下、アニメーション通知
@@ -157,7 +157,7 @@ AnimNotify
 └─UseItemNS[BP]
 ```
 
-## ■ AnimNotifyStateサブクラス
+## ■ AnimNotifyState サブクラス
 ```
 AnimNotifyState
 │ARPG::★以下、アニメーション通知ステート
@@ -173,31 +173,31 @@ AnimNotifyState
 └─WeaponAttackNS[BP]
 ```
 
-## ■ AssetManagerサブクラス
+## ■ AssetManager サブクラス
 ```
 AssetManager
 └─RPGAssetManager
    ARPG::★アセットマネージャ
 ```
 
-## ■ AttributeSetサブクラス
+## ■ AttributeSet サブクラス
 ```
 AttributeSet
 │GameplayAbilities::ゲーム用属性定義基底クラス
 │
 ├─AbilitySystemTestAttributeSet
-│  GameplayAbilities::★ARPGでは未使用と思われる
+│  GameplayAbilities::★ ARPG では未使用と思われる
 │
 └─RPGAttributeSet
    ARPG::独自の拡張を行った AttributeSet の派生クラス。
-   Ability をつかうActor はこのクラスを持たせている。（RPGCharacterBase等。（のみ？））
-   派生クラスを複数持つことは AbilitySystem 上の制限は特にないが、ARPGではこのクラスしか存在しない。
+   Ability をつかう Actor はこのクラスを持たせている。（ RPGCharacterBase 等。（のみ？））
+   派生クラスを複数持つことは AbilitySystem 上の制限は特にないが、 ARPG ではこのクラスしか存在しない。
 ```
 
-## ■ TNodeサブクラス
+## ■ TNode サブクラス
 ```
 BTNode
-│ARPG::★AI用。Ability から話がそれるので割愛
+│ARPG::★ AI 用。 Ability から話がそれるので割愛
 │
 └─BTAuxiliaryNode
   ├─BTDecorator
@@ -222,17 +222,17 @@ BTNode
       └─BTTask_UseItem[BP]
 ```
 
-## ■ CameraShakeサブクラス
+## ■ CameraShake サブクラス
 ```
 CameraShake
-│ARPG::★カメラのシェイク用。Ability から話がそれるので割愛
+│ARPG::★カメラのシェイク用。 Ability から話がそれるので割愛
 │
 ├─BP_Camerashake
 ├─camera_shake_skill
 └─camera_shake_small
 ```
 
-## ■ DataAssetサブクラス
+## ■ DataAsset サブクラス
 ```
 DataAsset
 └─PrimaryDataAsset
@@ -243,12 +243,12 @@ DataAsset
     ├─RPGSkillItem
     │  ARPG::★スキル用データクラス
     ├─RPGTokenItem
-    │  ARPG::★トークン用データクラス（Soulのみ）
+    │  ARPG::★トークン用データクラス（ Soul のみ）
     └─RPGWeaponItem
        ARPG::★武器用データクラス
 ```
 
-## ■ GameInstanceサブクラス
+## ■ GameInstance サブクラス
 ```
 GameInstance
 └─RPGGameInstanceBase
@@ -256,16 +256,16 @@ GameInstance
      ARPG::★ゲームを通して使う変数とそれらを扱うロジックの定義
 ```
 
-## ■ GameplayAbilityサブクラス
+## ■ GameplayAbility サブクラス
 ```
 GameplayAbility
 ├─GameplayAbility_CharacterJump
-│  GameplayAbilities::★ARPGでは未使用と思われる
+│  GameplayAbilities::★ ARPG では未使用と思われる
 ├─GameplayAbility_Montage
-│  GameplayAbilities::★ARPGでは未使用と思われる
+│  GameplayAbilities::★ ARPG では未使用と思われる
 │
 └─RPGGameplayAbility
-  │ARPG::★ゲームで使用可能なAbility
+  │ARPG::★ゲームで使用可能な Ability
   ├─GA_MeleeBase[BP]
   │ ├─GA_GoblinMelee[BP]
   │ ├─GA_PlayerAxeMelee[BP]
@@ -286,39 +286,39 @@ GameplayAbility
     └─GA_PlayerSkillFireBall[BP]
 ```
 
-## ■ GameplayCueNotify_Staticサブクラス
+## ■ GameplayCueNotify_Static サブクラス
 ```
 GameplayCueNotify_Static
-│GameplayAbilities::★ARPGでは未使用と思われる
+│GameplayAbilities::★ ARPG では未使用と思われる
 └─GameplayCueNotify_HitImpact
-   GameplayAbilities::★ARPGでは未使用と思われる
+   GameplayAbilities::★ ARPG では未使用と思われる
 ```
 
-## ■ GameplayCueTranslatorサブクラス
+## ■ GameplayCueTranslator サブクラス
 ```
 GameplayCueTranslator
-│GameplayAbilities::★ARPGでは未使用と思われる
+│GameplayAbilities::★ ARPG では未使用と思われる
 └─GameplayCueTranslator_Test
-   GameplayAbilities::★ARPGでは未使用と思われる
+   GameplayAbilities::★ ARPG では未使用と思われる
 ```
 
-## ■ GameplayDebuggerConfigサブクラス
+## ■ GameplayDebuggerConfig サブクラス
 ```
 GameplayDebuggerConfig
- GameplayAbilities::★ARPGでは未使用と思われる
+ GameplayAbilities::★ ARPG では未使用と思われる
 ```
 
-## ■ GameplayDebuggerLocalControllerサブクラス
+## ■ GameplayDebuggerLocalController サブクラス
 ```
 GameplayDebuggerLocalController
- GameplayAbilities::★ARPGでは未使用と思われる
+ GameplayAbilities::★ ARPG では未使用と思われる
 ```
 
-## ■ GameplayEffectサブクラス
+## ■ GameplayEffect サブクラス
 ```
 GameplayEffect
 ├─GameplayEffectTemplate
-│  GameplayAbilities::★ARPGでは未使用と思われる
+│  GameplayAbilities::★ ARPG では未使用と思われる
 │
 │  ARPG::★以下はプレイヤーと敵のスキルエフェクト
 ├─GE_DamageBase
@@ -356,7 +356,7 @@ GameplayEffect
   └─GE_SpiderStats
 ```
 
-## ■ GameplayEffectCalculationサブクラス
+## ■ GameplayEffectCalculation サブクラス
 ```
 GameplayEffectCalculation
 ├─GameplayEffectExecutionCalculation
@@ -364,63 +364,63 @@ GameplayEffectCalculation
 │  ARPG::★ダメージ計算処理
 │
 └─GameplayModMagnitudeCalculation
-   GameplayAbilities::★ARPGでは拡張していないと思われる
+   GameplayAbilities::★ ARPG では拡張していないと思われる
 ```
 
-## ■ GameplayEffectCreationMenuサブクラス
+## ■ GameplayEffectCreationMenu サブクラス
 ```
 GameplayEffectCreationMenu
- GameplayAbilities::★ARPGでは拡張していないと思われる
+ GameplayAbilities::★ ARPG では拡張していないと思われる
 ```
 
-## ■ GameplayEffectCreationApplicationRequirementサブクラス
+## ■ GameplayEffectCreationApplicationRequirement サブクラス
 ```
 GameplayEffectCreationApplicationRequirement
- GameplayAbilities::★ARPGでは拡張していないと思われる
+ GameplayAbilities::★ ARPG では拡張していないと思われる
 ```
 
-## ■ GameplayEffectUIDataサブクラス
+## ■ GameplayEffectUIData サブクラス
 ```
 GameplayEffectUIData
 └─GameplayEffectUIData_TextOnly
-   GameplayAbilities::★ARPGでは拡張していないと思われる
+   GameplayAbilities::★ ARPG では拡張していないと思われる
 ```
 
-## ■ GameplayTagsDeveloperSettingsサブクラス
+## ■ GameplayTagsDeveloperSettings サブクラス
 ```
 GameplayTagsDeveloperSettings
- GameplayTags::★ARPGでは拡張していないと思われる
+ GameplayTags::★ ARPG では拡張していないと思われる
 ```
-## ■ GameplayTagsListサブクラス
+## ■ GameplayTagsList サブクラス
 ```
 GameplayTagsList
 └─GameplayTagsSetting
-   GameplayTags::★ARPGでは拡張していないと思われる
+   GameplayTags::★ ARPG では拡張していないと思われる
 ```
 
-## ■ GameplayTagsManagerサブクラス
+## ■ GameplayTagsManager サブクラス
 ```
 GameplayTagsManager
- GameplayTags::★ARPGでは拡張していないと思われる
+ GameplayTags::★ ARPG では拡張していないと思われる
 ```
 
-## ■ GameplayTaskサブクラス
+## ■ GameplayTask サブクラス
 ```
 GameplayTask
 └─AbilityTask
   └─RPGAbilityTask_PlayMontageAndWaitForEvent
-     ARPG::★PlayMontageAndWait と WaitGameplayEvent の複合処理
+     ARPG::★ PlayMontageAndWait と WaitGameplayEvent の複合処理
 ```
 
-## ■ GameplayTaskResourceサブクラス
+## ■ GameplayTaskResource サブクラス
 ```
 GameplayTaskResource
 ├─AIResource_Logic
 └─AIResource_Movement
-   GameplayTags::★ARPGでは拡張していないと思われる
+   GameplayTags::★ ARPG では拡張していないと思われる
 ```
 
-## ■ RPGTargetTypeサブクラス
+## ■ RPGTargetType サブクラス
 ```
 RPGTargetType
 │ARPG::★スキルのターゲット選択判定型
@@ -443,7 +443,7 @@ RPGTargetType
   └─RPGTargetType_MetroStorm[BP]
 ```
 
-## ■ SaveGameサブクラス
+## ■ SaveGame サブクラス
 ```
 SaveGame
 └─RPGSaveGame

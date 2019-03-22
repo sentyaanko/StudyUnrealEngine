@@ -2,7 +2,7 @@
 ## ■ アビリティエフェクトクラス
 | 名前 | 親クラス | 用途 |
 | ----- | ----- | ----- |
-| GE_PlayerStats | GE_StatsBase | Spawn時のパラメータの初期化用。★呼び出し元確認 |
+| GE_PlayerStats | GE_StatsBase | Spawn 時のパラメータの初期化用。★呼び出し元確認 |
 
 ### ■ GE_PlayerStats
 ```yaml
@@ -143,7 +143,7 @@ Gameplay-Effect:
 | TargetType_BurstPound | [Event.Montage.Player.Combo.BurstPound] |
 | TargetType_GroundPound | [Event.Montage.Player.Combo.GroundPound] |
 
-**※他と異なり、「TargetType_」の後に武器の名前が入っておらず、わかりづらい。**
+**※他と異なり、「 TargetType_ 」の後に武器の名前が入っておらず、わかりづらい。**
 
 ### ■ TargetType_BurstPound
 ```yaml
@@ -480,7 +480,7 @@ Gameplay-Effect:
 | TargetType_FrontalAttack | [Event.Montage.Player.Combo.FrontalAttack] |
 | TargetType_JumpSlam | [Event.Montage.Player.Combo.JumpSlam] |
 
-**※他と異なり、「TargetType_」の後に武器の名前が入っておらず、わかりづらい。**
+**※他と異なり、「 TargetType_ 」の後に武器の名前が入っておらず、わかりづらい。**
 
 ### ■ TargetType_ChestKick
 ```yaml
@@ -510,7 +510,7 @@ Default:
 ```
 
 # ■ Abilities/Player/Skill の内容
-## ■ Actorクラス
+## ■ Actor クラス
 | 名前 | 親クラス | 用途 |
 | ----- | ----- | ----- |
 | BP_Fireball | BP_AbilityProjectileBase | 火の玉 |
@@ -548,7 +548,7 @@ Cooldowns:
 
 ### ■ GA_PlayerSkillFireWave
 
-**Animation Montageの名前がFireWaveじゃない。わかりにくい。**
+**Animation Montage の名前が FireWave じゃない。わかりにくい。**
 
 ```yaml
 Default:

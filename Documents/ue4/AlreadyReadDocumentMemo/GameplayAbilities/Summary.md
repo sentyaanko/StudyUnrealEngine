@@ -3,7 +3,7 @@
 **このファイルは書きかけです。**
 
 ## ■ このファイルは何？
- 「Gameplay Abiliity System」について実作業にあたってまとめた資料。
+ 「 Gameplay Abiliity System 」について実作業にあたってまとめた資料。
 
 # ■ クラス
 
@@ -11,7 +11,7 @@
 ### ■ tooltip
 ```
 The core ActorComponent for interfacing with the GameplayAbilities System.
-GameplayAbilitiesシステムのインターフェイス用のコアActorComponent。
+GameplayAbilities システムのインターフェイス用のコア ActorComponent 。
 ```
 ### ■ 使い方
 * Actor に AbilitySystemComponent を AddComponent する。  
@@ -32,7 +32,7 @@ Abilities define custom gameplay logic that can be activated be player pf extern
 ```
 
 ### ■ 内容
-* Actorが使用可能な能力を GameplayAbility サブクラスとして定義する。
+* Actor が使用可能な能力を GameplayAbility サブクラスとして定義する。
 * 能力を定義するためのもの。
 * タグによる能力自体の管理
 * イベント ActivateAbility にアビリティ起動時のノードを記述する。  

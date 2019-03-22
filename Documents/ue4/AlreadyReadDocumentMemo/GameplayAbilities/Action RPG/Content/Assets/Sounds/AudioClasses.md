@@ -1,8 +1,8 @@
 # ■ Assets/Sounds/AudioClasses の内容
 
 ## ■ SoundClass 一覧
-### ■ PassiveSoundMix名 一覧
-| SoundClass名 | PassiveSoundMix名 | 用途 |
+### ■ PassiveSoundMix 名 一覧
+| SoundClass 名 | PassiveSoundMix 名 | 用途 |
 | ----- | ----- | ----- |
 | SC_RPG_Master | SM_Mixer | |
 | SC_SFX | None | |
@@ -16,8 +16,8 @@
 | SC_UI | | |
 | SC_Music | None | |
 
-### ■ SoundWave/SoundCue名 一覧
-| SoundClass名 | SoundCue名 | SoundWave名 |
+### ■ SoundWave/SoundCue 名 一覧
+| SoundClass 名 | SoundCue 名 | SoundWave 名 |
 | ----- | ----- | ----- |
 | SC_RPG_Master | |
 | SC_SFX | A_Ambient_Fire01_Cue | A_Ambient_Fire01 |
@@ -82,7 +82,7 @@
 * A_UI_Hover は A_Character_Step01-05 を使用。
 
 ## ■ SoundMix 一覧
-| PassiveSoundMix名 | 用途 |
+| PassiveSoundMix 名 | 用途 |
 | ----- | ----- |
 | SM_Mixer | SC_SFX Volume 1.0<br>SC_Music Volume 0.65 |
 | SM_Abilities | SC_Music Volume 0.45<br>SC_Enemy Volume 0.6 |

@@ -32,29 +32,29 @@
 ## ■ SoundCue 一覧
 | ファイル名 | 呼び出し元 | 属性 |
 | ----- | ----- | ----- |
-| A_Character_Collapse_Cue | Death_Front | Notifiesで指定 |
-| A_Character_Effort_Cue | AM_AttackSword | Notifiesで指定(Combo3) |
-| | Anim_Blunt_Ground_Pound | Notifiesで指定(2回) |
-| | Anim_Blunt_Ground_Pound_Fire | Notifiesで指定(2回) |
-| | Anim_Sword_Whirlwind | Notifiesで指定 |
-| A_Character_Expire_Cue | Death_Front | Notifiesで指定 |
-| A_Character_Grunt_Cue | Chestopen_Kick | Notifiesで指定 |
-| | Dodge_Small_Forward_Roll | Notifiesで指定 |
-| A_Character_Heal_Cue | Drink_Potion_Sword | Notifiesで指定 |
-| A_Character_Heal_Mana_Cue | Drink_Potion_Sword_Mana | Notifiesで指定 |
-| A_Character_Hit_Cue | Character_HitReact_Left | Notifiesで指定 |
-| | Character_HitReact_Right | Notifiesで指定 |
-| A_Character_Potion_Cue | Drink_Potion_Sword | Notifiesで指定 |
-| | Drink_Potion_Sword_Mana | Notifiesで指定 |
-| A_Character_Powerup_Cue | Sword_Male_Anim_LEvel_Up_Transition | Notifiesで指定 |
-| A_Character_Step_Cue | Dodge_Sprint_Blunt | Notifiesで指定(2回) |
-| | Sword_Run_Forward | Notifiesで指定(2回) |
-| | Sword_Walk_Forward | Notifiesで指定(4回) |
-| A_Character_Yell_Cue | AM_Skill_Firewave | Notifiesで指定 |
-| | Attack02_Fire | Notifiesで指定 |
-| | Attack03 | Notifiesで指定 |
-| | Sword_Cheer | Notifiesで指定 |
-| | Sword_Male_Anim_LEvel_Up_Transition | Notifiesで指定 |
+| A_Character_Collapse_Cue | Death_Front | Notifies で指定 |
+| A_Character_Effort_Cue | AM_AttackSword | Notifies で指定(Combo3) |
+| | Anim_Blunt_Ground_Pound | Notifies で指定(2回) |
+| | Anim_Blunt_Ground_Pound_Fire | Notifies で指定(2回) |
+| | Anim_Sword_Whirlwind | Notifies で指定 |
+| A_Character_Expire_Cue | Death_Front | Notifies で指定 |
+| A_Character_Grunt_Cue | Chestopen_Kick | Notifies で指定 |
+| | Dodge_Small_Forward_Roll | Notifies で指定 |
+| A_Character_Heal_Cue | Drink_Potion_Sword | Notifies で指定 |
+| A_Character_Heal_Mana_Cue | Drink_Potion_Sword_Mana | Notifies で指定 |
+| A_Character_Hit_Cue | Character_HitReact_Left | Notifies で指定 |
+| | Character_HitReact_Right | Notifies で指定 |
+| A_Character_Potion_Cue | Drink_Potion_Sword | Notifies で指定 |
+| | Drink_Potion_Sword_Mana | Notifies で指定 |
+| A_Character_Powerup_Cue | Sword_Male_Anim_LEvel_Up_Transition | Notifies で指定 |
+| A_Character_Step_Cue | Dodge_Sprint_Blunt | Notifies で指定(2回) |
+| | Sword_Run_Forward | Notifies で指定(2回) |
+| | Sword_Walk_Forward | Notifies で指定(4回) |
+| A_Character_Yell_Cue | AM_Skill_Firewave | Notifies で指定 |
+| | Attack02_Fire | Notifies で指定 |
+| | Attack03 | Notifies で指定 |
+| | Sword_Cheer | Notifies で指定 |
+| | Sword_Male_Anim_LEvel_Up_Transition | Notifies で指定 |
 
 ----
 以上。

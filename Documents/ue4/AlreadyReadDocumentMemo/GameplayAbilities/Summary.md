@@ -2,8 +2,8 @@
 
 **このファイルは書きかけです。**
 
-## ■ このファイルは何？
- 「 Gameplay Abiliity System 」について実作業にあたってまとめた資料。
+## ■ このファイルについて
+「 Gameplay Abiliity System 」について実作業にあたってまとめた資料。
 
 # ■ クラス
 
@@ -16,12 +16,12 @@ GameplayAbilities システムのインターフェイス用のコア ActorCompo
 ### ■ 使い方
 * Actor に AbilitySystemComponent を AddComponent する。  
   その結果、プロパティ Abilities グループが追加される。
-* プロパティ Abilities グループ にある Ability List に  
+* プロパティ Abilities グループの Ability List に  
   GameplayAbility のサブクラスが登録できるようになる。  
   GameplayAbility については後述。
 * Actor に AddComponent した AbilitySystemComponent に対して  
   GameplayAbility のサブクラスを指定してイベントを発火できる。  
-  プロパティ Abilities グループ の Ability List に登録されていないものは発火されない。  
+  プロパティ Abilities グループの Ability List に登録されていないものは発火されない。  
   が、特にエラーとしても扱われない。
 
 ## ■ GameplayAbility

@@ -2,7 +2,7 @@
 
 **このファイルは ActionRPG のサンプルを見る前に書いたものなので不完全です。**
 
-## ■ このファイルは何？
+## ■ このファイルについて
 公式の GameplayAbilitySystem の概要ページについて簡単にまとめたもの。
 
 # ■ GameplayAbiliitySystem
@@ -10,7 +10,7 @@ https://docs.unrealengine.com/en-us/Gameplay/GameplayAbilitySystem
 
 ## ■ 概要
 * 公式のドキュメント。システムの概要とプラグインの導入方法がまとめられている。
-* ドキュメントツリー上では配下に以下の三つのドキュメントが置かれている。
+* ドキュメントツリー上では配下に以下の３つのドキュメントが置かれている。
 
 # ■ GameplayAttributesAndGameplayEffects
 https://docs.unrealengine.com/en-us/Gameplay/GameplayAbilitySystem/GameplayAttributesAndGameplayEffects
@@ -35,14 +35,15 @@ https://docs.unrealengine.com/en-us/Gameplay/GameplayAbilitySystem/GameplayAttri
 		* サンプルを見るのがよさげ。
 * Granted Abilities
 	* 例えば「火炎攻撃」は「オイルを被った状態の敵」に対して「燃焼ダメージ（パーティクル等のエフェクト付き）」を付与（ Grant ）する為の設定を行うもの、らしい。
-		* 「火炎攻撃」自体はこの Gameplay Effects の特性？それとも Gameplay Abilities を見て判断？（通常攻撃に火炎属性を付与されている状態かどうか、など）
-		* 「オイルを被った状態の敵」という判断はどこで行うのか？受け側か？
+		* 「火炎攻撃」自体はこの Gameplay Effects の特性、それとも Gameplay Abilities を見て判断、のどちらか。
+			* （通常攻撃に火炎属性を付与されている状態か、など）
+		* 「オイルを被った状態の敵」という判断はどこで行うのか。受け側か？
 		* 「燃焼ダメージ（パーティクル等のエフェクト付き）」を Granted Abilities で設定するのか？
 	* 上にあげた例をどのようにすれば表現できるのか、要調査。
 		* サンプルを見るのがよさげ。
 * Stacking
 	* いわゆる毒など、スタックがたまり切った時に何かを行うなどを表現するときに利用するらしい。
-	* が、スタックだけを表して毒ダメージ自体を別にするにはどうするのかなど、具体的な方法が（ドキュメントからもプロパティ内容からも）読み取れない。
+	* が、スタックだけを表して毒ダメージ自体を別にするにはどうするのかなど、具体的な方法が（ドキュメント、プロパティ内容いずれからも）読み取れない。
 		* サンプルを見るのがよさげ。
 * Gameplay Cue Display
 	* ネットワークを考慮した、(パーティクルや音の)エフェクト制御の仕組みを Gameplay Ability System で行うための設定項目。
@@ -52,7 +53,7 @@ https://docs.unrealengine.com/en-us/Gameplay/GameplayAbilitySystem/GameplayAttri
 	* GameplayCue Manager や IGameplayCueInterface が関連しているらしい。シングル、マルチでも状況が異なるらしい。要調査。
 		* サンプルを見るのがよさげ。
 
-## ■ USimpleAttributeSet のインターフェイスの用途
+## ■ USimpleAttributeSet のインタフェースの用途
 * PreAttributeChange/PreAttributeBaseChange
 	* Attribute を変更する直前に呼ばれる。
 	* 値の範囲チェックなどを行う場合に利用する。(0-255 に抑制する、など)
@@ -61,16 +62,16 @@ https://docs.unrealengine.com/en-us/Gameplay/GameplayAbilitySystem/GameplayAttri
 	* 値を反映する直前に呼ばれる。
 	* 提案された変更を拒否または変更が可能。
 * PostGameplayEffectExecute
-	* 変更の結果、何ら頭の反応を起こすために利用する。（死亡処理、エフェクト処理など）
+	* 変更の結果、何らかの反応を起こすために利用する（死亡処理、エフェクト処理など）。
 
 # ■ GameplayAbility
 
 ## ■ 概要
 * https://docs.unrealengine.com/en-us/Gameplay/GameplayAbilitySystem/GameplayAbility
-* AbilitySystemComponent のインターフェイスについての説明。
+* AbilitySystemComponent のインタフェースについての説明。
 * GameplayAbility のプロパティについての説明。
 
-## ■ AbilitySystemComponent のインターフェイス
+## ■ AbilitySystemComponent のインタフェース
 * 追加
 	* GiveAbility
 * 削除
@@ -134,7 +135,7 @@ https://docs.unrealengine.com/en-us/Gameplay/GameplayAbilitySystem/AbilityTasks
 
 ## ■ 概要
 * C++ の UAbilityTask の解説
-* 主にアビリティのロジックを非同期に実行する際に利用するもの。
+* 主にアビリティのロジックを非同期実行する際に利用するもの。
 * 入力とアニメーションを別のタスクにしてどちらかが終了したらアビリティを完了するなどの利用例が記載されているが、ドキュメントが少ない。
 	* サンプルを見るのがよさげ。
 

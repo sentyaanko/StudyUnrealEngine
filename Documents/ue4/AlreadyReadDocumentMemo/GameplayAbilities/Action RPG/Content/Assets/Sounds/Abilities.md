@@ -27,7 +27,7 @@
 |  | AM_SkillFireball | Notifies で指定 |
 | A_Ability_FireWaveCast_Cue | AM_SkillFirewave | Notifies で指定 |
 | A_Ability_FireWavePowerup_Cue | AM_SkillFirewave | Notifies で指定 |
-| A_Ability_MeteorImpact_Cue | AM_Skill_Meteor | Notifies で指定(4回) |
+| A_Ability_MeteorImpact_Cue | AM_Skill_Meteor | Notifies で指定(４回) |
 |  | Attack02_Fire | Notifies で指定 |
 |  | Attack03 | Notifies で指定 |
 | A_Ability_MeteorWhoosh_Cue | AM_Skill_Meteor | Notifies で指定 |

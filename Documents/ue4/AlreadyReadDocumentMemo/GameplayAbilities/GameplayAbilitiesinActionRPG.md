@@ -1,14 +1,14 @@
 # ■ Gameplay Abilities in Action RPG
 
-## ■ このファイルは何？
-公式の サンプル ActionRPG の解説ページについて簡単にまとめたもの。
+## ■ このファイルについて
+公式のサンプル ActionRPG の解説ページについて簡単にまとめたもの。
 
 # ■ GameplayAbilitiesinActionRPG
 https://docs.unrealengine.com/en-us/Resources/SampleGames/ARPG/GameplayAbilitiesinActionRPG
 
 ## ■ 概要
 * 公式のドキュメント。
-* ドキュメントツリー上では配下に以下の12のドキュメントが置かれている。
+* ドキュメントツリー上では配下に以下の 12 のドキュメントが置かれている。
 	* GameplayAbilitiesinActionRPG
 		* Setup(導入手順などの説明)
 			* Building GamePlay in C++ and for Action RPG
@@ -116,7 +116,7 @@ https://docs.unrealengine.com/en-us/Resources/SampleGames/ARPG/GameplayAbilities
 	* ゲーム特有の Ability Task を自作する際のサンプルとなる事
 * 自作の 「 Apply Effect Container 」ノードについて述べている
 	* C++ のソースは URPGGameplayAbility::ApplyEffectContainer である事
-	* 行っている二つのこと
+	* 行っている２つのこと
 		1. 渡された ContainerTag がプロパティ「 GameplayEffect ＞ Effect Container Map 」の key に設定されているタグか判定する。  
 		  設定されている場合、対応した value を元に FRPGGameplayEffectContainerSpec を生成する。
 		1. 生成した FRPGGameplayEffectContainerSpec を適用し、実際のダメージを与える
@@ -135,11 +135,11 @@ https://docs.unrealengine.com/en-us/Resources/SampleGames/ARPG/GameplayAbilities
 * ARPG のスキルをどのように実装しているか述べている。
 * 近接攻撃との違いを述べている。
 	* ターゲッティング
-		* TargetType をプロパティ「 GameplayEffect ＞ Effect Container Map 」 で設定する
+		* TargetType をプロパティ「 GameplayEffect ＞ Effect Container Map 」 に設定。
 	* コスト
-		* コストを処理する Gameplay Effect をプロパティ「 Costs ＞ Cost Gameplay Effect Class 」 で設定する
+		* コスト処理する Gameplay Effect をプロパティ「 Costs ＞ Cost Gameplay Effect Class 」 に設定。
 	* Cooldown
-		* Cooldown を処理する Gameplay Effect をプロパティ「 Cooldowns ＞ Cooldown Gameplay Effect Class 」 で設定する
+		* Cooldown 処理する Gameplay Effect をプロパティ「 Cooldowns ＞ Cooldown Gameplay Effect Class 」 に設定。
 	* 例： GA_PlayerSkillWave
 		* ダメージエフェクトとして GE_PlayerSkillFireWave を設定している
 		* コストエフェクトとして GE_PlayerSkillManaCost を設定している
@@ -158,7 +158,7 @@ https://docs.unrealengine.com/en-us/Resources/SampleGames/ARPG/GameplayAbilities
 		* **テストコードを書いたほうがよさそう。**
 	* UI システムから問い合わせできる事
 * 発射物に関して述べている。
-	* 直接攻撃と異なり、 Effect をいきなり適用するのではなく、 EffectContainerSpec を生成し、 Spawn させた 発射物（ BP_AbilityProjectileBase ）に設定している事
+	* 直接攻撃と異なり、 Effect をいきなり適用しない。 EffectContainerSpec を生成し、 Spawn させた 発射物（ BP_AbilityProjectileBase ）に設定している事
 	* 発射物が Actor と重なったのちに EffectContainerSpec をもとに Effect を適用している事
 
 
@@ -176,13 +176,13 @@ https://docs.unrealengine.com/en-us/Resources/SampleGames/ARPG/GameplayAbilities
 * 装備による Ability の追加の流れについて述べている。
 	* ARPGCharacterBase::AddSlottedGameplayAbilities にて行って事
 	* プロパティ「 Inventory ＞ Sloted Abilities 」に FGameplayAbilitySpec として追加している事
-* プレイヤーと敵に関してアイテムスロットに関して異なる方法を用いていることについて述べている。
+* プレイヤーと敵それぞれのアイテムスロットは異なる方法を用いていることについて述べている。
 	* 敵
 		* プロパティ「 Abilities ＞ Default Sloted Abilities 」から入力される事
 	* プレイヤ
 		* 実際のインベントリから入力される事
-		* ARPGCharacterBase の中でかなり複雑なロジックで処理している事
-			* インベントリにアクセスするためのインターフェイスクラス IRPGInventoryInterface がある。
+		* ARPGCharacterBase の中でかなり複雑なロジックを持つ
+			* インベントリにアクセスするためのインタフェースクラス IRPGInventoryInterface がある。
 			* ARPGCharacterBase::InventorySource は IRPGInventoryInterface への参照。
 			* ARPGPlayerControllerBase は IRPGInventoryInterface の派生クラス。
 			* ARPGCharacterBase::PossessedBy にて渡される AController を InventorySource に保持する。
@@ -193,7 +193,7 @@ https://docs.unrealengine.com/en-us/Resources/SampleGames/ARPG/GameplayAbilities
 * 移動や GameplaySystem の相互作用について述べている。
 	* 主に BP_Character::CanUseAnyAbility にてゲーム中の状態をもとに Ability の実行をしてよいか判断している事。
 	* この部分はゲーム特有である事。
-	* GameplayAbility のプロパティ「 Tags ＞ ActivationRequiredTags 」「 Tags ＞ ActivationBlockedTags 」が有益な可能性がある事。
+	* GameplayAbility のプロパティ「 Tags ＞ ActivationRequiredTags 」「 Tags ＞ ActivationBlockedTags 」は有益な可能性がある事。
 * UI から AbilitySystem に問い合わせる方法について述べている。
 	* **2019/02/28ごろに取得した ActionRPG のサンプルと2019/03/19現在のドキュメントの内容がマッチしていない**
 		* **WB_OnSCreenControls には示された GrapNode はなく、 WB_OnScreenInput の On Click(ButtonSkill) がそれにあたると思われる。**
@@ -251,7 +251,7 @@ https://docs.unrealengine.com/en-us/Resources/SampleGames/ARPG/AddingaNewWeapon
 	1. Blueprint を WeaponActor をベースに新規作成。
 	1. スケルタルメッシュの指定、コリジョンのサイズの調整。
 		* 解説に含まれないが、以下も行ったほうがよいと思われる。
-			* CapsuleCollision (Inherited) のプロパティ「 Transform ＞ Location.z 」を50>**30**
+			* CapsuleCollision (Inherited) のプロパティ「 Transform ＞ Location.z 」を 50 > **30**
 	1. 作成した WeaponActor 派生 Blueprint をほかのデータと関連付けるための Data Asset の新規作成。
 		1. Data Asset を RPGWeaponItem をベースに新規作成。
 		1. 作成した WeaponActor 派生 Blueprint を関連付け

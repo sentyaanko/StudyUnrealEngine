@@ -16,7 +16,7 @@
 * [GameplayAbilitySystem.md](GameplayAbilitySystem.md)
 	* 公式の GameplayAbilitySystem の概要ページについて簡単にまとめたもの。
 * [GameplayAbilitiesinActionRPG.md](GameplayAbilitiesinActionRPG.md)
-	* 公式の サンプル ActionRPG の解説ページについて簡単にまとめたもの。
+	* 公式のサンプル ActionRPG の解説ページについて簡単にまとめたもの。
 * [etc.md](etc.md)
 	* 「Gameplay Abiliity System」について言及している Wiki やブログ記事についてまとめたもの。
 * [Summary.md](Summary.md)

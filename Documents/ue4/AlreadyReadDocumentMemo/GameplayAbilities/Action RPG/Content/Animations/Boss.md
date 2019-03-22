@@ -8,7 +8,7 @@
 
 # ■ AM_Spider_Hit
 * 被ダメージ用 Animation Montage 。
-* 2種類ある。
+* ２種類ある。
 
 | Section | Montage | Notifieies |
 | ----- | ----- | ----- |
@@ -17,7 +17,7 @@
 
 # ■ AM_Spider_Melee
 * 近接攻撃用 Animation Montage 。
-* 3種類ある。
+* ３種類ある。
 
 | Section | Montage | Notifieies | Event Tag |
 | ----- | ----- | ----- | ----- |

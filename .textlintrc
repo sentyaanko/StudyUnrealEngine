@@ -12,7 +12,10 @@
         "ja-space-after-question": true,
         "ja-space-around-code": false,
     },
-    "preset-ja-technical-writing": true,
-    "spellcheck-tech-word": true
+    "preset-ja-technical-writing": {
+        "sentence-length": false,
+        "no-exclamation-question-mark": false
+    },
+    "spellcheck-tech-word": true,
   }
 }

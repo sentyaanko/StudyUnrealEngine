@@ -1,7 +1,7 @@
 # ■ etc
 
-## ■ このファイルは何？
- 「 Gameplay Abiliity System 」について言及している wiki やブログ記事についてまとめたもの。
+## ■ このファイルについて
+ 「 Gameplay Abiliity System 」について言及している Wiki やブログ記事についてまとめたもの。
 
 # ■ (Unreal Engine Wiki)GameplayAbilities and You
 https://wiki.unrealengine.com/GameplayAbilities_and_You

@@ -16,8 +16,8 @@
 | AttackDamage_Hammer | ★ Hammer のダメージ計算用？<br>Hammer の BurstPound/GroundPound/Melee にて利用。 |
 | AttackDamage_Sword | ★ Sword のダメージ計算用？<br>Sword の ChestKick/FrontalAttack/JumpSlam にて利用。 |
 
-* カラムはすべて1-10
-* レコードは3行で下記の表のとおり。
+* カラムはすべて 1-10
+* レコードは３行で下記の表のとおり。
 
 | レコードの名前 | 用途 |
 | ----- | ----- |
@@ -25,7 +25,7 @@
 | MediumAttack | ★中威力攻撃？<br>PlayerSkill の Meteor にて利用。 |
 | HeavyAttack | ★大威力攻撃？<br>Axe/FireAxe/Hammer の BurstPound/GroundPound にて利用。<br>Sword の ChestKick/FrontalAttack/JumpSlam にて利用。<br>PlayerSkill の FireWave/MeteorStorm にて利用。<br>Potion の DeathsDoor/PotionHealth/PotionMana にて利用。<br>HealBase にて利用。 |
 
-* Spider は Clow を使用するが、 RangedBase を利用している為、「 Curve Table:AttackDamage 、 Record:DefaultAttack 」を参照する。
+* Spider は Clow を使用するが。基底が RangedBase なので、「 Curve Table:AttackDamage 」「 Record:DefaultAttack 」を参照する。
 * 結局どういうことかというと以下の通り。
 
 | 分類 | 武器 | スキル | 使用テーブル | DefaultAttack | MediumAttack | HeavyAttack |
@@ -63,8 +63,8 @@
 | ----- | ----- |
 | StartingStats | キャラクターのレベルごとの初期ステータス用 |
 
-* カラムはすべて1-10
-* レコードは3行で下記の表のとおり。
+* カラムはすべて 1-10
+* レコードは３行で下記の表のとおり。
 
 | レコードの名前 | 用途 |
 | ----- | ----- |

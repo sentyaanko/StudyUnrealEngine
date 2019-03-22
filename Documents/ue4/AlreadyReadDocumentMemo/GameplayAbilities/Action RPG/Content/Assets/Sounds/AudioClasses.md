@@ -1,7 +1,7 @@
 # ■ Assets/Sounds/AudioClasses の内容
 
 ## ■ SoundClass 一覧
-### ■ PassiveSoundMix 名 一覧
+### ■ PassiveSoundMix 名の一覧
 | SoundClass 名 | PassiveSoundMix 名 | 用途 |
 | ----- | ----- | ----- |
 | SC_RPG_Master | SM_Mixer | |
@@ -16,7 +16,7 @@
 | SC_UI | | |
 | SC_Music | None | |
 
-### ■ SoundWave/SoundCue 名 一覧
+### ■ SoundWave/SoundCue 名の一覧
 | SoundClass 名 | SoundCue 名 | SoundWave 名 |
 | ----- | ----- | ----- |
 | SC_RPG_Master | |

@@ -10,7 +10,7 @@
 
 # ■ AM_Guardian_Attack
 * 近接攻撃用 Animation Montage 。
-* 1種類ある。
+* １種類ある。
 
 | Section | Montage | Notifieies | Event Tag |
 | ----- | ----- | ----- | ----- |
@@ -18,7 +18,7 @@
 
 # ■ AM_Guardian_Attack02
 * 遠隔攻撃用 Animation Montage 。
-* 1種類ある。
+* １種類ある。
 
 | Section | Montage | Notifieies | Event Tag |
 | ----- | ----- | ----- | ----- |
@@ -26,16 +26,16 @@
 
 # ■ AM_Guardian_Falldown
 * 死亡用 Animation Montage 。
-* 2種類ある。
+* ２種類ある。
 
 | Section | Montage | Notifieies |
 | ----- | ----- | ----- |
-| 1 | Death_Small_03 | 全区間 StopAndStartAI_NS<br>途中2回 Hit_Notify |
+| 1 | Death_Small_03 | 全区間 StopAndStartAI_NS<br>途中２回 Hit_Notify |
 | 2 | Death_Small_05 | 同上 |
 
 # ■ AM_Guardian_Hit
 * 被ダメージ用 Animation Montage 。
-* 2種類ある。
+* ３種類ある。
 
 | Section | Montage | Notifieies |
 | ----- | ----- | ----- |

@@ -616,7 +616,7 @@ Cooldowns:
 | GE_PlayerSkillMeteor | GA_PlayerSkillMeteor | [Event.Montage.Player.Combo.ChestKick] |
 | GE_PlayerSkillMeteorStorm | GA_PlayerSkillMeteorStorm | [Event.Montage.Player.Combo.ChestKick] |
 
-| 名前 | 登録先 Ability | 登録先 属性 |
+| 名前 | 登録先 Ability | 登録先属性 |
 | ----- | ----- | ----- |
 | GE_PlayerSkillCooldown | GA_PlayerSkillFireball<br>GA_PlayerSkillFireWave<br>GA_PlayerSkillMeteor<br>GA_PlayerSkillMeteorStorm | Cooldown |
 | GE_PlayerSkillManaCost | GA_PlayerSkillFireball<br>GA_PlayerSkillFireWave<br>GA_PlayerSkillMeteor<br>GA_PlayerSkillMeteorStorm | Cost |

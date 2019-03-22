@@ -43,7 +43,7 @@ Cooldowns:
 ```
 
 ## ■ アビリティエフェクトクラス
-| 名前 | 親クラス | 登録先 Ability | 登録先 属性 | 用途 |
+| 名前 | 親クラス | 登録先 Ability | 登録先属性 | 用途 |
 | ----- | ----- | ----- | ----- | ----- |
 | GE_GoblinMelee | GE_MeleeBase | GA_GoblinMelee | EffectContainerMap | |
 | GE_GoblinRange | GE_MeleeBase | GA_GoblinRange01 | Cooldown | クールダウン |

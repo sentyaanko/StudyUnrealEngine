@@ -1,7 +1,7 @@
 # ■ ActionRPGReview
 
-## ■ このファイルは何？
-「 Gameplay Abiliity System 」のサンプルである「 Action RPG （以降 ARPG ）」の調査内容のインデックスです。
+## ■ このファイルについて
+「 Gameplay Abiliity System 」のサンプルである「 Action RPG （以降 ARPG と略す）」の調査内容のインデックスです。
 
 | ファイル名 | 内容 |
 | ----- | ----- |

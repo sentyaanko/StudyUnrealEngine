@@ -144,6 +144,15 @@ AnimInstance
 └─ABP_AnimBP_Base[BP]
 ```
 
+| ファイル名 | パス |
+| ----- | ----- |
+| ABP_Player | Characters |
+| ABP_SpiderBoss | Blueprints/Boss |
+| ABP_AnimBP_Base | Blueprints/NPC |
+
+* **ファイルの格納先に一貫性がない。わかりづらい。**
+
+
 ## ■ AnimNotify サブクラス
 ```
 AnimNotify

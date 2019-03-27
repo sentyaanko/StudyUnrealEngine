@@ -3,8 +3,6 @@
 * **Stingers という BGM だけなぜかフォルダ分けされている。わかりづらい。**
 * **BGM の再生方法に一貫性がない。わかりづらい。**
 
-# ■ Assets/Sounds/Creatures/Guardian の内容
-
 ## ■ SoundWave 一覧
 | ファイル名 | 用途 |
 | ----- | ----- |

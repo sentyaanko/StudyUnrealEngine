@@ -15,7 +15,7 @@
 | ----- | ----- | ----- |
 | Dungeons_ThemeCue | ActionRPG_P | EventGraph の BeginPlay 内で指定 |
 | ice_BossBattle01_Cue | WB_Title | EventGraph の Construct 内で指定 |
-| Stingers/A_Music_Stinger02_Cue | WB_WaveEnd | Timeline で指定 |
+| Stingers/A_Music_Stinger02_Cue | WB_WaveEnd | Timeline の Anim_WaveComplete で指定 |
 
 ----
 以上。

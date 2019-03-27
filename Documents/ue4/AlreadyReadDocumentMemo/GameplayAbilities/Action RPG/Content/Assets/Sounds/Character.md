@@ -34,8 +34,8 @@
 | ----- | ----- | ----- |
 | A_Character_Collapse_Cue | Death_Front | Notifies で指定 |
 | A_Character_Effort_Cue | AM_AttackSword | Notifies で指定(Combo3) |
-| | Anim_Blunt_Ground_Pound | Notifies で指定(２回) |
-| | Anim_Blunt_Ground_Pound_Fire | Notifies で指定(２回) |
+| | Anim_Blunt_Gound_Pound | Notifies で指定(２回) |
+| | Anim_Blunt_Gound_Pound_Fire | Notifies で指定(２回) |
 | | Anim_Sword_Whirlwind | Notifies で指定 |
 | A_Character_Expire_Cue | Death_Front | Notifies で指定 |
 | A_Character_Grunt_Cue | Chestopen_Kick | Notifies で指定 |

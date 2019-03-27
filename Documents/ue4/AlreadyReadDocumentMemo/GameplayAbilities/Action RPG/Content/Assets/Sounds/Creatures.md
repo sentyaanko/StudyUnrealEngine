@@ -1,5 +1,5 @@
 # ■ Assets/Sounds/Creatures の内容
-敵の種類ごとにフォルダ分けされている。
+* 敵の種類ごとにフォルダ分けされている。
 
 # ■ Assets/Sounds/Creatures/Guardian の内容
 

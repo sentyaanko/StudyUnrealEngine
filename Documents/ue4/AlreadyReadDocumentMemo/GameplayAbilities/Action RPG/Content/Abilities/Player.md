@@ -72,11 +72,11 @@ Gameplay-Effect:
      Target-Type: "TargetType_BurstPound"
      Target-Gameplay-Effect-Classes:
       - "GE_PlayerAxeBurstPound"
-  - Key: "Event.Montage.Player.Combo.GroundPound"
+  - Key: "Event.Montage.Player.Combo.GoundPound"
     Value:
-     Target-Type: "TargetType_GroundPound"
+     Target-Type: "TargetType_GoundPound"
      Target-Gameplay-Effect-Classes:
-      - "GE_PlayerAxeGroundPound"
+      - "GE_PlayerAxeGoundPound"
 Tags:
  Ability-Tags: "Ability.Melee"
 ```
@@ -87,12 +87,12 @@ Tags:
 | 名前 | 親クラス | 登録先 EffectContainerMap のキー名 |
 | ----- | ----- | ----- |
 | GE_PlayerAxeBurstPound | GE_RangeBase | [Event.Montage.Player.Combo.BurstPound] |
-| GE_PlayerAxeGroundPound | GE_RangeBase | [Event.Montage.Player.Combo.GroundPound] |
+| GE_PlayerAxeGoundPound | GE_RangeBase | [Event.Montage.Player.Combo.GoundPound] |
 | GE_PlayerAxeMelee | GE_MeleeBase | [Event.Montage.Shared.WeaponHit] |
 
 
 ### ■ GE_PlayerAxeBurstPound
-GE_PlayerAxeGroundPound も全く同じ設定。
+GE_PlayerAxeGoundPound も全く同じ設定。
 ```yaml
 Gameplay-Effect:
  Executions:
@@ -141,7 +141,7 @@ Gameplay-Effect:
 | 名前 | 登録先 EffectContainerMap のキー名 |
 | ----- | ----- |
 | TargetType_BurstPound | [Event.Montage.Player.Combo.BurstPound] |
-| TargetType_GroundPound | [Event.Montage.Player.Combo.GroundPound] |
+| TargetType_GoundPound | [Event.Montage.Player.Combo.GoundPound] |
 
 **※他と異なり、「 TargetType_ 」の後に武器の名前が入っておらず、わかりづらい。**
 
@@ -151,7 +151,7 @@ Default:
  Trace-Length: "300" #特有
 ```
 
-### ■ TargetType_GroundPound
+### ■ TargetType_GoundPound
 ```yaml
 Default:
  Offset-from-Actor:
@@ -183,11 +183,11 @@ Gameplay-Effect:
      Target-Type: "TargetType_FABurstPound"
      Target-Gameplay-Effect-Classes:
       - "GE_PlayerFireAxeBurstPound"
-  - Key: "Event.Montage.Player.Combo.GroundPound"
+  - Key: "Event.Montage.Player.Combo.GoundPound"
     Value:
-     Target-Type: "TargetType_FAGroundPound"
+     Target-Type: "TargetType_FAGoundPound"
      Target-Gameplay-Effect-Classes:
-      - "GE_PlayerFireAxeGroundPound"
+      - "GE_PlayerFireAxeGoundPound"
 Tags:
  Ability-Tags: "Ability.Melee"
 ```
@@ -198,11 +198,11 @@ Tags:
 | 名前 | 親クラス| 登録先 EffectContainerMap のキー名 |
 | ----- | ----- | ----- |
 | GE_PlayerFireAxeBurstPound | GE_RangeBase | [Event.Montage.Player.Combo.BurstPound] |
-| GE_PlayerFireAxeGroundPound | GE_RangeBase | [Event.Montage.Player.Combo.GroundPound] |
+| GE_PlayerFireAxeGoundPound | GE_RangeBase | [Event.Montage.Player.Combo.GoundPound] |
 | GE_PlayerFireAxeMelee | GE_MeleeBase | [Event.Montage.Shared.WeaponHit] |
 
 ### ■ GE_PlayerFireAxeBurstPound
-GE_PlayerFireAxeGroundPound も全く同じ設定。
+GE_PlayerFireAxeGoundPound も全く同じ設定。
 ```yaml
 Gameplay-Effect:
  Executions:
@@ -251,7 +251,7 @@ Gameplay-Effect:
 | 名前 | 登録先 EffectContainerMap のキー名 |
 | ----- | ----- |
 | TargetType_FABurstPound | [Event.Montage.Player.Combo.BurstPound] |
-| TargetType_FAGroundPound | [Event.Montage.Player.Combo.GroundPound] |
+| TargetType_FAGoundPound | [Event.Montage.Player.Combo.GoundPound] |
 
 **FA は FireAxe の略らしいが、この略語を使っているのはここが初めて。わかりにくい。**
 
@@ -262,7 +262,7 @@ Default:
  Trace-Length: "300" #特有
 ```
 
-### ■ TargetType_FAGroundPound
+### ■ TargetType_FAGoundPound
 ```yaml
 Default:
  Offset-from-Actor:
@@ -293,11 +293,11 @@ Gameplay-Effect:
      Target-Type: "TargetType_HammerBurstPound"
      Target-Gameplay-Effect-Classes:
       - "GE_PlayerHammerBurstPound"
-  - Key: "Event.Montage.Player.Combo.GroundPound"
+  - Key: "Event.Montage.Player.Combo.GoundPound"
     Value:
-     Target-Type: "TargetType_HammerGroundPound"
+     Target-Type: "TargetType_HammerGoundPound"
      Target-Gameplay-Effect-Classes:
-      - "GE_PlayerHammerGroundPound"
+      - "GE_PlayerHammerGoundPound"
 Tags:
  Ability-Tags: "Ability.Melee"
 ```
@@ -308,11 +308,11 @@ Tags:
 | 名前 | 親クラス | 登録先 EffectContainerMap のキー名 |
 | ----- | ----- | ----- |
 | GE_PlayerHammerBurstPound | GE_RangeBase | [Event.Montage.Player.Combo.BurstPound] |
-| GE_PlayerHammerGroundPound | GE_RangeBase | [Event.Montage.Player.Combo.GroundPound] |
+| GE_PlayerHammerGoundPound | GE_RangeBase | [Event.Montage.Player.Combo.GoundPound] |
 | GE_PlayerHammerMelee | GE_MeleeBase | [Event.Montage.Shared.WeaponHit] |
 
 ### ■ GE_PlayerHammerBurstPound
-GE_PlayerHammerGroundPound も全く同じ設定。
+GE_PlayerHammerGoundPound も全く同じ設定。
 ```yaml
 Gameplay-Effect:
  Executions:
@@ -361,7 +361,7 @@ Gameplay-Effect:
 | 名前 | 登録先 EffectContainerMap のキー名 |
 | ----- | ----- |
 | TargetType_HammerBurstPound | [Event.Montage.Player.Combo.BurstPound] |
-| TargetType_HammerGroundPound | [Event.Montage.Player.Combo.GroundPound] |
+| TargetType_HammerGoundPound | [Event.Montage.Player.Combo.GoundPound] |
 
 ### ■ TargetType_HammerBurstPound
 ```yaml
@@ -370,7 +370,7 @@ Default:
  Trace-Length: "300" #特有
 ```
 
-### ■ TargetType_HammerGroundPound
+### ■ TargetType_HammerGoundPound
 ```yaml
 Default:
  Offset-from-Actor:

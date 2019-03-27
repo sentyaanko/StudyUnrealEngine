@@ -11,9 +11,9 @@
 ## ■ ダメージ計算用
 | 名前 | 用途 |
 | ----- | ----- |
-| AttackDamage |  ★ Axe と Goblin のダメージ計算用？<br>Axe の BurstPound/GroundPound/Melee にて利用。<br>Goblin の Melee/Range にて利用。<br>Fireball/FireWave/Meteor/MeteorStorm にて利用。<br>DamageBase/RangedBase/MeleeBase にて利用<br>HealBase にて利用。 |
-| AttackDamage_Fire | ★ FireAxe のダメージ計算用？<br>FireAxe  の BurstPound/GroundPound/Melee にて利用。<br>**※ Axe を略しているのがここだけなので分かりにくい。** |
-| AttackDamage_Hammer | ★ Hammer のダメージ計算用？<br>Hammer の BurstPound/GroundPound/Melee にて利用。 |
+| AttackDamage |  ★ Axe と Goblin のダメージ計算用？<br>Axe の BurstPound/GoundPound/Melee にて利用。<br>Goblin の Melee/Range にて利用。<br>Fireball/FireWave/Meteor/MeteorStorm にて利用。<br>DamageBase/RangedBase/MeleeBase にて利用<br>HealBase にて利用。 |
+| AttackDamage_Fire | ★ FireAxe のダメージ計算用？<br>FireAxe  の BurstPound/GoundPound/Melee にて利用。<br>**※ Axe を略しているのがここだけなので分かりにくい。** |
+| AttackDamage_Hammer | ★ Hammer のダメージ計算用？<br>Hammer の BurstPound/GoundPound/Melee にて利用。 |
 | AttackDamage_Sword | ★ Sword のダメージ計算用？<br>Sword の ChestKick/FrontalAttack/JumpSlam にて利用。 |
 
 * カラムはすべて 1-10
@@ -23,7 +23,7 @@
 | ----- | ----- |
 | DefaultAttack | ★通常威力攻撃？<br>Axe/FireAxe/Hammer の Melee にて利用。<br>Goblin の Melee/Range にて利用。<br>Fireball にて利用。<br>DamageBase/RangedBase/MeleeBase にて利用 |
 | MediumAttack | ★中威力攻撃？<br>PlayerSkill の Meteor にて利用。 |
-| HeavyAttack | ★大威力攻撃？<br>Axe/FireAxe/Hammer の BurstPound/GroundPound にて利用。<br>Sword の ChestKick/FrontalAttack/JumpSlam にて利用。<br>PlayerSkill の FireWave/MeteorStorm にて利用。<br>Potion の DeathsDoor/PotionHealth/PotionMana にて利用。<br>HealBase にて利用。 |
+| HeavyAttack | ★大威力攻撃？<br>Axe/FireAxe/Hammer の BurstPound/GoundPound にて利用。<br>Sword の ChestKick/FrontalAttack/JumpSlam にて利用。<br>PlayerSkill の FireWave/MeteorStorm にて利用。<br>Potion の DeathsDoor/PotionHealth/PotionMana にて利用。<br>HealBase にて利用。 |
 
 * Spider は Clow を使用するが。基底が RangedBase なので、「 Curve Table:AttackDamage 」「 Record:DefaultAttack 」を参照する。
 * 結局どういうことかというと以下の通り。
@@ -43,13 +43,13 @@
 |  | | MeteorStorm | AttackDamage | | | 〇 |
 | プレイヤー | Axe | Melee | AttackDamage | 〇 | | |
 |  | | BurstPound | AttackDamage | | | 〇 |
-|  | | GroundPound | AttackDamage | | | 〇 |
+|  | | GoundPound | AttackDamage | | | 〇 |
 |  | FireAxe | Melee | AttackDamage_Fire | 〇 | | |
 |  | | BurstPound | AttackDamage_Fire | | | 〇 |
-|  | | GroundPound | AttackDamage_Fire | | | 〇 |
+|  | | GoundPound | AttackDamage_Fire | | | 〇 |
 |  | Hammer | Melee | AttackDamage_Hammer | 〇 | | |
 |  | | BurstPound | AttackDamage_Hammer | | | 〇 |
-|  | | GroundPound | AttackDamage_Hammer | | | 〇 |
+|  | | GoundPound | AttackDamage_Hammer | | | 〇 |
 |  | Sword | Melee | AttackDamage_Sword | 〇 | | |
 |  | | ChestKick | AttackDamage_Sword | | | 〇 |
 |  | | FrontalAttack | AttackDamage_Sword | | | 〇 |

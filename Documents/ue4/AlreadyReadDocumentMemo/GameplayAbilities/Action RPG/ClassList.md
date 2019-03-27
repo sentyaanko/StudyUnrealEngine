@@ -55,7 +55,7 @@ Actor
 │ │
 │ ├─GameplayAbilityTargetActor_Radius
 │ └─GameplayAbilityTargetActor_Trace
-│   ├─GameplayAbilityTargetActor_GroundTrace
+│   ├─GameplayAbilityTargetActor_GoundTrace
 │   │ └─GameplayAbilityTargetActor_ActorPlacement
 │   └─GameplayAbilityTargetActor_SingleLineTrace
 │
@@ -331,11 +331,11 @@ GameplayEffect
 │ │ └─GE_PlayerSwordMelee
 │ └─GE_RangedBase
 │   ├─GE_PlayerAxeBurstPound
-│   ├─GE_PlayerAxeGroundPound
+│   ├─GE_PlayerAxeGoundPound
 │   ├─GE_PlayerFireAxeBurstPound
-│   ├─GE_PlayerFireAxeGroundPound
+│   ├─GE_PlayerFireAxeGoundPound
 │   ├─GE_PlayerHammerBurstPound
-│   ├─GE_PlayerHammerGroundPound
+│   ├─GE_PlayerHammerGoundPound
 │   ├─GE_PlayerSkillCooldown
 │   ├─GE_PlayerSkillFireball
 │   ├─GE_PlayerFireWave
@@ -432,12 +432,12 @@ RPGTargetType
   ├─RPGTargetType_ChestKick[BP]
   ├─RPGTargetType_Claw[BP]
   ├─RPGTargetType_FABurstPound[BP]
-  ├─RPGTargetType_FAGroundPound[BP]
+  ├─RPGTargetType_FAGoundPound[BP]
   ├─RPGTargetType_FireWave[BP]
   ├─RPGTargetType_FrontalAttack[BP]
-  ├─RPGTargetType_GroundPound[BP]
+  ├─RPGTargetType_GoundPound[BP]
   ├─RPGTargetType_HammerBurstPound[BP]
-  ├─RPGTargetType_HammerGroundPound[BP]
+  ├─RPGTargetType_HammerGoundPound[BP]
   ├─RPGTargetType_JumpSlam[BP]
   ├─RPGTargetType_Metor[BP]
   └─RPGTargetType_MetroStorm[BP]

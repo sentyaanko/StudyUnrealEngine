@@ -38,7 +38,7 @@
 
 # ■ BluePrints/AI/BossAI の内容
 ## ■ AIC_Boss
-* Spider の AI Controller
+* Spider 用の AI Controller
 * ネイティブ親クラス： AIController
 * 親クラス： 同じ
 * 参照元： Blueprints/Boss/NPC_SpiderBoss
@@ -50,13 +50,13 @@
 
 # ■ BluePrints/AI/GruntAI の内容
 ## ■ AIC_NPC
-* 近接攻撃 Goblin の AI Controller
+* 近接攻撃 Goblin 用の AI Controller
 * ネイティブ親クラス： AIController
 * 親クラス： 同じ
 * 参照元： Blueprints/NPC/NPC_GoblinBP
 
 ## ■ AIC_NPC_Range
-* 間接攻撃 Goblin の AI Controller
+* 間接攻撃 Goblin 用の AI Controller
 * ネイティブ親クラス： AIController
 * 親クラス： AIC_NPC
 * 参照元： Blueprints/NPC/NPC_Goblin_Level_02
@@ -73,6 +73,17 @@
 
 
 # ■ BluePrints/AI/PlayerAI の内容
+## ■ AIC_Player
+* Player 用の AI Controller
+* ネイティブ親クラス： AIController
+* 親クラス： 同じ
+* 参照元： Blueprints/BP_GameMode
+
+## ■ BT_Player
+* Behavior Tree
+* Player 用のビヘイビアツリー
+* 参照元： AIC_Player
+
 
 ----
 以上。

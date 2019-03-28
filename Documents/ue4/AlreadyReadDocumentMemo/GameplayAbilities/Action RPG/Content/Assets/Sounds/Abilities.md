@@ -23,7 +23,7 @@
 ## ■ SoundCue 一覧
 | ファイル名 | 用途 | 用途 |
 | ----- | ----- | ----- |
-| A_Ability_FireBallCast_Cue | NPC_Gobline_Level03 | 死亡時の時のエフェクトとして EventGraph で指定 |
+| A_Ability_FireBallCast_Cue | NPC_Goblin_Level03 | 死亡時の時のエフェクトとして EventGraph で指定 |
 |  | AM_SkillFireball | Notifies で指定 |
 | A_Ability_FireWaveCast_Cue | AM_SkillFirewave | Notifies で指定 |
 | A_Ability_FireWavePowerup_Cue | AM_SkillFirewave | Notifies で指定 |

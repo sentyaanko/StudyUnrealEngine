@@ -12,12 +12,12 @@
 | NPC | Goblin 用の BP が置かれている。 |
 | Progression | インゲーム進行管理用のデータテーブルと BP structure が置かれている。 |
 | SaveGame | SaveGame の派生と BP structure が置かれている。 |
-| Weapon | 直下にプレイヤー用の、 Goblin フォルダ以下に Gobline 用の武器の BP が置かれている。 |
+| Weapon | 直下にプレイヤー用の、 Goblin フォルダ以下に Goblin 用の武器の BP が置かれている。 |
 | WidgetBP | WidgetBP が置かれている。 |
 
 ## ■ BP 一覧
-| 名前 | ネイティブ親クラス | 親クラス | 用途 |
-| ----- | ----- | ----- | ----- |
+| 名前 | ネイティブ親クラス | 親クラス |
+| ----- | ----- | ----- |
 | BP_Character | RPGCharacterBase | 同じ |
 | BP_PlayerCharacter | RPGCharacterBase | BP_Character |
 | BP_EnemyCharacter | RPGCharacterBase | BP_Character |
@@ -74,7 +74,7 @@
 
 # ■  BP_SpectatorPawn
 * 観戦用の Pawn 。
-* EventGraph にて視点の制御等を行っている。
+* EventGraph にて注視点の制御等を行っている。
 
 
 

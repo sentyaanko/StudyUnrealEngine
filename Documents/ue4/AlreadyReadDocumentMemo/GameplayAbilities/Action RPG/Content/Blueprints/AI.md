@@ -1,12 +1,12 @@
 # ■ BluePrints/AI の内容
 * Blackboard 等、 AI モジュール類が置かれている。
-* 敵 (Spider/Gobrin) 、プレイヤー用の AIController と BehaviorTree はそれぞれのサブフォルダに格納されている。
+* 敵 (Spider/Goblin) 、プレイヤー用の AIController と BehaviorTree はそれぞれのサブフォルダに格納されている。
 
 ## ■ フォルダ一覧
 | フォルダ名 | 用途 |
 | ----- | ----- |
 | BossAI | Spider 用  |
-| GruntAI | Gobrin 用  |
+| GruntAI | Goblin 用  |
 | PlayerAI | プレイヤー用 |
 
 ## ■ BP 一覧

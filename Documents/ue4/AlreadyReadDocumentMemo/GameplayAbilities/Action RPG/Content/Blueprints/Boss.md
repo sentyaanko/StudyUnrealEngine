@@ -19,7 +19,7 @@
 	* Goblin は AnimNotify で行っているのに何故こちらは制御用の BP で行っているのか、要確認。
 
 ## ■ ABP_SpiderBoss
-* クモのアニメーション Blieprint 。
+* クモのアニメーション BP 。
 * UpdateAnimation イベントで以下のことを行っている。
 	* 現在の移動量から移動アニメーションで使用する Speed の設定をしている。
 	* Control と Actor の Yaw の差分から移動アニメーションで使用する Rotation Rate の設定をしている。

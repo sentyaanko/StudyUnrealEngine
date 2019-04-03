@@ -24,17 +24,17 @@
 | ファイル名 | 用途 | 用途 |
 | ----- | ----- | ----- |
 | A_Ability_FireBallCast_Cue | NPC_Goblin_Level03 | 死亡時の時のエフェクトとして EventGraph で指定 |
-|  | AM_SkillFireball | Notifies で指定 |
-| A_Ability_FireWaveCast_Cue | AM_SkillFirewave | Notifies で指定 |
-| A_Ability_FireWavePowerup_Cue | AM_SkillFirewave | Notifies で指定 |
+|  | AM_SkillFireball | Notifies で指定(１回) |
+| A_Ability_FireWaveCast_Cue | AM_SkillFirewave | Notifies で指定(１回) |
+| A_Ability_FireWavePowerup_Cue | AM_SkillFirewave | Notifies で指定(１回) |
 | A_Ability_MeteorImpact_Cue | AM_Skill_Meteor | Notifies で指定(４回) |
-|  | Attack02_Fire | Notifies で指定 |
-|  | Attack03 | Notifies で指定 |
-| A_Ability_MeteorWhoosh_Cue | AM_Skill_Meteor | Notifies で指定 |
+|  | Attack02_Fire | Notifies で指定(１回) |
+|  | Attack03 | Notifies で指定(１回) |
+| A_Ability_MeteorWhoosh_Cue | AM_Skill_Meteor | Notifies で指定(１回) |
 | | BP_SlimeBall | AudioComponent のソースで指定 |
 | A_Ability_TimeSlow_Cue | AM_Attack_Sword | Notifies で指定(Combo3 と Combo4) |
-|  | Attack02_Fire | Notifies で指定 |
-|  | Attack03 | Notifies で指定 |
+|  | Attack02_Fire | Notifies で指定(１回) |
+|  | Attack03 | Notifies で指定(１回) |
 
 * AM_SkillFire**w**ave ここだけ小文字になっている。わかりづらい。
 

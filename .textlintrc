@@ -14,8 +14,16 @@
     },
     "preset-ja-technical-writing": {
         "sentence-length": false,
-        "no-exclamation-question-mark": false
+        "no-exclamation-question-mark": false,
+        "no-doubled-joshi": {
+            "allow": ["に","で","は"],
+        },
+        "max-ten": false,
+        "max-kanji-continuous-len": {
+            max: 10
+        },
+        "ja-no-successive-word": false
     },
-    "spellcheck-tech-word": true,
+    "spellcheck-tech-word": false
   }
 }

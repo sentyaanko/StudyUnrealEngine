@@ -22,7 +22,8 @@
         "max-kanji-continuous-len": {
             max: 10
         },
-        "ja-no-successive-word": false
+        "ja-no-successive-word": false,
+        "ja-no-mixed-period": false
     },
     "spellcheck-tech-word": false
   }

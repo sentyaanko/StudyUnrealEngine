@@ -4,7 +4,7 @@
 * [{SlideShare} UE4におけるレベル制作事例](https://www.slideshare.net/EpicGamesJapan/ue4-137253034)
 
 # ■ 概要
-* UE4 の特徴のである BP/Level/LevelStreaming を使っての開発にあたり、  
+* UE4 の特徴である BP/Level/LevelStreaming を使っての開発にあたり、  
   具体的なサブレベルの分け方や機能拡張、デバッグ方法等を事例を交えてまとめられています。
 * 特にボリュームが多い項目
 	* BP ならではの進め方と問題と対処方法

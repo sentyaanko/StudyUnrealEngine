@@ -24,7 +24,10 @@
 | [{SlideShare} UE4における自動プレイのポストモーテム](https://www.slideshare.net/EpicGamesJapan/ue4-137253042) | [要約](20190315_UE4を用いた大規模開発事例紹介～スクウェア・エニックス様をお招きして～/UE4における自動プレイのポストモーテム.md) | 　 | △ | 〇 | 　 | ◎ |
 | [{SlideShare} 実行速度の最適化のあれこれプラスおまけ](https://www.slideshare.net/EpicGamesJapan/ss-137253035) | [要約](20190315_UE4を用いた大規模開発事例紹介～スクウェア・エニックス様をお招きして～/実行速度の最適化のあれこれプラスおまけ.md) | 　 | △ | 　 | 　 | ◎ |
 | [{SlideShare} UE4におけるアニメーション制作事例](https://www.slideshare.net/EpicGamesJapan/ss-137253035) | [要約](20190315_UE4を用いた大規模開発事例紹介～スクウェア・エニックス様をお招きして～/UE4におけるアニメーション制作事例.md) | 　 | 　 | 　 | ◎ | △ |
-
+| [{SlideShare} UE4における大規模背景制作事例（コリジョン編）](https://www.slideshare.net/EpicGamesJapan/ue4-138425097)| [要約](20190315_UE4を用いた大規模開発事例紹介～スクウェア・エニックス様をお招きして～/UE4における大規模背景制作事例（コリジョン編）.md) | 　 | △ | 　 | ◎ | △ |
+| [{SlideShare} UE4における大規模背景制作事例（データメンテナンス・大技設定編）](https://www.slideshare.net/EpicGamesJapan/ue4-137253045)| [要約](20190315_UE4を用いた大規模開発事例紹介～スクウェア・エニックス様をお招きして～/UE4における大規模背景制作事例（データメンテナンス・大技設定編）.md) | 　 | △ | 　 | 〇 | ◎ |
+| [{SlideShare} UE4における大規模背景制作事例（描画・特殊表現編）](https://www.slideshare.net/EpicGamesJapan/ue4-139190798)| [要約](20190315_UE4を用いた大規模開発事例紹介～スクウェア・エニックス様をお招きして～/UE4における大規模背景制作事例（描画・特殊表現編）.md) | 　 | △ | 　 | ◎ | ◎ |
+| [{SlideShare} UE4における大規模背景制作事例（最適化・ワークフロー編）](https://www.slideshare.net/EpicGamesJapan/ue4-139190804)| [要約](20190315_UE4を用いた大規模開発事例紹介～スクウェア・エニックス様をお招きして～/UE4における大規模背景制作事例（最適化・ワークフロー編）.md) | 　 | △ | 　 | ◎ | ◎ |
 
 ## ■ 職種名の略称
 | 略称 | 職種名 |
@@ -52,6 +55,8 @@
 	* [{ボーンデジタル セミナーレポート} FINAL FANTASY XV Character Setup workflow 第一回](https://spark.adobe.com/page/1zsaZLEiCfYtP/)
 	* [{ボーンデジタル セミナーレポート} FINAL FANTASY XV Character Setup workflow 第二回](https://spark.adobe.com/page/yolBlKiodzXEh/)
 	* [{ボーンデジタル セミナーレポート} FINAL FANTASY XV Character Setup workflow 第三回](https://spark.adobe.com/page/qT5lDllZ9BwdL/)
+* 地形コーンステップマップ
+	* [{NVidia Developper} GPU Gems Chapter 18. Relaxed Cone Stepping for Relief Mapping](https://developer.nvidia.com/gpugems/GPUGems3/gpugems3_ch18.html)
 
 ----
 以上。

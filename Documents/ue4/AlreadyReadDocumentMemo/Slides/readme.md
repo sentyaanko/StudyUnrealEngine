@@ -12,9 +12,12 @@
 | スライド名 | 要約へのリンク | PM | DR | PL | DE | PG |
 | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
 | [{SlideShare} UE4におけるエフェクトの基本戦略事例 前編](https://www.slideshare.net/EpicGamesJapan/ue4-138352666)<br>[{SlideShare} UE4におけるエフェクトの基本戦略事例 後編](https://www.slideshare.net/EpicGamesJapan/ue4-138352671) | [要約](20190315_UE4を用いた大規模開発事例紹介～スクウェア・エニックス様をお招きして～/UE4におけるエフェクトの基本戦略事例.md) | 〇 | 〇 | 　 | ◎ | 〇 |
+| [{SlideShare} UE4におけるエフェクトの為のエンジン改造事例](https://www.slideshare.net/EpicGamesJapan/ss-137253035) | [要約](20190315_UE4を用いた大規模開発事例紹介～スクウェア・エニックス様をお招きして～/UE4におけるエフェクトの為のエンジン改造事例.md) | 　 | △ | 　 | 〇 | ◎ |
 | [{SlideShare} UE4におけるレベル制作事例](https://www.slideshare.net/EpicGamesJapan/ue4-137253034) | [要約](20190315_UE4を用いた大規模開発事例紹介～スクウェア・エニックス様をお招きして～/UE4におけるレベル制作事例.md) | 　 | △ | 〇 | 〇 | ◎ |
 | [{SlideShare} UE4における自動プレイのポストモーテム](https://www.slideshare.net/EpicGamesJapan/ue4-137253042) | [要約](20190315_UE4を用いた大規模開発事例紹介～スクウェア・エニックス様をお招きして～/UE4における自動プレイのポストモーテム.md) | 　 | △ | 〇 | 　 | ◎ |
 | [{SlideShare} 実行速度の最適化のあれこれプラスおまけ](https://www.slideshare.net/EpicGamesJapan/ss-137253035) | [要約](20190315_UE4を用いた大規模開発事例紹介～スクウェア・エニックス様をお招きして～/実行速度の最適化のあれこれプラスおまけ.md) | 　 | △ | 　 | 　 | ◎ |
+
+
 
 ## ■ 職種名の略称
 | 略称 | 職種名 |

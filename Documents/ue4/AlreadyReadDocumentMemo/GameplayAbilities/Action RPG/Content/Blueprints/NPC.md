@@ -46,11 +46,11 @@ Goblin 用の BlendSpace/Animation Blueprint/Blueprint/スポーン用の Actor 
 | Default | Soal MIN | 1 | 2 | 3 |
 | Default | Soul MAX | 3 | 4 | 5 |
 | Abilities | Character Level | 1 | 2 | 3 |
-| Abilities | Default Slotted Abilityies | GA_GoblinMelee | GA_GoblineRange01 | GA_GoblinMelee |
+| Abilities | Default Slotted Abilityies | GA_GoblinMelee | GA_GoblinRange01 | GA_GoblinMelee |
 | Character<br>/Mesh<br>/Mesh | Mesh | SK_Exodus_Gruntling | SK_Exodus_Gruntling_Guardian | SK_Exodus_Gruntling_Avalanche |
 | Character<br>/Mesh<br>/Transform | Relative Scale 3D | 1.25 | 1.5 | 1.661105 |
 | Character<br>/Character Movement<br>/Custom Movement | Max Walk Speed | 200 | 150 | 200 |
-| Character | Capsule Component | NPC_Gobline_Level_01<br>:CollisionCylinder | NPC_Gobline_Level_02<br>:CollisionCylinder | NPC_Gobline_Level_03<br>:CollisionCylinder |
+| Character | Capsule Component | NPC_Goblin_Level_01<br>:CollisionCylinder | NPC_Goblin_Level_02<br>:CollisionCylinder | NPC_Goblin_Level_03<br>:CollisionCylinder |
 | Pawn | AI Controller Class | AIC_NPC | AIC_NPC_Range | AIC_NPC |
 
 ----

@@ -34,9 +34,9 @@ struct WaveStruct
 | ----- | ----- | ----- | ----- | ----- |
 | Wave_1 | 60 | NPC_Goblin_Level_01 x1 | NPC_Goblin_Level_01 x2 | NPC_Goblin_Level_01 x2 |
 | Wave_2 | 60 | NPC_Goblin_Level_01 x2 | NPC_Goblin_Level_02 x1<br>NPC_Goblin_Level_01 x1 | NPC_Goblin_Level_02 x2<br>NPC_Goblin_Level_01 x1 |
-| Wave_3 | 60 | NPC_Goblin_Level_02 x3 |　NPC_Goblin_Level_03 x1<br>NPC_Goblin_Level_02 x2 |　NPC_Goblin_Level_02 x2<br>NPC_Goblin_Level_03 x2 |
-| Wave_4 | 60 | NPC_Goblin_Level_02 x3<br>NPC_Goblin_Level_03 x1 |　NPC_Goblin_Level_03 x3 |　NPC_Goblin_Level_03 x2<br>NPC_SpiderBoss x1 |
-| Wave_5 | 60 | NPC_Goblin_Level_01 x6 |　NPC_Goblin_Level_02 x4 |　NPC_Goblin_Level_03 x3 |
+| Wave_3 | 60 | NPC_Goblin_Level_02 x3 | NPC_Goblin_Level_03 x1<br>NPC_Goblin_Level_02 x2 | NPC_Goblin_Level_02 x2<br>NPC_Goblin_Level_03 x2 |
+| Wave_4 | 60 | NPC_Goblin_Level_02 x3<br>NPC_Goblin_Level_03 x1 | NPC_Goblin_Level_03 x3 | NPC_Goblin_Level_03 x2<br>NPC_SpiderBoss x1 |
+| Wave_5 | 60 | NPC_Goblin_Level_01 x6 | NPC_Goblin_Level_02 x4 | NPC_Goblin_Level_03 x3 |
 
 
 ----

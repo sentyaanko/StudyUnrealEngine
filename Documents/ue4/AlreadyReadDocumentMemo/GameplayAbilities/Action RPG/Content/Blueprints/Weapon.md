@@ -32,7 +32,7 @@
 * Goblin 用の武器の基底の GoblinWeapon_Base の基底でもある。
 
 ## ■ GuardianWeaponActor
-* NPC_GoblinBP のプロパティ「 Default/Weapon 」 のデフォルト値は GuardianWeaponActor 。  
+* NPC_GoblinBP のプロパティ「 Default/Weapon 」 のデフォルト値。  
   この設定は NPC_Goblin_Level_* にて上書きされているため、利用されてはいない。  
   GuardianWeaponActor がなくても平気か要確認。
 

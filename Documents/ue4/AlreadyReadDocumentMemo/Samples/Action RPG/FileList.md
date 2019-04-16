@@ -14,8 +14,31 @@
 		* [Boss.md](Content/Animations/Boss.md)
 		* [NPC.md](Content/Animations/NPC.md)
 	* Assets
-		* [Sounds.md](Content/Assets.Sound.md)
-
+		* Sounds
+			* [Abilities.md](Content/Assets/Sounds/Abilities.md)
+			* [Ambient.md](Content/Assets/Sounds/Ambient.md)
+			* [AudioClasses.md](Content/Assets/Sounds/AudioClasses.md)
+			* [Character.md](Content/Assets/Sounds/Character.md)
+			* [Concurrency.md](Content/Assets/Sounds/Concurrency.md)
+			* [Creatures.md](Content/Assets/Sounds/Creatures.md)
+			* [Music.md](Content/Assets/Sounds/Music.md)
+			* [UI.md](Content/Assets/Sounds/UI.md)
+			* [Weapons.md](Content/Assets/Sounds/Weapons.md)
+	* Blueprints
+		* [_readme.md](Content/Blueprints/_readme.md)
+		* [AI.md](Content/Blueprints/AI.md)
+		* [AnimNotifies.md](Content/Blueprints/AnimNotifies.md)
+		* [Boss.md](Content/Blueprints/Boss.md)
+		* [CameraShake.md](Content/Blueprints/CameraShake.md)
+		* [NPC.md](Content/Blueprints/NPC.md)
+		* [Progression.md](Content/Blueprints/Progression.md)
+		* [SaveGame.md](Content/Blueprints/SaveGame.md)
+		* [Weapon.md](Content/Blueprints/Weapon.md)
+		* [WidgetBP.md](Content/Blueprints/WidgetBP.md)
+	* Characters
+		* [_readme.md](Content/Characters/_readme.md)
+		* [Animations.md](Content/Characters/Animations.md)
+		* [Barbarous.md](Content/Characters/Barbarous.md)
 
 # ■ ファイル一覧
 ## ■ Content/Abilities フォルダ
@@ -119,6 +142,72 @@ Assets
     └─Sword
        Sword のスイング用の Sound Wave と Sound Cue
 ```
+
+## ■ Content/Blueprints フォルダ
+```
+Blueprints
+│ GameMode/GameState/Character 基底等
+│
+├─AI
+│ │  Blackboard 等、 AI モジュール類
+│ │
+│ ├─BossAI
+│ │  Spider 用
+│ │
+│ ├─GruntAI
+│ │  Goblin 用
+│ │
+│ └─PlayerAI
+│    Player 用（オートプレイ時）
+│
+├─AnimNotifies
+│  アニメーション通知関連
+│
+├─Boss
+│  Spider 用の Blueprint
+│
+├─CameraShake
+│  カメラを揺らす設定関連
+│
+├─NPC
+│  Goblin 用の Blueprint
+│
+├─Progression
+│  敵の出現テーブルとその型
+│
+├─SaveGame
+│  ストレージへの保存の際の型関連
+│
+├─Weapon
+│ │  Player 用、基底用
+│ │
+│ └─Goblin
+│    Goblin 用（オートプレイ時）
+│
+└─WidgetBP
+  │  共用 Widget
+  │
+  └─Inventory
+     装備・購入関連
+```
+
+## ■ Content/Characters フォルダ
+```
+Characters
+│  Player の Animation Blueprint/Skeleton/BlendSpace/PhysicsMaterial など
+│
+├─Animations
+│  プレイヤーのアニメーションモンタージュ、アニメーションシーケンスなど
+│
+└─Barbarous
+  │  Player のスケルタルメッシュ
+  │
+  └─Texture_Material
+     Player のテクスチャとマテリアル
+```
+
+
+
 
 ----
 以上。

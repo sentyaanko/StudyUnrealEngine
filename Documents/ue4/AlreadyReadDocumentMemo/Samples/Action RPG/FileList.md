@@ -197,7 +197,7 @@ Characters
 │  Player の Animation Blueprint/Skeleton/BlendSpace/PhysicsMaterial など
 │
 ├─Animations
-│  プレイヤーのアニメーションモンタージュ、アニメーションシーケンスなど
+│  Player のアニメーションモンタージュ、アニメーションシーケンスなど
 │
 └─Barbarous
   │  Player のスケルタルメッシュ

@@ -20,7 +20,7 @@
 * [etc.md](etc.md)
 	* 「Gameplay Abiliity System」について言及している Wiki やブログ記事についてまとめたもの。
 * [Summary.md](Summary.md)
-	* 「Gameplay Abiliity System」について実作業にあたってまとめた資料。
+	* 「Gameplay Abiliity System」について実作業にあたってまとめたもの。
 
 ----
 以上。

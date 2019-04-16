@@ -1,4 +1,5 @@
-# ■ ActionRPGReview
+# ■ このフォルダについて
+* サンプルプロジェクト「 Action RPG 」の調査メモを置いています。
 
 ## ■ このファイルについて
 「 Gameplay Abiliity System 」のサンプルである「 Action RPG （以降 ARPG と略す）」の調査内容のインデックスです。

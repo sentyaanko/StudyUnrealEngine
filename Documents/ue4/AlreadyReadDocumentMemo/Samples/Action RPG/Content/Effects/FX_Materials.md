@@ -1,6 +1,6 @@
 # ■ Effects/FX_Materials の内容
 * Particle で使用されているマテリアルとマテリアルインスタンス、マテリアル関数が置かれている。
-* 用途は下記の通りだが一貫性が見られない。
+* 用途は下記の通りだがフォルダの分け方に一貫性が見られない。
 * サブフォルダ以下はすべてマテリアルインスタンス。
 
 ## ■ ファイル一覧
@@ -22,7 +22,7 @@
 | MI_Shockwave_03_Add | MaterialInstance | 円形が崩れた煙のようなものを表現するマテリアルインスタンス | P_Impact01<br>P_Skill_001<br>P_Skill_002<br>P_Skill_Leap_Base_Velocity_Impact |
 | MF_DissolveEffect | MaterialFunction | 敵の出現、消滅時のディゾルブ用マテリアル関数 | CharM_Greater_Spider<br>CharM_Gruntling_Base |
 
-* 参照先は主に以下
+* テクスチャの参照先は主に以下
 	* /Engine
 	* Effects/FX_Textures
 	* Effects/Textures

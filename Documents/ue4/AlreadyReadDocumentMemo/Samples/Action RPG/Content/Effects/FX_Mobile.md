@@ -1,4 +1,4 @@
-# ■ Effects/FX_Ambient の内容
+# ■ Effects/FX_Mobile の内容
 * ParticleSystem/Material Instance ファイルが置かれている。
 * 用途は下記の通りだがフォルダの分け方に一貫性が見られない。
 * おそらく動き回るものを置くフォルダ。

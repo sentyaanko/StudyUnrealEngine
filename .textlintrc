@@ -18,6 +18,7 @@
         "no-doubled-joshi": {
             "allow": ["に","で","は","が","と","たり","や"],
         },
+        "no-doubled-conjunction": false,
         "max-ten": false,
         "max-kanji-continuous-len": {
             max: 10

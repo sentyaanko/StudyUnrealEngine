@@ -1,5 +1,5 @@
 # ■ Effects/FX_Materials の内容
-* Particle で使用されているマテリアルとマテリアルインスタンス、マテリアル関数が置かれている。
+* Particle で使用されている Material/Material Instance/Material Function ファイルが置かれている。
 * 用途は下記の通りだがフォルダの分け方に一貫性が見られない。
 * サブフォルダ以下はすべてマテリアルインスタンス。
 

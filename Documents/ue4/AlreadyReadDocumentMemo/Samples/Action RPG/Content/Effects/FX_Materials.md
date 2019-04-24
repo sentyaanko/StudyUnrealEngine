@@ -17,7 +17,7 @@
 | M_SplashFoam | Material | 湧き出す水を表現するマテリアル | P_WaterSplash_Foam |
 | M_Sword_Trail | Material | Player と敵の武器の軌跡用のマテリアル<br>名前に反して Sword に限らず利用 | P_Sword_Trail_F |
 | MI_Fire_Inst | MaterialInstance | メインメニューレベル（タイトル画面）に配置している<br>効果不明 | ActioRPG_Main |
-| MI_RippleFoam | MaterialInstance | 波紋を泡立たせるマテリアルインスタンス<br>２番目のレベルで利用しているが、配置場所がおかしく用途不明 | ActionRPG_Dungeon02_Asset |
+| MI_RippleFoam | MaterialInstance | 波紋を泡立たせるマテリアルインスタンス<br>レベルで利用しているが、配置場所がおかしく用途不明 | ActionRPG_Dungeon02_Asset |
 | MI_Shockwave_01_ADD | MaterialInstance | 円形の衝撃波を表現するマテリアルインスタンス | P_Env_Fire_PP_01<br>P_Skill_001<br>P_Attack_ComboFX<br>P_Skill_Leap_Base_Velocity_Impact |
 | MI_Shockwave_03_Add | MaterialInstance | 円形が崩れた煙のようなものを表現するマテリアルインスタンス | P_Impact01<br>P_Skill_001<br>P_Skill_002<br>P_Skill_Leap_Base_Velocity_Impact |
 | MF_DissolveEffect | MaterialFunction | 敵の出現、消滅時のディゾルブ用マテリアル関数 | CharM_Greater_Spider<br>CharM_Gruntling_Base |

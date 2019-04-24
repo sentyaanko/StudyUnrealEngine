@@ -5,7 +5,7 @@
 
 | ファイル名 | 用途 | 参照元 |
 | ----- | ----- | ----- |
-| SM_Ripple_Wide | 半ドーナツ状<br>２番目のレベルで利用しているが、配置場所がおかしく用途不明 | ActionRPG_Dungeon02_Asset |
+| SM_Ripple_Wide | 半ドーナツ状<br>レベルで利用しているが、配置場所がおかしく用途不明 | ActionRPG_Dungeon02_Asset |
 
 ----
 以上。

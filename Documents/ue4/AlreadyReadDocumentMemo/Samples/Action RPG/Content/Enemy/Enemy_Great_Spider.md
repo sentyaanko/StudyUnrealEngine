@@ -4,7 +4,7 @@
 関連ファイル置き場
 | Type | 置き場 |
 | ----- | ----- |
-| Animation Montage | /Animations |
+| Animation Montage | /Animations/Boss |
 | Animation Blueprint | /Blueprints/Boss |
 | Blend Space | /Blueprints/Boss |
 

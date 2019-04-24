@@ -1,7 +1,7 @@
 # ■ Enemy/Enemy_Great_Spider の内容
 * Spider のモデル、テクスチャ、マテリアル、アニメーションに関するファイルが置かれている。
 
-関連ファイル置き場
+ここに置かれていない関連ファイルの置き場所
 | Type | 置き場 |
 | ----- | ----- |
 | Animation Montage | /Animations/Boss |

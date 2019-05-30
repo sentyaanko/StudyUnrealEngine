@@ -20,6 +20,7 @@
         },
         "no-doubled-conjunction": false,
         "max-ten": false,
+        "max-comma": false,
         "max-kanji-continuous-len": {
             max: 10
         },

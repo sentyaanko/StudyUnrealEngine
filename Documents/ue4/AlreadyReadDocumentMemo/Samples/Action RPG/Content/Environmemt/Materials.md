@@ -33,26 +33,25 @@
 | Functions/MF_ML_Mud_Wet_JM | Material Function | Landscape 用 Material から呼ばれる<br> | M_CaveLandscape_Mobile |
 | Functions/MF_VertexBlend_JM | Material Function | 岩のマスターマテリアルから呼ばれる | M_Cave_Rock_MASTER_VertexPaint_MOSS |
 | Functions/MF_Wetness | Material Function | 岩のマスターマテリアルから呼ばれる | M_Cave_Rock_MASTER<br>M_Cave_Rock_MASTER_VertexPaint_MOSS |
-| MaterialLayers/ |  |  |
-| Natures/ |  |  |
-| Natures/ |  |  |
-| Natures/ |  |  |
-| Natures/ |  |  |
-| Natures/ |  |  |
-| Rocks/ |  |  |
-| Rocks/ |  |  |
-| Rocks/ |  |  |
-| Rocks/ |  |  |
-| Rocks/ |  |  |
-| Rocks/ |  |  |
-| Rocks/ |  |  |
-| Rocks/ |  |  |
-| Rocks/ |  |  |
-| Rocks/ |  |  |
-| Rocks/ |  |  |
-| Rocks/ |  |  |
-| Rocks/ |  |  |
-| Rocks/ |  |  |
+| MaterialLayers/MF_ML_Solid_Color | Material Function | 岩のマスターマテリアルから呼ばれる<br>MaterialLayers というフォルダ名だが、<br>4.19 以降の MaterialLayers は使っていない。<br>（やっていることはほぼ同じ） | M_Cave_Rock_MASTER_VertexPaint_MOSS |
+| Natures/MI_Soul_Leaves_Water | Material Instance | 落ち葉用のマテリアルインスタンス | SM_Cave_Leaf_Pile_01 |
+| Natures/M_Soul_Leaves | Material |  落ち葉用のマテリアル<br>foliage で利用 | MI_Soul_Leaves_Water<br>SM_Cave_Leaf_Pile_02 |
+| Natures/M_LV_Soul_Grass04M | Material | シダに似た植物用のマテリアル<br>foliage で利用 | SM_LV_Soul_Foliage021SM |
+| Natures/M_Soul_Bush | Material | 枯れ木用のマテリアル | SM_S_Soul_bush |
+| Natures/M_Soul_Plants | Material | シダ（大）に似た植物用のマテリアル | SM_S_Soul_Plants_Fern2 |
+| Rocks/MF_ML_Cave_Moss | Material Function | 岩のマスターマテリアルから呼ばれる<br>苔用 Material Layer | M_Cave_Rock_MASTER_VertexPaint_MOSS |
+| Rocks/MF_ML_Cave_Rock_01 | Material Function | 岩のマスターマテリアルから呼ばれる<br>岩用 Material Layer | M_Cave_Rock_MASTER<br>M_Cave_Rock_MASTER_VertexPaint_MOSS |
+| Rocks/MI_Cave_Rock_Flat | Material Instance | M_Cave_Rock_MASTER のマテリアルインスタンス<br>Phys Material 付き。 | SM_Cave_Rock_Flat01 |
+| Rocks/MI_Cave_Rock_Large02 | Material Instance | M_Cave_Rock_MASTER のマテリアルインスタンス | SM_Cave_Rock_01<br>SM_Cave_Rock_02<br>SM_Cave_Rock_03<br>ActionRPG_Dungeon02_Asset |
+| Rocks/MI_Cave_Rock_Pillar_Moss2 | Material Instance | M_Cave_Rock_MASTER_VertexPaint_MOSS のマテリアルインスタンス | SM_Cave_Rock_Pillar01REDO |
+| Rocks/MI_Cave_Rock_Small_Moss | Material Instance | M_Cave_Rock_MASTER_VertexPaint_MOSS のマテリアルインスタンス | SM_Cave_Tree01 |
+| Rocks/MI_Cave_Rock_Small_Moss02 | Material Instance | M_Cave_Rock_MASTER_VertexPaint_MOSS のマテリアルインスタンス | SM_Cave_StoneCluster03 |
+| Rocks/MI_M_Cave_Rock_Bricks_Moss22 | Material Instance | M_Cave_Rock_MASTER_VertexPaint_MOSS のマテリアルインスタンス<br>VertexPaintWetness_Switch を true に設定している。<br>Wetness は blue のチャンネルを使うが、どこも塗っていない。 | SM_Cave_Brick_01a2<br>SM_Cave_Brick_01e |
+| Rocks/MI_M_Cave_Rock_Ceiling | Material Instance | M_Cave_Rock_MASTER のマテリアルインスタンス | SM_Cave_Rock_Medium01 |
+| Rocks/M_Cave_Rock_MASTER | Material | 岩のマスターマテリアル | MI_Cave_Rock_Flat<br>MI_Cave_Rock_Large02<br>MI_M_Cave_Rock_Ceiling |
+| Rocks/M_Cave_Rock_MASTER_VertexPaint_MOSS | Material | 岩のマスターマテリアル | MI_Cave_Rock_Pillar_Moss2<br>MI_Cave_Rock_Small_Moss<br>MI_Cave_Rock_Small_Moss02<br>MI_M_Cave_Rock_Bricks_Moss22 |
+| Rocks/M_Cave_RuneRocks01 | Material | 柱用のマテリアル<br>頂点色の青が斑に塗られている。<br>ただ、マテリアルからは利用していないように見える。 | ActionRPG_Dungeon02_Asset |
+| Rocks/M_Cave_Wood_Beam | Material | 木の角材用のマテリアル | SM_Cave_Wood_Beam |
 
 
 # ■ マテリアルの内容について

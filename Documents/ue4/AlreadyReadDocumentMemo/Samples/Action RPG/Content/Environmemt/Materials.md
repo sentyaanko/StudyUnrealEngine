@@ -1,5 +1,3 @@
-* 書きかけです。
-
 # ■ Environment/Materials の内容
 * Material/Material Instance/Texture ファイルが置かれている。
 * Unreal Engine 4.21.2 だと、EngineContents 以下のいくつかの Material Function でエラーが出ているため、4.22.0 に更新しました。

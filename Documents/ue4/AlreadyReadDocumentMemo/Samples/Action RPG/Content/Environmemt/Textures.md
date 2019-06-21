@@ -27,7 +27,7 @@
 
 | ファイル名 | 内容 | 参照元 |
 | ----- | ----- | ----- |
-| Bricks/T_Cave_Bricks_M | レンガのマスク<br>R:苔のブレンド比<br>G:土壌のブレンド比<br>B:アンビエントオクルージョン値| MI_M_Cave_Rock_Bricks_Moss22<br>M_Cave_Rock_MASTER_VertexPaint_MOSS |
+| Bricks/T_Cave_Bricks_M | レンガのマスク<br>R:苔のブレンド比<br>G:土壌のブレンド比<br>B:アンビエントオクルージョン値 | MI_M_Cave_Rock_Bricks_Moss22<br>M_Cave_Rock_MASTER_VertexPaint_MOSS |
 | Bricks/T_Cave_Bricks_N | レンガのノーマルマップ | MI_M_Cave_Rock_Bricks_Moss22 |
 | Building/T_Slums_Wood_D | 朽ちた木の扉の色情報<br>RGB:ベースカラーの要素<br>A:スペキュラの要素 | M_Slums_Wood_ |
 | Building/T_Slums_Wood_N | 朽ちた木の扉のノーマルマップ | M_Slums_Wood_ |

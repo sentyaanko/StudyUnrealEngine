@@ -195,7 +195,7 @@ Tags:
 ## ■ アビリティエフェクトクラス
 * 登録先 Ability: **GA_PlayerFireAxeMelee** 固定
 
-| 名前 | 親クラス| 登録先 EffectContainerMap のキー名 |
+| 名前 | 親クラス | 登録先 EffectContainerMap のキー名 |
 | ----- | ----- | ----- |
 | GE_PlayerFireAxeBurstPound | GE_RangeBase | [Event.Montage.Player.Combo.BurstPound] |
 | GE_PlayerFireAxeGroundPound | GE_RangeBase | [Event.Montage.Player.Combo.GroundPound] |

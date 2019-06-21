@@ -10,7 +10,7 @@
 ## ■ アビリティクラス
 | 名前 | 親クラス |  用途 |
 | ----- | ----- | ----- |
-| GA_MeleeBase | RPGGameplayAbility | 近接攻撃の基底|
+| GA_MeleeBase | RPGGameplayAbility | 近接攻撃の基底 |
 | GA_PotionBase | RPGGameplayAbility | ポーションの基底 |
 | GA_SkillBase | RPGGameplayAbility | スキルの基底 |
 | GA_SpawnProjectileBase | RPGGameplayAbility | 発射物を Spawn させる基底 |

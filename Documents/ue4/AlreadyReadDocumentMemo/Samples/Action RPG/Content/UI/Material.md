@@ -9,7 +9,7 @@
 | M_UI_BlankMaterial | プログレスバー用。 | WB_EnemyHP<br>WB_HUD_Mobile<br>WB_HUD_PC |
 | M_UI_IntroBG02 | メインメニュー（タイトル画面）の背景用。<br>Widget ではなく、 Plane 用。 | ActionRPG_Main |
 | M_UI_Shadow | ポーズメニューの背面を隠すグラデーション用。 | WB_Equipment |
-| M_UI_Shinyness | アイテム刀の購入時のボタンの背景用。<br>霧が流れるようなアニメーション。 | WB_PurchaseItem |
+| M_UI_Shinyness | アイテム等の購入時のボタンの背景用。<br>霧が流れるようなアニメーション。 | WB_PurchaseItem |
 
 ----
 以上。

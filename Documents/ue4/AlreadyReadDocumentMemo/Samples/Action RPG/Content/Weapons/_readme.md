@@ -3,7 +3,8 @@
 	* Player 用は Skeltal Mesh / Skelton
 	* Goblin 用は Static Mesh
 * Player 用は武器ごとにフォルダ分けされている。
-	* プレイヤー用のものは１つにまとめられそう。
+	* プレイヤー用のマテリアルはほぼ同じ内容なので１つにまとめられそう。
+	* その場合、現在省かれている全面白のテクスチャをわざわざ用意したり、 Composite Texture をどうにかする必要はある。
 * Goblin 用は Material / Texture を共用しており、 Enemy_Gruntling_Weapons フォルダに格納されている。
 
 ## ■ フォルダ一覧

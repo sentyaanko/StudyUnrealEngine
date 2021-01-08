@@ -10,42 +10,16 @@
 ### DurationPolicy
 * Policy for the duration of this effect
 	* この効果の持続期間のポリシー
-
-値は [EGameplayEffectDurationType] を参照
+* 値
+	* [EGameplayEffectDurationType] を参照
 
 ### DurationMagnitude
 DurationPolicy が HasDuration の時のみ有効
 
 * Duration in seconds. 0.0 for instantaneous effects; -1.0 for infinite duration.
 	* 秒単位の期間。 瞬間効果の場合は 0.0。 無限の期間の場合は-1.0。
-
-値は FGameplayEffectModifierMagnitude を参照
-
-### FGameplayEffectModifierMagnitude
-
-	/** Type of calculation to perform to derive the magnitude */
-	UPROPERTY(EditDefaultsOnly, Category=Magnitude)
-	EGameplayEffectMagnitudeCalculation MagnitudeCalculationType;
-
-	/** Magnitude value represented by a scalable float */
-	UPROPERTY(EditDefaultsOnly, Category=Magnitude)
-	FScalableFloat ScalableFloatMagnitude;
-
-	/** Magnitude value represented by an attribute-based float
-	(Coefficient * (PreMultiplyAdditiveValue + [Eval'd Attribute Value According to Policy])) + PostMultiplyAdditiveValue */
-	UPROPERTY(EditDefaultsOnly, Category=Magnitude)
-	FAttributeBasedFloat AttributeBasedMagnitude;
-
-	/** Magnitude value represented by a custom calculation class */
-	UPROPERTY(EditDefaultsOnly, Category=Magnitude)
-	FCustomCalculationBasedFloat CustomMagnitude;
-
-	/** Magnitude value represented by a SetByCaller magnitude */
-	UPROPERTY(EditDefaultsOnly, Category=Magnitude)
-	FSetByCallerFloat SetByCallerMagnitude;
-
-
-
+* 値
+	* [FGameplayEffectModifierMagnitude] を参照
 
 ### 
 	/** Array of modifiers that will affect the target of this effect */
@@ -232,7 +206,7 @@ DurationPolicy が HasDuration の時のみ有効
 
 
 ----
-### EGameplayEffectDurationType
+# EGameplayEffectDurationType
 * Gameplay effect duration policies
 	* ゲームプレイ効果の継続時間ポリシー
 
@@ -247,9 +221,226 @@ DurationPolicy が HasDuration の時のみ有効
 		* この効果の持続時間は大きさによって指定されます
 
 
+# FGameplayEffectModifierMagnitude
+* Struct representing the magnitude of a gameplay effect modifier, potentially calculated in numerous different ways
+	* ゲームプレイ効果修飾子の大きさを表す構造体。さまざまな方法で計算される可能性があります。
+
+### MagnitudeCalculationType
+* Type of calculation to perform to derive the magnitude
+	* 大きさを導出するために実行する計算のタイプ
+* 値
+	* [EGameplayEffectMagnitudeCalculation] を参照
+
+### ScalableFloatMagnitude
+MagnitudeCalculationType が ScalableFloat の時のみ有効
+
+* Magnitude value represented by a scalable float
+	* スケーラブルなフロートで表される大きさの値
+
+### AttributeBasedMagnitude
+MagnitudeCalculationType が AttributeBased の時のみ有効
+
+* Magnitude value represented by an attribute-based float
+(Coefficient * (PreMultiplyAdditiveValue + [Eval'd Attribute Value According to Policy])) + PostMultiplyAdditiveValue
+	* 属性ベースの浮動小数点数で表される大きさの値
+	（係数*（PreMultiplyAdditiveValue + [ポリシーに従って評価された属性値]））+ PostMultiplyAdditiveValue
+* 値
+	* [FAttributeBasedFloat] を参照
+
+### CustomMagnitude
+MagnitudeCalculationType が CustomCalculationClass の時のみ有効
+
+* Magnitude value represented by a custom calculation class
+	* カスタム計算クラスで表される大きさの値
+* 値
+	* [FCustomCalculationBasedFloat] を参照
+
+### SetByCallerMagnitude
+MagnitudeCalculationType が SetByCaller の時のみ有効
+
+* Magnitude value represented by a SetByCaller magnitude
+	* SetByCaller の大きさによって表される大きさの値
+* 値
+	* [FSetByCallerFloat] を参照
+
+# EGameplayEffectMagnitudeCalculation
+* Enumeration outlining the possible gameplay effect magnitude calculation policies.
+	* 可能なゲームプレイ効果の大きさの計算ポリシーの概要を示す列挙。
+* 値
+	* ScalableFloat
+		* Use a simple, scalable float for the calculation.
+			* 計算には、シンプルでスケーラブルなフロートを使用します。
+	* AttributeBased
+		* Perform a calculation based upon an attribute.
+			* 属性に基づいて計算を実行します。
+	* CustomCalculationClass
+		* Perform a custom calculation, capable of capturing and acting on multiple attributes, in either BP or native.
+			* BP またはネイティブのいずれかで、複数の属性をキャプチャして操作できるカスタム計算を実行します。
+	* SetByCaller
+		* This magnitude will be set explicitly by the code/blueprint that creates the spec.
+			* この大きさは、仕様を作成するコード/ブループリントによって明示的に設定されます。
+
+
+# FAttributeBasedFloat
+* Struct representing a float whose magnitude is dictated by a backing attribute and a calculation policy, follows basic form of:
+ (Coefficient * (PreMultiplyAdditiveValue + [Eval'd Attribute Value According to Policy])) + PostMultiplyAdditiveValue
+	* 大きさがバッキング属性と計算ポリシーによって決定されるフロートを表す構造体は、次の基本形式に従います。
+  （係数*（PreMultiplyAdditiveValue + [ポリシーに従って評価された属性値]））+ PostMultiplyAdditiveValue
+
+### Coefficient
+* Coefficient to the attribute calculation
+	* 属性計算の係数
+
+### PreMultiplyAdditiveValue
+* Additive value to the attribute calculation, added in before the coefficient applies
+	* 係数が適用される前に追加される、属性計算への加算値
+
+### PostMultiplyAdditiveValue
+* Additive value to the attribute calculation, added in after the coefficient applies
+	* 係数が適用された後に追加される、属性計算への加算値
+
+### BackingAttribute
+* Attribute backing the calculation
+	* 計算を裏付ける属性
+* 値
+	* [FGameplayEffectAttributeCaptureDefinition] を参照
+
+### AttributeCurve
+* If a curve table entry is specified, the attribute will be used as a lookup into the curve instead of using the attribute directly.
+	* 曲線テーブルエントリが指定されている場合、属性は、属性を直接使用する代わりに、曲線へのルックアップとして使用されます。
+
+### AttributeCalculationType
+* Calculation policy in regards to the attribute
+	* 属性に関する計算方針
+* 値
+	* [EAttributeBasedFloatCalculationType] を参照
+
+### FinalChannel
+AttributeCalculationType が AttributeMagnitudeEvaluatedUpToChannel の時のみ有効
+
+* Channel to terminate evaluation on when using AttributeEvaluatedUpToChannel calculation type
+	* AttributeEvaluatedUpToChannel 計算タイプを使用するときに評価を終了するチャネル
+
+### SourceTagFilter
+* Filter to use on source tags; If specified, only modifiers applied with all of these tags will factor into the calculation
+	* ソースタグで使用するフィルター。 指定した場合、これらのタグすべてに適用された修飾子のみが計算に考慮されます
+* 値
+	* [FGameplayTagContainer] を参照
+
+### TargetTagFilter
+* Filter to use on target tags; If specified, only modifiers applied with all of these tags will factor into the calculation
+	* ターゲットタグで使用するフィルター。 指定した場合、これらのタグすべてに適用された修飾子のみが計算に考慮されます
+* 値
+	* [FGameplayTagContainer] を参照
+
+
+# FGameplayEffectAttributeCaptureDefinition
+* Struct defining gameplay attribute capture options for gameplay effects
+	* ゲームプレイ効果のゲームプレイ属性キャプチャオプションを定義する構造体
+
+### AttributeToCapture
+* Gameplay attribute to capture
+	* キャプチャするゲームプレイ属性
+
+### AttributeSource
+* Source of the gameplay attribute
+	* ゲームプレイ属性のソース
+* 値
+	* [EGameplayEffectAttributeCaptureSource] を参照
+
+### bSnapshot
+* Whether the attribute should be snapshotted or not
+	* 属性をスナップショットする必要があるかどうか
+
+# EGameplayEffectAttributeCaptureSource
+* Enumeration for options of where to capture gameplay attributes from for gameplay effects.
+	* ゲームプレイ効果のためにゲームプレイ属性をキャプチャする場所のオプションの列挙。
+* 値
+	* Source
+		* Source (caster) of the gameplay effect.
+			* ゲームプレイ効果のソース（キャスター）。
+	* Target	
+		* Target (recipient) of the gameplay effect.
+			* ゲームプレイ効果のターゲット（受信者）。
+
+
+# EAttributeBasedFloatCalculationType
+* Enumeration outlining the possible attribute based float calculation policies.
+	* 可能な属性ベースのフロート計算ポリシーの概要を示す列挙。
+* 値
+	* AttributeMagnitude
+		* Use the final evaluated magnitude of the attribute.
+			* 属性の最終的に評価された大きさを使用します。
+	* AttributeBaseValue
+		* Use the base value of the attribute.
+			* 属性の基本値を使用します。
+	* AttributeBonusMagnitude
+		* Use the "bonus" evaluated magnitude of the attribute: Equivalent to (FinalMag - BaseValue).
+			* 属性の「ボーナス」評価された大きさを使用します：（FinalMag-BaseValue）と同等です。
+	* AttributeMagnitudeEvaluatedUpToChannel
+		* Use a calculated magnitude stopping with the evaluation of the specified "Final Channel"
+			* 指定された「最終チャネル」の評価で停止する計算された大きさを使用します
+		* ```AbilitySystemGlobalsCDO::ShouldAllowGameplayModEvaluationChannels()``` が true を返さない場合は表示されない
+
+# FGameplayTagContainer
+* A Tag Container holds a collection of FGameplayTags, tags are included explicitly by adding them, and implicitly from adding child tags
+	* タグコンテナはFGameplayTagのコレクションを保持し、タグはそれらを追加することによって明示的に含まれ、子タグの追加から暗黙的に含まれます
+
+# FCustomCalculationBasedFloat
+
+* Structure to encapsulate magnitudes that are calculated via custom calculation
+	* カスタム計算によって計算された大きさをカプセル化する構造体
+
+### CalculationClassMagnitude
+* 表示名は Calculation Class
+* 説明無し
+* 値
+	* [UGameplayModMagnitudeCalculation] を参照
+
+### Coefficient
+* Coefficient to the custom calculation
+	* カスタム計算の係数
+
+### PreMultiplyAdditiveValue
+* Additive value to the attribute calculation, added in before the coefficient applies
+	* 係数が適用される前に追加される、属性計算への加算値
+
+### PostMultiplyAdditiveValue
+* Additive value to the attribute calculation, added in after the coefficient applies
+	* 係数が適用された後に追加される、属性計算への加算値
+
+### FinalLookupCurve
+* If a curve table entry is specified, the OUTPUT of this custom class magnitude (including the pre and post additive values) lookup into the curve instead of using the attribute directly.
+	* 曲線テーブルのエントリが指定されている場合、このカスタムクラスの大きさの出力（事前及び事後の加算値を含む）は、属性を直接使用する代わりに、曲線を検索します。
+
+
+# FSetByCallerFloat
+* Struct for holding SetBytCaller data
+	* SetBytCaller データを保持するための構造
+
+### DataName
+* The Name the caller (code or blueprint) will use to set this magnitude by.
+	* 呼び出し元（コードまたはブループリント）がこの大きさを設定するために使用する名前。
+
+### DataTag
+* 説明無し
+
+# UGameplayModMagnitudeCalculation
+* Class used to perform custom gameplay effect modifier calculations, either via blueprint or native code
+	* ブループリントまたはネイティブコードを介して、カスタムゲームプレイ効果修飾子の計算を実行するために使用されるクラス
+
+
 ----
 [EGameplayEffectDurationType]:#EGameplayEffectDurationType
-
+[FGameplayEffectModifierMagnitude]:#FGameplayEffectModifierMagnitude
+[EGameplayEffectMagnitudeCalculation]:#EGameplayEffectMagnitudeCalculation
+[FAttributeBasedFloat]:#FAttributeBasedFloat
+[FGameplayEffectAttributeCaptureDefinition]:#FGameplayEffectAttributeCaptureDefinition
+[EGameplayEffectAttributeCaptureSource]:#EGameplayEffectAttributeCaptureSource
+[FGameplayTagContainer]:#FGameplayTagContainer
+[FCustomCalculationBasedFloat]:#FCustomCalculationBasedFloat
+[FSetByCallerFloat]:#FSetByCallerFloat
+[UGameplayModMagnitudeCalculation]:#UGameplayModMagnitudeCalculation
 
 ----
 おしまい。

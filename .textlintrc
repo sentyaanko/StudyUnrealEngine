@@ -18,7 +18,7 @@
         "sentence-length": false,
         "no-exclamation-question-mark": false,
         "no-doubled-joshi": {
-            "allow": ["に","で","は","が","と","たり","や"],
+            "allow": ["に","で","は","が","と","たり","や","か"]],
         },
         "no-doubled-conjunction": false,
         "max-ten": false,

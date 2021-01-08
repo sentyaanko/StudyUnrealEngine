@@ -15,7 +15,7 @@
 | 名前 | 親クラス | 用途 | 参照元 |
 | ----- | ----- | ----- | ----- |
 | BTTask_IsTargetSurrounded | BTDecorator_BlueprintBase | **中身は Decorator なのにファイル名は Task になっている。要確認**<br>指定の Actor の指定距離内に指定以上の Actor がいる場合に真を返す | BT_Player |
-| BTTask_IsPlayingHighOriorityMontage | BTDecorator_BlueprintBase | **中身は Decorator なのにファイル名は Task になっている。要確認**<br>高い優先順位の AnimationMontage が再生中の場合は真を返す | BT_Player |
+| BTTask_IsPlayingHighPriorityMontage | BTDecorator_BlueprintBase | **中身は Decorator なのにファイル名は Task になっている。要確認**<br>高い優先順位の AnimationMontage が再生中の場合は真を返す | BT_Player |
 | BTDesc_CheckHealth | BTDecorator_BlueprintBase | Player 自身の HP が指定された割合**以下**の場合は真を返す<br>**Blackboard にプレイヤーの HP の割合を置いた方が実装として素直なように感じる** | BT_Player |
 | BTDesc_IsAlive | BTDecorator_BlueprintBase | 自身が生きている場合は真を返す | BT_NPC |
 | BTDesc_CheckItem | BTDecorator_BlueprintBase | 指定スロットに指定のアイテムを設定していた場合に真を返す | BT_Player |

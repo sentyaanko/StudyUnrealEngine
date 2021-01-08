@@ -21,11 +21,13 @@ DurationPolicy が HasDuration の時のみ有効
 * 値
 	* [FGameplayEffectModifierMagnitude] を参照
 
-### 
-	/** Array of modifiers that will affect the target of this effect */
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category=GameplayEffect)
-	TArray<FGameplayModifierInfo> Modifiers;
+### Modifiers
+* Array of modifiers that will affect the target of this effect
+	* この効果の対象に影響を与える修飾子の配列
+* 値
+	* [FGameplayModifierInfo] を参照
 
+ここから
 ### 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = GameplayEffect)
 	TArray<FGameplayEffectExecutionDefinition>	Executions;
@@ -429,6 +431,82 @@ AttributeCalculationType が AttributeMagnitudeEvaluatedUpToChannel の時のみ
 * Class used to perform custom gameplay effect modifier calculations, either via blueprint or native code
 	* ブループリントまたはネイティブコードを介して、カスタムゲームプレイ効果修飾子の計算を実行するために使用されるクラス
 
+# FGameplayModifierInfo
+* Tells us "Who/What we" modify. Does not tell us how exactly.
+	* 「誰が/何を」変更するかを教えてくれます。具体的には教えてくれません。
+
+### Attribute
+* The Attribute we modify or the Gameplay Effect we modify modifies.
+	* 変更する属性または変更するゲームプレイ効果が変更されます。
+* 値
+	* [FGameplayAttribute] を参照
+
+### ModifierOp
+* The numeric operation of this modifier: Override, Add, Multiply, etc
+	* この修飾子の数値演算：オーバーライド、追加、乗算など
+* 値
+	* [EGameplayModOp::Type] を参照
+
+### ModifierMagnitude
+* Magnitude of the modifier
+	* モディファイアの大きさ
+* 値
+	* [FGameplayEffectModifierMagnitude] を参照
+
+### EvaluationChannelSettings
+***不明な条件、要調査*** の時のみ有効
+
+* Evaluation channel settings of the modifier
+	* モディファイアの評価チャネル設定
+* 値
+	* [FGameplayModEvaluationChannelSettings] を参照
+
+### SourceTags
+* 説明無し
+* 値
+	* [FGameplayTagRequirements] を参照
+
+### TargetTags
+* 説明無し
+* 値
+	* [FGameplayTagRequirements] を参照
+
+# FGameplayAttribute
+* Describes a FGameplayAttributeData or float property inside an attribute set. Using this provides editor UI and helper functions
+	* 属性セット内の FGameplayAttributeData または float プロパティについて説明します。 これを使用すると、エディター UI とヘルパー関数が提供されます
+
+# EGameplayModOp::Type
+* Defines the ways that mods will modify attributes. Numeric ones operate on the existing value, override ignores it
+	* modが属性を変更する方法を定義します。 数値は既存の値を操作し、オーバーライドはそれを無視します
+* 値
+	* Additive
+		* 表示名 はAdd
+		* 加算
+	* Multiplicitive
+		* 表示名 はMultiply
+		* 乗算
+	* Division
+		* 表示名 はDivide
+		* 除算
+	* Override
+		* This should always be the first non numeric ModOp
+			* これは常に最初の非数値ModOpである必要があります
+
+
+# FGameplayModEvaluationChannelSettings
+* Struct representing evaluation channel settings for a gameplay modifier
+	* ゲームプレイ修飾子の評価チャネル設定を表す構造体
+
+### Channel
+* Channel the settings would prefer to use, if possible/valid
+	* 可能/有効な場合、設定が使用することを好むチャネル
+* 値
+	* [EGameplayModEvaluationChannel] を参照
+
+# EGameplayModEvaluationChannel
+* Valid gameplay modifier evaluation channels; Displayed and renamed via game-specific aliases and options
+	* 有効なゲームプレイ修飾子の評価チャネル。 ゲーム固有のエイリアスとオプションを介して表示および名前変更
+
 
 ----
 [EGameplayEffectDurationType]:#EGameplayEffectDurationType
@@ -441,6 +519,12 @@ AttributeCalculationType が AttributeMagnitudeEvaluatedUpToChannel の時のみ
 [FCustomCalculationBasedFloat]:#FCustomCalculationBasedFloat
 [FSetByCallerFloat]:#FSetByCallerFloat
 [UGameplayModMagnitudeCalculation]:#UGameplayModMagnitudeCalculation
+[FGameplayModifierInfo]:#FGameplayModifierInfo
+[FGameplayAttribute]:#FGameplayAttribute
+[EGameplayModOp::Type]:#EGameplayModOp::Type
+[FGameplayModEvaluationChannelSettings]:#FGameplayModEvaluationChannelSettings
+[EGameplayModEvaluationChannel]:#EGameplayModEvaluationChannel
+
 
 ----
 おしまい。

@@ -42,7 +42,7 @@
 	* TArray<[FConditionalGameplayEffect]>
 * 説明
 	* other gameplay effects that will be applied to the target of this effect if this effect applies
-	* 
+	* この効果が適用される場合、この効果のターゲットに適用される他のゲームプレイ効果
 
 ## Period
 * 説明
@@ -546,7 +546,7 @@
 ### CalculationModifiers
 * 条件
 	* CalculationClass で指定された class にて 以下のどちらかを満たしている時のみ有効
-		* GetValidScopedModifierAttributeCaptureDefinitions() の第一引数で一つ以上の FGameplayEffectAttributeCaptureDefinition 配列を返す
+		* GetValidScopedModifierAttributeCaptureDefinitions() の第一引数で一つ以上の [FGameplayEffectAttributeCaptureDefinition] 配列を返す
 		* GetValidTransientAggregatorIdentifiers() の戻り値で一つ以上の FGameplayTag を持つ FGameplayTagContainer を返す
 * 型
 	* [FGameplayEffectExecutionScopedModifierInfo]
@@ -568,26 +568,125 @@
 
 ### RelevantAttributesToCapture
 * 型
-	* [FGameplayEffectAttributeCaptureDefinition]
+	* TArray<[FGameplayEffectAttributeCaptureDefinition]>
 * 説明
 	* Attributes to capture that are relevant to the calculation
 	* 計算に関連するキャプチャする属性
-	
+* 詳細
+	* [UGameplayEffectCalculation]::GetAttributeCaptureDefinitions() の実体。
+	* デフォルトは空。
+	* クラスデフォルトで任意の[FGameplayEffectAttributeCaptureDefinition]を設定可能。
+	* この変数を設定された[UGameplayEffectExecutionCalculation]派生クラスを用意し、
+	[UGameplayEffect]::Executions::CalculationClass に指定した場合、
+	この変数に設定された値を[UGameplayEffect]::Executions::CalculationModifiers::BackingData で指定できるようになる。
+
+### GetAttributeCaptureDefinitions()
+* 型
+	virtual const TArray<[FGameplayEffectAttributeCaptureDefinition]>& GetAttributeCaptureDefinitions() const;
+* 説明
+	* Simple accessor to capture definitions for attributes
+	* 属性の定義をキャプチャするためのシンプルなアクセサ
+
 # UGameplayEffectExecutionCalculation
-* 基底型
-	* [UGameplayEffectCalculation]
+* クラス階層
+	* UObject
+		* [UGameplayEffectCalculation]
+			* [UGameplayEffectExecutionCalculation]
 * 説明
 	* 無し
 
+### bRequiresPassedInTags
+* 型
+	* bool
+* 説明
+	* Used to indicate if this execution uses Passed In Tags
+	* この実行でPassedInタグが使用されているかどうかを示すために使用されます
+* 詳細
+	* [UGameplayEffectExecutionCalculation]::DoesRequirePassedInTags() の実体。
+	* デフォルトはfalse。
+	* クラスデフォルトでtrueに変更可能。
 
+### DoesRequirePassedInTags()
+* 型
+	* virtual bool DoesRequirePassedInTags() const
+* 説明
+	* Returns if this execution requires passed in tags
+	* この実行でタグの受け渡しが必要な場合に返されます
+* 詳細
+	* [UGameplayEffectExecutionCalculation]::bRequiresPassedInTags の取得用関数。
+	* trueを返すように設定された[UGameplayEffectExecutionCalculation]派生クラスを
+	[UGameplayEffect]::Executions::CalculationClass に指定した場合、
+	[UGameplayEffect]::Executions::PassedInTags を設定できるようになる。
+
+### InvalidScopedModifierAttributes
+* 型
+	* TArray<[FGameplayEffectAttributeCaptureDefinition]>
+* 説明
+	* Any attribute in this list will not show up as a valid option for scoped modifiers; Used to allow attribute capture for internal calculation while preventing modification
+	* このリストの属性は、スコープ修飾子の有効なオプションとして表示されません。 変更を防ぎながら、内部計算のための属性キャプチャを可能にするために使用されます
+* 詳細
+	* [UGameplayEffectCalculation]::RelevantAttributesToCapture から除外したい項目を指定するための変数。
+		* [UGameplayEffectCalculation]::RelevantAttributesToCapture に「Health」を指定しているが除外したい場合、
+		この変数に「Health」を指定することでオプションとして表示されなくなる。
+
+### GetValidScopedModifierAttributeCaptureDefinitions()
+* 型
+	* virtual void GetValidScopedModifierAttributeCaptureDefinitions(OUT TArray<FGameplayEffectAttributeCaptureDefinition>& OutScopableModifiers) const
+* 説明
+	* Gets the collection of capture attribute definitions that the calculation class will accept as valid scoped modifiers
+	* 計算クラスが有効なスコープ修飾子として受け入れるキャプチャ属性定義のコレクションを取得します
+* param
+	* OutScopableModifiers
+		* [OUT] Array to populate with definitions valid as scoped modifiers
+		* [OUT]スコープ修飾子として有効な定義を入力する配列
+
+### ValidTransientAggregatorIdentifiers
+* 型
+	* [FGameplayTagContainer]
+* 説明
+	* Any tag in this container will show up as a valid "temporary variable" for scoped modifiers; Used to allow for data-driven variable support that doesn't rely on scoped modifiers
+	* このコンテナ内のタグはすべて、スコープ修飾子の有効な「一時変数」として表示されます。 スコープ修飾子に依存しないデータ駆動型変数のサポートを可能にするために使用されます
+* 詳細
+	* GameplayTagはクラスの変数に持っていない値を変数のように扱える機能。
+	* この変数を設定された[UGameplayEffectExecutionCalculation]派生クラスを用意し、
+	[UGameplayEffect]::Executions::CalculationClass に指定した場合、
+	この変数に設定されたGameplayTagを[UGameplayEffect]::Executions::CalculationModifiers::BackingData で指定できるようになる。
+
+
+### GetValidTransientAggregatorIdentifiers()
+* 型
+	* virtual const [FGameplayTagContainer]& GetValidTransientAggregatorIdentifiers() const
+* 説明
+	* Gets the collection of identifiers of valid transient aggregators ("temporary variable aggregators")
+	* 有効な一時アグリゲーター（「一時変数アグリゲーター」）の識別子のコレクションを取得します
+* return
+	* 有効な一時的なアグリゲーター識別子の配列
 
 # FGameplayEffectExecutionScopedModifierInfo
 * 説明
-	* Struct representing modifier info used exclusively for "scoped" executions that happen instantaneously. These are
-	folded into a calculation only for the extent of the calculation and never permanently added to an aggregator.
-	* 瞬時に発生する「スコープ付き」実行専用に使用される修飾子情報を表す構造体。 これらは
-	計算の範囲でのみ計算に組み込まれ、アグリゲーターに永続的に追加されることはありません。
+	* Struct representing modifier info used exclusively for "scoped" executions that happen instantaneously.
+	These are folded into a calculation only for the extent of the calculation and never permanently added to an aggregator.
+	* 瞬時に発生する「スコープ付き」実行専用に使用される修飾子情報を表す構造体。
+	これらは計算の範囲でのみ計算に組み込まれ、アグリゲーターに永続的に追加されることはありません。
 
+### Backing Data
+* 条件
+	* [FGameplayEffectExecutionDefinition] の CalculationClass にて設定したクラスのメンバ変数 AvailableBackingData に従って表示される。
+		* AvailableBackingData は Property(AttributeSet内の属性) と Transient(GameplayTag) の二種類のデータが含まれる。
+		* Property は RelevantAttributesToCapture から InvalidScopedModifierAttributes を除外したものが設定される
+		* Transient は ValidTransientAggregatorIdentifiers の値が設定される
+* 説明
+	* The backing data to use to populate the scoped modifier. Only options specified by the execution class are presented here.
+	* スコープ修飾子を設定するために使用するバッキングデータ。 ここでは、実行クラスで指定されたオプションのみを示します。
+* 詳細
+	* Transient のいずれかを設定した場合
+		* CalculationClass で設定した[UGameplayEffectExecutionCalculation] 派生クラスで実装される
+		Execute_Implementation() の引数 [FGameplayEffectCustomExecutionParameters] から
+		AttemptCalculateTransientAggregatorXXXX などを利用して設定した Transient の値が取得できる。
+		（設定していない Transient の値は取得できない)
+		* 例：ValidTransientAggregatorIdentifiers に{A.X, A.Y} を設定し、Backing Data に A.X を指定した場合
+			* AttemptCalculateTransientAggregatorMagnitude(A.X, OutValue) は成功する
+			* AttemptCalculateTransientAggregatorMagnitude(A.Y, OutValue) は失敗する（falseが返り、OutValueが利用できない）
 
 ### CapturedAttribute
 * 型
@@ -645,6 +744,219 @@
 	* Target tag requirements for the modifier to apply
 	* 適用する修飾子のターゲットタグ要件
 
+# FGameplayEffectCustomExecutionParameters
+* 説明
+	* Struct representing parameters for a custom gameplay effect execution. Should not be held onto via reference, used just for the scope of the execution
+	* カスタムゲームプレイエフェクト実行のパラメーターを表す構造体。 参照を介して保持されるべきではなく、実行の範囲のためだけに使用されます
+
+### AttemptCalculateCapturedAttributeMagnitude()
+* 型
+	* bool AttemptCalculateCapturedAttributeMagnitude(const FGameplayEffectAttributeCaptureDefinition& InCaptureDef, const FAggregatorEvaluateParameters& InEvalParams, OUT float& OutMagnitude) const;
+* param
+	* InCaptureDef
+		* Attribute definition to attempt to calculate the magnitude of
+		* 大きさの計算を試みる属性定義
+	* InEvalParams
+		* Parameters to evaluate the attribute under
+		* 下の属性を評価するためのパラメータ
+	* OutMagnitude
+		* [OUT] Computed magnitude
+		* [OUT] 計算された大きさ
+* return
+	* True if the magnitude was successfully calculated, false if it was not
+	* マグニチュードが正常に計算された場合はtrue、計算されなかった場合はfalse
+* 説明
+	* Attempts to calculate the magnitude of a captured attribute given the specified parameters. 
+	Can fail if the gameplay spec doesn't have a valid capture for the attribute.
+	* 指定されたパラメーターを指定して、キャプチャーされた属性の大きさを計算しようとします。
+	ゲームプレイ仕様に属性の有効なキャプチャがない場合、失敗する可能性があります。
+
+### AttemptCalculateCapturedAttributeMagnitudeWithBase()
+* 型
+	* bool AttemptCalculateCapturedAttributeMagnitudeWithBase(const FGameplayEffectAttributeCaptureDefinition& InCaptureDef, const FAggregatorEvaluateParameters& InEvalParams, float InBaseValue, OUT float& OutMagnitude) const;
+* param
+	* InCaptureDef
+		* Attribute definition to attempt to calculate the magnitude of
+		* 大きさの計算を試みる属性定義
+	* InEvalParams
+		* Parameters to evaluate the attribute under
+		* 下の属性を評価するためのパラメータ
+	* InBaseValue
+		* Base value to evaluate the attribute under
+		* 下の属性を評価するための基本値
+	* OutMagnitude
+		* [OUT] Computed magnitude
+		* [OUT] 計算された大きさ
+* return
+	* True if the magnitude was successfully calculated, false if it was not
+	* マグニチュードが正常に計算された場合はtrue、計算されなかった場合はfalse
+* 説明
+	* Attempts to calculate the magnitude of a captured attribute given the specified parameters, including a starting base value. 
+	Can fail if the gameplay spec doesn't have a valid capture for the attribute.
+	* 開始ベース値を含む、指定されたパラメーターを指定して、キャプチャーされた属性の大きさを計算しようとします。
+	ゲームプレイ仕様に属性の有効なキャプチャがない場合、失敗する可能性があります。
+
+
+### AttemptCalculateCapturedAttributeBaseValue()
+* 型
+	* bool AttemptCalculateCapturedAttributeBaseValue(const FGameplayEffectAttributeCaptureDefinition& InCaptureDef, OUT float& OutBaseValue) const;
+* param
+	* InCaptureDef
+		* Attribute definition to attempt to calculate the base value of
+		* 基本値の計算を試みる属性定義
+	* OutBaseValue
+		* [OUT] Computed base value
+		* [OUT] 計算された基本値
+* return
+	* True if the base value was successfully calculated, false if it was not
+	* 基本値が正常に計算された場合はtrue、計算されなかった場合はfalse
+* 説明
+	* Attempts to calculate the base value of a captured attribute given the specified parameters. 
+	Can fail if the gameplay spec doesn't have a valid capture for the attribute.
+	* 指定されたパラメーターを指定して、キャプチャーされた属性の基本値を計算しようとします。
+	ゲームプレイ仕様に属性の有効なキャプチャがない場合、失敗する可能性があります。
+
+### AttemptCalculateCapturedAttributeBonusMagnitude()
+* 型
+	* bool AttemptCalculateCapturedAttributeBonusMagnitude(const FGameplayEffectAttributeCaptureDefinition& InCaptureDef, const FAggregatorEvaluateParameters& InEvalParams, OUT float& OutBonusMagnitude) const;
+* param
+	* InCaptureDef
+		* Attribute definition to attempt to calculate the bonus magnitude of
+		* ボーナスの大きさを計算しようとする属性定義
+	* InEvalParams
+		* Parameters to evaluate the attribute under
+		* 下の属性を評価するためのパラメータ
+	* OutBonusMagnitude
+		* [OUT] Computed bonus magnitude
+		* [OUT] 計算されたボーナスの大きさ
+* return
+	* True if the bonus magnitude was successfully calculated, false if it was not
+	* ボーナスの大きさが正常に計算された場合はtrue、計算されなかった場合はfalse
+* 説明
+	* Attempts to calculate the bonus magnitude of a captured attribute given the specified parameters.
+	Can fail if the gameplay spec doesn't have a valid capture for the attribute.
+	* 指定されたパラメータを指定して、キャプチャされた属性のボーナスの大きさを計算しようとします。
+	ゲームプレイ仕様に属性の有効なキャプチャがない場合、失敗する可能性があります。
+
+
+### AttemptGetCapturedAttributeAggregatorSnapshot
+* 型
+	* bool AttemptGetCapturedAttributeAggregatorSnapshot(const FGameplayEffectAttributeCaptureDefinition& InCaptureDef, OUT FAggregator& OutSnapshottedAggregator) const;
+* param
+	* InCaptureDef
+		* Attribute definition to attempt to snapshot
+		* スナップショットを試行する属性定義
+	* OutSnapshottedAggregator
+		* [OUT] Snapshotted aggregator, if possible
+		* 可能であれば、スナップショットアグリゲーター
+* return
+	* True if the aggregator was successfully snapshotted, false if it was not
+	* アグリゲーターが正常にスナップショットされた場合はtrue、そうでない場合はfalse
+* 説明
+	* Attempts to populate the specified aggregator with a snapshot of a backing captured aggregator. 
+	Can fail if the gameplay spec doesn't have a valid capture for the attribute.
+	* 指定されたアグリゲーターに、バッキングキャプチャされたアグリゲーターのスナップショットを入力しようとします。
+	ゲームプレイ仕様に属性の有効なキャプチャがない場合、失敗する可能性があります。
+
+### AttemptCalculateTransientAggregatorMagnitude
+* 型
+	* bool AttemptCalculateTransientAggregatorMagnitude(const FGameplayTag& InAggregatorIdentifier, const FAggregatorEvaluateParameters& InEvalParams, OUT float& OutMagnitude) const;
+* param
+	* InAggregatorIdentifier
+		* Tag identifying the transient aggregator to attempt to calculate the magnitude of
+		* 大きさの計算を試みる一時的なアグリゲーターを識別するタグ
+	* InEvalParams
+		* Parameters to evaluate the aggregator under
+		* 下のアグリゲーターを評価するためのパラメーター
+	* OutMagnitude
+		* [OUT] Computed magnitude
+		* [OUT] 計算された大きさ
+* return
+	* True if the magnitude was successfully calculated, false if it was not
+	* マグニチュードが正常に計算された場合はtrue、計算されなかった場合はfalse
+* 説明
+	* Attempts to calculate the magnitude of a transient aggregator given the specified parameters.
+	* 指定されたパラメーターを指定して、一時的なアグリゲーターの大きさを計算しようとします。
+
+
+### AttemptCalculateTransientAggregatorMagnitudeWithBase
+* 型
+	* bool AttemptCalculateTransientAggregatorMagnitudeWithBase(const FGameplayTag& InAggregatorIdentifier, const FAggregatorEvaluateParameters& InEvalParams, float InBaseValue, OUT float& OutMagnitude) const;
+* param
+	* InAggregatorIdentifier
+		* Tag identifying the transient aggregator to attempt to calculate the magnitude of
+		* 大きさの計算を試みる一時的なアグリゲーターを識別するタグ
+	* InEvalParams
+		* Parameters to evaluate the attribute under
+		* 下の属性を評価するためのパラメータ
+	* InBaseValue
+		* Base value to evaluate the attribute under
+		* 下の属性を評価するための基本値
+	* OutMagnitude
+		* [OUT] Computed magnitude
+		* [OUT] 計算された大きさ
+* return
+	* True if the magnitude was successfully calculated, false if it was not
+	* マグニチュードが正常に計算された場合はtrue、計算されなかった場合はfalse
+* 説明
+	* Attempts to calculate the magnitude of a transient aggregator given the specified parameters, including a starting base value.
+	* 開始ベース値を含む、指定されたパラメーターを指定して、一時的なアグリゲーターの大きさを計算しようとします。
+
+### AttemptCalculateTransientAggregatorBaseValue
+* 型
+	* bool AttemptCalculateTransientAggregatorBaseValue(const FGameplayTag& InAggregatorIdentifier, OUT float& OutBaseValue) const;
+* param
+	* InAggregatorIdentifier
+		* Tag identifying the transient aggregator to attempt to calculate the base value of
+		* ベース値の計算を試みる一時的なアグリゲーターを識別するタグ
+	* OutBaseValue
+		* [OUT] Computed base value
+		* [OUT] 計算された基本値
+* return
+	* True if the base value was successfully calculated, false if it was not
+	* 基本値が正常に計算された場合はtrue、計算されなかった場合はfalse
+* 説明
+	* Attempts to calculate the base value of a transient aggregator given the specified parameters.
+	* 指定されたパラメーターを指定して、一時的なアグリゲーターの基本値を計算しようとします。
+
+### AttemptCalculateTransientAggregatorBonusMagnitude
+* 型
+	* bool AttemptCalculateTransientAggregatorBonusMagnitude(const FGameplayTag& InAggregatorIdentifier, const FAggregatorEvaluateParameters& InEvalParams, OUT float& OutBonusMagnitude) const;
+* param
+	* InAggregatorIdentifier
+		* Tag identifying the transient aggregator to attempt to calculate the bonus magnitude of
+		* ボーナスの大きさを計算しようとする一時的なアグリゲーターを識別するタグ
+	* InEvalParams
+		* Parameters to evaluate the attribute under
+		* 下の属性を評価するためのパラメータ
+	* OutBonusMagnitude
+		* [OUT] Computed bonus magnitude
+		* [OUT] 計算されたボーナスの大きさ
+* return
+	* True if the bonus magnitude was successfully calculated, false if it was not
+	* ボーナスの大きさが正常に計算された場合はtrue、計算されなかった場合はfalse
+* 説明
+	* Attempts to calculate the bonus magnitude of a transient aggregator given the specified parameters.
+	* 指定されたパラメーターを指定して、一時的なアグリゲーターのボーナスの大きさを計算しようとします。
+
+### AttemptGetCapturedAttributeAggregatorSnapshot
+* 型
+	* bool AttemptGetCapturedAttributeAggregatorSnapshot(const FGameplayTag& InAggregatorIdentifier, OUT FAggregator& OutSnapshottedAggregator) const;
+* param
+	* InAggregatorIdentifier
+		* Tag identifying the transient aggregator to attempt to snapshot
+		* スナップショットを試行する一時的なアグリゲーターを識別するタグ
+	* OutSnapshottedAggregator
+		* [OUT] Snapshotted aggregator, if possible
+		* [OUT] 可能であれば、スナップショットアグリゲーター
+* return
+	* True if the aggregator was successfully snapshotted, false if it was not
+	* アグリゲーターが正常にスナップショットされた場合はtrue、そうでない場合はfalse
+* 説明
+	* Attempts to populate the specified aggregator with a snapshot of a backing transient aggregator. 
+	Can fail if the transient aggregator doesn't exist as a result of no scoped mods targeting it.
+	* 指定されたアグリゲーターに、バッキングトランジェントアグリゲーターのスナップショットを入力しようとします。
+	スコープ付きのmodがターゲットになっていないために一時的なアグリゲーターが存在しない場合、失敗する可能性があります。
 
 # FGameplayTag
 * 説明
@@ -760,7 +1072,7 @@
 
 ### GameplayCueTags
 * 型
-	* FGameplayTagContainer
+	* [FGameplayTagContainer]
 * 説明
 	* Tags passed to the gameplay cue handler when this cue is activated
 	* このキューがアクティブ化されたときにゲームプレイキューハンドラーに渡されるタグ
@@ -898,8 +1210,9 @@
 	* 後でこの能力を削除するもの
 
 # FGameplayAbilitySpec
-* 基底型
+* クラス階層
 	* FFastArraySerializerItem
+		* [FGameplayAbilitySpec]
 * 説明
 	* An activatable ability spec, hosted on the ability system component. 
 	This defines both what the ability is (what class, what level, input binding etc)
@@ -1190,6 +1503,7 @@ ALL( ANY( ALL(A,B), ALL(C) ), NONE(D) )の形式でクエリを作成します�
 [UGameplayEffectCalculation]:#UGameplayEffectCalculation
 [UGameplayEffectExecutionCalculation]:#UGameplayEffectExecutionCalculation
 [FGameplayEffectExecutionScopedModifierInfo]:#FGameplayEffectExecutionScopedModifierInfo
+[FGameplayEffectCustomExecutionParameters]:#FGameplayEffectCustomExecutionParameters
 [FGameplayTag]:#FGameplayTag
 [EGameplayEffectScopedModifierAggregatorType]:#EGameplayEffectScopedModifierAggregatorType
 [FGameplayTagRequirements]:#FGameplayTagRequirements

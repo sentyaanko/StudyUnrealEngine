@@ -526,6 +526,11 @@
 	Custom executions run special logic from an outside class each time the gameplay effect executes.
 	* ゲームプレイ効果のカスタム実行の定義を表す構造体。
 	カスタム実行は、ゲームプレイエフェクトが実行されるたびに、外部クラスから特別なロジックを実行します。
+* 詳細
+	* DurationPolicy が 
+		* Instant の時は実行される
+		* Infinite の時は実行されない
+		* HasDuration の時は実行されない
 
 ### CalculationClass
 * 型
@@ -553,6 +558,14 @@
 * 説明
 	* Modifiers that are applied "in place" during the execution calculation
 	* 実行計算中に「インプレース」で適用される修飾子
+* 詳細
+	* CalculationClass で指定された class の Execute_Implementation() の中で利用する任意の数の
+	キャプチャーされた属性値（CapturedAttribute、PropertySet内の変数）と一時変数（Transient、GameplayTagに紐付かれた値）の
+	値の取得方法が指定できる。
+	* キャプチャーされた属性値（CapturedAttribute、PropertySet内の変数）は省略すると素の値が利用可能。
+	* 一時変数（Transient、GameplayTagに紐付かれた値）は省略すると値の取得ができない。
+		* Execute_Implementation() の先に保存する仕組みがないようなので、同関数内の計算の係数に利用するためのものと想定
+		* TODO:BaseValue の取得が初期値0で可能なので、どこかに変数がある可能性がある。実際に利用する際に確認すること。
 
 ### ConditionalGameplayEffects
 * 型
@@ -764,7 +777,7 @@
 		* [OUT] 計算された大きさ
 * return
 	* True if the magnitude was successfully calculated, false if it was not
-	* マグニチュードが正常に計算された場合はtrue、計算されなかった場合はfalse
+	* 大きさが正常に計算された場合はtrue、計算されなかった場合はfalse
 * 説明
 	* Attempts to calculate the magnitude of a captured attribute given the specified parameters. 
 	Can fail if the gameplay spec doesn't have a valid capture for the attribute.
@@ -789,7 +802,7 @@
 		* [OUT] 計算された大きさ
 * return
 	* True if the magnitude was successfully calculated, false if it was not
-	* マグニチュードが正常に計算された場合はtrue、計算されなかった場合はfalse
+	* 大きさが正常に計算された場合はtrue、計算されなかった場合はfalse
 * 説明
 	* Attempts to calculate the magnitude of a captured attribute given the specified parameters, including a starting base value. 
 	Can fail if the gameplay spec doesn't have a valid capture for the attribute.
@@ -873,7 +886,7 @@
 		* [OUT] 計算された大きさ
 * return
 	* True if the magnitude was successfully calculated, false if it was not
-	* マグニチュードが正常に計算された場合はtrue、計算されなかった場合はfalse
+	* 大きさが正常に計算された場合はtrue、計算されなかった場合はfalse
 * 説明
 	* Attempts to calculate the magnitude of a transient aggregator given the specified parameters.
 	* 指定されたパラメーターを指定して、一時的なアグリゲーターの大きさを計算しようとします。
@@ -897,7 +910,7 @@
 		* [OUT] 計算された大きさ
 * return
 	* True if the magnitude was successfully calculated, false if it was not
-	* マグニチュードが正常に計算された場合はtrue、計算されなかった場合はfalse
+	* 大きさが正常に計算された場合はtrue、計算されなかった場合はfalse
 * 説明
 	* Attempts to calculate the magnitude of a transient aggregator given the specified parameters, including a starting base value.
 	* 開始ベース値を含む、指定されたパラメーターを指定して、一時的なアグリゲーターの大きさを計算しようとします。
@@ -1484,6 +1497,34 @@ ALL( ANY( ALL(A,B), ALL(C) ), NONE(D) )の形式でクエリを作成します�
 * 説明
 	* Tags that should be removed if my parent had them
 	* 親が持っていた場合に削除する必要のあるタグ
+
+
+| 属性                                           | 取りうる値                                           | 概要                                                                                                                                                                                                               |
+| ---------------------------------------------- | ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Stack Expiration Policy                        |                                                      | Policy for how handle duration expiring on this gameplay effect.                                                                                                                                                   |
+|                                                | Clear Entrie Stack                                   | The entire stack is cleared when the active gameplay effect expires.                                                                                                                                               |
+|                                                | Remove Single Stack and Refresh Duration             | The current stack count will be decremented by 1 and the duration refreshed. The GE is not "reapplied", just continues to exist with one less stacks.                                                              |
+|                                                | Refresh Duration                                     | The duration of the gameplay effect is refreshed. This essentially makes the effect infinite in duration. This can be used to manually handle stack decrements via OnStackCountChange callback.                    |
+| Stack Duration Refresh Policy                  |                                                      | Policy for how the effect duration should be refreshed while stacking.                                                                                                                                             |
+|                                                | Refresh on Successful Application                    | The duration of the effect will be refreshed from any successful stack application.                                                                                                                                |
+|                                                | Never Refresh                                        | The duration of the effect will never be refreshed.                                                                                                                                                                |
+| Stack Period Reset Policy                      |                                                      | Policy for how the effect period should be reset (or not) while stacking.                                                                                                                                          |
+|                                                | Reset on Successful Application                      | Any Progress toward the next tick of a periodic effect is discareded upon any successful stack application.                                                                                                        |
+|                                                | Never Reset                                          | The progress toward the next tick of a periodic effect will never be reset, regardless of stack application.                                                                                                       |
+| スタック有効期限ポリシー                       |                                                      | このゲームプレイエフェクトで有効期限が切れる処理の処理方法に関するポリシー。                                                                                                                                       |
+|                                                | スタック全体のクリア                                 | アクティブなゲームプレイエフェクトが期限切れになると、スタック全体がクリアされます。                                                                                                                               |
+|                                                | シングルスタックの削除とデュレーションのリフレッシュ | 現在のスタックカウントが１減じられ、デュレーションがリフレッシュされます。 GE は「再適用」されず、スタックが１少ない状態で存続します。                                                                             |
+|                                                | デュレーションのリフレッシュ                         | ゲームプレイエフェクトのデュレーションがリフレッシュされます。 本質的にエフェクトのデュレーションを無期限にします。 これは OnStackCountChange コールバックを介してスタックの減少を手動で処理する際に利用されます。 |
+| スタックデュレーション（継続期間）更新ポリシー |                                                      | スタック中のエフェクトのデュレーションを更新する方法に関するポリシー。                                                                                                                                             |
+|                                                | 申請が成功したら更新                                 | エフェクトのデュレーションは、成功したスタックの申請から更新されます。                                                                                                                                             |
+|                                                | 更新しない                                           | エフェクトのデュレーションは更新されません。                                                                                                                                                                       |
+| スタックピリオド（期間の長さ）リセットポリシー |                                                      | スタック中にエフェクトのピリオドをリセットする（またはしない）方法に関するポリシー。                                                                                                                               |
+|                                                | 申請が成功するとリセット                             | 次のティックに向けた periodic effect の進行状況は、スタック申請が成功すると破棄されます。                                                                                                                          |
+|                                                | リセットしない                                       | 次のティックに向けた periodic effect の進行状況は、スタック申請に関係なく、リセットされることはありません。                                                                                                        |
+
+
+
+
 
 ----
 [UGameplayEffect]:#UGameplayEffect

@@ -292,7 +292,7 @@
 	* `CppStandard = CppStandardVersion.Default` （既定値）の場合は何も記述されません。
 	* つまりは `Visual Studio` の既定値である `C++14` となります。
 	* `CppStandard = CppStandardVersion.Cpp14` を指定した場合は明示的に `/std:c++14` が記述されます。
-	* 詳しくは [Visual Studio 2017 の言語バージョン](#VisualStudio2017LanguageStandardVersion) を参照してください。
+	* 詳しくは [Visual Studio 2017 の言語バージョン](#visualstudio2017languagestandardversion) を参照してください。
 
 
 ## 設定で利用した各種値について
@@ -532,7 +532,7 @@ namespace UnrealBuildTool
 
 ```
 
-共通ビルド環境と異なる状態でのビルドを許可するか、とのこことです。
+共通ビルド環境と異なる状態でのビルドを許可するか、とのことです。
 今回の場合は共通 PCH の使用状況の差ですが、他の項目もチェックしてくれています。
 具体的なチェック項目についてはここでは割愛します。
 

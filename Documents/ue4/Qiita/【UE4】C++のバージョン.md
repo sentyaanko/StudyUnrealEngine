@@ -88,6 +88,7 @@
 
 やってみましょう。
 `YourProjectName.Target.cs` に `CppStandard = CppStandardVersion.Cpp17;` を追記します。
+
 ```C#:YourProjectName.Target.cs
 		CppStandard = CppStandardVersion.Cpp17;
 ```
@@ -117,6 +118,7 @@
 
 2 をやってみましょう。
 `YourProjectName.Target.cs` に `BuildEnvironment = TargetBuildEnvironment.Unique;` を追記します。
+
 ```C#:YourProjectName.Target.cs
 		CppStandard = CppStandardVersion.Cpp17;
 		BuildEnvironment = TargetBuildEnvironment.Unique;
@@ -135,6 +137,7 @@
 
 3 はちょっと恐ろしげですが、やってみましょう。
 `YourProjectName.Target.cs` に `bOverrideBuildEnvironment = true;` を追記します。
+
 ```C#:YourProjectName.Target.cs
 		CppStandard = CppStandardVersion.Cpp17;
 		bOverrideBuildEnvironment = true;
@@ -153,22 +156,22 @@
 
 ### FORUMS
 * [Issues with 4.22 C++17 Support](https://forums.unrealengine.com/t/issues-with-4-22-c-17-support/125442)
-	> **YourProjectName.Target.cs** 及び **ProjectNameEditor.Target.cs** で `BuildEnvironment` を指定する方法が提案されています。前述のとおりです。
+	* **YourProjectName.Target.cs** 及び **ProjectNameEditor.Target.cs** で `BuildEnvironment` を指定する方法が提案されています。前述のとおりです。
 * [What’s needed for using C++17](https://forums.unrealengine.com/t/whats-needed-for-using-c-17/124529)
-	> **YourProjectName.Build.cs** で `PCHUsage` と `PrivatePCHHeaderFile` を指定する方法が提案されています。後述します。
-	> **YourProjectName.Build.cs** で `PCHUsage` を指定し、 `UnrealBuildTool` をカスタマイズする方法が提案されています。後述します。
+	* **YourProjectName.Build.cs** で `PCHUsage` と `PrivatePCHHeaderFile` を指定する方法が提案されています。後述します。
+	* **YourProjectName.Build.cs** で `PCHUsage` を指定し、 `UnrealBuildTool` をカスタマイズする方法が提案されています。後述します。
 * [C++17 was disabled in PCH file but is currently enabled](https://forums.unrealengine.com/t/c-17-was-disabled-in-pch-file-but-is-currently-enabled/139539)
-	> `Linux` 環境の話なので詳しくは説明しませんが参考に。
-	> `4.23.1-release` では **YourProjectName.Build.cs** で指定するだけで動作するが `4.24.3-release` では同じ方法でもエラーが発生するという情報があります。
-	> `4.25` では **YourProjectName.Build.cs** で `PCHUsage` と `PrivatePCHHeaderFile` を指定することで動作するという情報があります。
+	* `Linux` 環境の話なので詳しくは説明しませんが参考に。
+	* `4.23.1-release` では **YourProjectName.Build.cs** で指定するだけで動作するが `4.24.3-release` では同じ方法でもエラーが発生するという情報があります。
+	* `4.25` では **YourProjectName.Build.cs** で `PCHUsage` と `PrivatePCHHeaderFile` を指定することで動作するという情報があります。
 
 ### ANSWERHUB
 * [How to enable c++17 in uproject, VS requires compiler flag /std:c++17](https://answers.unrealengine.com/questions/820557/view.html)
-	> 2019年の話なので詳しくは説明しませんが参考に。
-	> `UnrealBuildTool` をカスタマイズする方法が提案されています。 
+	* 2019年の話なので詳しくは説明しませんが参考に。
+	* `UnrealBuildTool` をカスタマイズする方法が提案されています。 
 * [How to build UE4.22 Plugins with C++17?](https://answers.unrealengine.com/questions/898017/view.html)
-	> 2019年の話なので詳しくは説明しませんが参考に。
-	> 同様の問題にあたっていますが、具体的な解決策等までたどり着かないまま放置されています。
+	* 2019年の話なので詳しくは説明しませんが参考に。
+	* 同様の問題にあたっていますが、具体的な解決策等までたどり着かないまま放置されています。
 
 ----
 ## FORUMS にあった情報詳細
@@ -225,7 +228,7 @@
 
 `Visual Studio` で `Shipping` でビルドします。すると、ビルドが成功します。
 
-テンプレートで生成したばかりのプロジェクトでは `PrivatePCHHeaderFile` の指定に依らずにビルドが通ります。
+テンプレートで生成したばかりのプロジェクトでは、 `PrivatePCHHeaderFile` を、指定をしても、元のままでも、ビルドが通ります。
 規模が大きくなっていて、独自の `PCH` を使う状態になっているのであれば指定するようにすると良いです。
 
 
@@ -280,16 +283,16 @@
 `CppStandard` を指定しなかった場合の挙動については以下のとおりです。
 
 * `IntelliSense` の設定は明示的に `C++14` が指定されます。
-	> `Intermediate/ProjectFiles/ProjectName.vcxproj` の `/PropertyGroup/AdditionalOptions` にて指定されています。
-	> `Visual Studio` 上ではプロジェクトのプロパティの `構成プロパティ > NMAKE > IntelliSense > その他のオプション` に `/std::c++14` が指定されています。
+	* `Intermediate/ProjectFiles/ProjectName.vcxproj` の `/PropertyGroup/AdditionalOptions` にて指定されています。
+	* `Visual Studio` 上ではプロジェクトのプロパティの `構成プロパティ > NMAKE > IntelliSense > その他のオプション` に `/std::c++14` が指定されています。
 * コンパイラオプションは指定されません。
-	> コンパイラに渡すオプションは、ソースファイルごとにレスポンスファイルが生成され、その内で指定されます。
-	> `Intermediate/Build/Win64/UE4Editor/Development/YourProjectName/YourSourceFile.cpp.obj.response` 等
-	> （パスはビルドターゲット毎に異なります。）
-	> `CppStandard = CppStandardVersion.Default` （既定値）の場合は何も記述されません。
-	> つまりは `Visual Studio` の既定値である `C++14` となります。
-	> `CppStandard = CppStandardVersion.Cpp14` を指定した場合は明示的に `/std:c++14` が記述されます。
-	> 詳しくは [Visual Studio 2017 の言語バージョン](#VisualStudio2017LanguageStandardVersion) を参照してください。
+	* コンパイラに渡すオプションは、ソースファイルごとにレスポンスファイルが生成され、その内で指定されます。
+	* `Intermediate/Build/Win64/UE4Editor/Development/YourProjectName/YourSourceFile.cpp.obj.response` 等
+	* （パスはビルドターゲット毎に異なります。）
+	* `CppStandard = CppStandardVersion.Default` （既定値）の場合は何も記述されません。
+	* つまりは `Visual Studio` の既定値である `C++14` となります。
+	* `CppStandard = CppStandardVersion.Cpp14` を指定した場合は明示的に `/std:c++14` が記述されます。
+	* 詳しくは [Visual Studio 2017 の言語バージョン](#VisualStudio2017LanguageStandardVersion) を参照してください。
 
 
 ## 設定で利用した各種値について

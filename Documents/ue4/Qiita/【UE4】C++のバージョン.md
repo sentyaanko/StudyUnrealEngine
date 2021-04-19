@@ -107,11 +107,12 @@
 > さもなければ「 bOverrideBuildEnvironment = true 」を指定することで、強制的にこの設定をオンにしてください。
 
 エンジン側と設定が異なるので、これだけではビルドできないよ、と言われています。
-1. 変更した設定を削除する
+
+* 1. 変更した設定を削除する
 	* `C++17` を諦める。
-1. 「 BuildEnvironment = TargetBuildEnvironment.Unique; 」を指定する
-	* 独自のビルド環境を使用するようにする。
-1. 「 bOverrideBuildEnvironment = true 」を指定する
+* 2. 「 BuildEnvironment = TargetBuildEnvironment.Unique; 」を指定する
+	* 独自のビルド環境を使用するようにする。  
+* 3. 「 bOverrideBuildEnvironment = true 」を指定する
 	* 警告を無視して押し通る。
 
 1 は却下です。

@@ -73,12 +73,12 @@
 
 > NOTE: **YourProjectName.Target.cs** と **ProjectNameEditor.Target.cs**
 > 詳しくは割愛しますが、前者がスタンドアロン起動時に使われ、後者がエディタ起動時に使われます。
-> （ `Visual Studio` のターゲット的に言えば、`Development Editor` 等と `Shipping` 等）
+> （ `Visual Studio` のターゲット的に言えば、`Shipping` 等と `Development Editor` 等）
 > ですので、どちらか片方だけ変える、というのは意味がないことだとわかると思います。
 > 
 > 編集した場合について。
 > `Visual Studio` のプロジェクトファイル `Intermediate/ProjectFiles/ProjectName.vcxproj` の更新が必要です。
-> エクスプローラーで `YourProjectName.uproject` を右クリックして `Generate Visual Studio project files` を選択することで行なえます。
+> エクスプローラーで `YourProjectName.uproject` を右クリックして `Generate Visual Studio project files` を選択することで行えます。
 > アンリアルエディタの `ファイル ＞ Visual Studio 2017 プロジェクトを更新` では**更新されない**ので注意が必要です。
 > 更新しないと、例えば `CppStandard` の設定が `IntelliSense` の設定に反映されません。
 > **YourProjectName.Build.cs** の更新時についても同様です。
@@ -108,11 +108,11 @@
 
 エンジン側と設定が異なるので、これだけではビルドできないよ、と言われています。
 1. 変更した設定を削除する
-	> `C++17` を諦める。
+	* `C++17` を諦める。
 1. 「 BuildEnvironment = TargetBuildEnvironment.Unique; 」を指定する
-	> 独自のビルド環境を使用するようにする。
+	* 独自のビルド環境を使用するようにする。
 1. 「 bOverrideBuildEnvironment = true 」を指定する
-	> 警告を無視して押し通る。
+	* 警告を無視して押し通る。
 
 1 は却下です。
 
@@ -144,7 +144,7 @@
 ```
 
 `Visual Studio` で `Shipping` でビルドします。すると、ビルドが成功します。
-詳しくは [`UnrealBuildTool.TargetRules.bOverrideBuildEnvironment`](#UnrealBuildTool.TargetRules.bOverrideBuildEnvironment) にて。
+詳しくは [`UnrealBuildTool.TargetRules.bOverrideBuildEnvironment`](#unrealbuildtooltargetrulesboverridebuildenvironment) にて。
 
 
 ----

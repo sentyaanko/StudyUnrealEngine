@@ -41,5 +41,71 @@
 	* sourcetree/TortoiseGit で GUI 上でやっても多分一緒。
 * ここまでやっておけば、 sourcetree/TortoiseGit/vs code いずれからも git の操作ができる、はず。
 
+## ■ git flow について
+
+### ■ develop の過去のコミットに対してのリリース
+
+例： 過去の `develop` のコミット `1234567` に対して `v0.0.1` のリリースをする場合
+
+#### ■ SourceTree の GUI
+`SourceTree` 上の `GitFlow` の `GUI` を利用すると、 `develop` の最新からのリリースしか行なえません。
+
+#### ■ git flow を直に使う
+`git flow` 自体の機能としては、 [git-flow-cheatsheet](https://danielkummer.github.io/git-flow-cheatsheet/index.ja_JP.html) によると、
+
+> ```
+> git flow releast start RELEASE [BASE]
+> ```
+> `[BASE]` はオプションで 'develop'ブランチの特定のCommitのハッシュ値を指定します。指定がない場合はHEADが使われます。
+
+とあり、今回の場合ならば
+
+> git flow release start v0.0.1 1234567
+
+とすれば、コミットを指定してリリース作業ができそうですが、 `SourceTree` に含まれる `git low` のバージョンの問題なのか、以下のようなエラーが発生します。
+
+> Fatal: Base '1234567' needs to be a branch. It does not exist and is required.
+
+それでは、と、 HEAD をコミット `1234567` にしておいた状態で `BASE` を省略すると
+
+```
+$ git flow release start --showcommands v0.0.1
+git config --local gitflow.branch.release/v0.0.1.base develop
+git checkout -b release/v0.0.1 develop
+Previous HEAD position was 1234567 Merge branch 'feature/Update-0.0.1' into develop
+Switched to a new branch 'release/v0.0.1'
+```
+`--showcommands` をつけて実際に動作させた `git` のコマンドを見ると、 現在の `HEAD` を無視して `develop` からリリース用のブランチを作成しています。
+
+つまり、 `SourceTree` で利用できる `git flow` では特定のコミットからのリリースが出来ない、ということです。
+
+#### ■ 代替方法
+
+```
+# git flow release start v0.0.1 1234567 相当
+git checkout -b release/v0.0.1 1234567
+
+# git flow release finish v0.0.1 相当
+git checkout master
+git merge --no-ff release/v0.0.1
+git checkout master
+git tag -a v0.0.1
+git checkout develop
+git merge --no-ff v0.0.1
+git branch -d release/v0.0.1
+
+```
+
+* `git merge` と `git tag` はメッセージ入力のため `vi` などが起動する。
+    * `i` で挿入モード開始
+    * 適当なメッセージを設定
+    * `Esc` で挿入モード終了
+    * `:wq` で保存終了
+* 一部は `SourceTree` 上でも可能な操作。
+    * というより、 `git merge --no-ff v0.0.1` 以外は可能。（ `SourceTree` 上ではタグを指定してのマージ操作ができない。）
+* こういった `SourceTree` が想定していない手順を踏むケースでは `git flow` の `GUI` を使用しないほうがいい。
+* 使用するとタグが作成されなかったり色々状態がおかしなことになる。
+
+
 ----
 以上。

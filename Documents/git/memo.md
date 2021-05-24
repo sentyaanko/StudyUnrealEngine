@@ -54,7 +54,7 @@
 `git flow` 自体の機能としては、 [git-flow-cheatsheet](https://danielkummer.github.io/git-flow-cheatsheet/index.ja_JP.html) によると、
 
 > ```
-> git flow releast start RELEASE [BASE]
+> git flow release start RELEASE [BASE]
 > ```
 > `[BASE]` はオプションで 'develop'ブランチの特定のCommitのハッシュ値を指定します。指定がない場合はHEADが使われます。
 
@@ -78,6 +78,21 @@ Switched to a new branch 'release/v0.0.1'
 `--showcommands` をつけて実際に動作させた `git` のコマンドを見ると、 現在の `HEAD` を無視して `develop` からリリース用のブランチを作成しています。
 
 つまり、 `SourceTree` で利用できる `git flow` では特定のコミットからのリリースが出来ない、ということです。
+
+> Note:追記  
+> [git-flow-cheatsheet](https://danielkummer.github.io/git-flow-cheatsheet/index.ja_JP.html) はオリジナルの git flow のドキュメントです。  
+> git flow のオリジナルはここ10年ほど更新されていません。  
+> sourcetree に同梱されている git flow は avh 版と呼ばれているものです。  
+> この辺りは問題というより、様々な問題に対応するための仕様の変更のようです。  
+> ※そもそも過去のコミットに対する release は git flow のサポートの範疇外だったりします。  
+> 　（特に既に master が進んでしまっている場合）  
+> 　というのも、release finish は　master にマージをかけた後にタグを打ちます。  
+> 　過去のコミットから作られたリリースを master のマージした後に打つタグに意味があるのか、という話になります。  
+> ここで書かれている手順が利用できるケースを例に上げると、  
+> 　v3 をリリースした後に develop にいくつかコミットした後、最後以外のコミットに対して v4 をリリースしたいケース、  
+> となります。  
+> もし、 v4 をリリースした後に v3.1 を作りたい、というケースでは support を使うのが良いようです。  
+> [gitflow-avhのFAQ](https://github.com/petervanderdoes/gitflow-avh/wiki/FAQ) の一番下を参考にすると良いです。  
 
 #### ■ 代替方法
 
